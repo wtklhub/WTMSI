@@ -4,6 +4,8 @@ The official website for **WT Migremo Systems, Inc. (WTMSI)**, a software develo
 
 🔗 **Live site:** [wtmigremo.com](https://wtmigremo.com/)
 
+<img width="1627" height="901" alt="image" src="https://github.com/user-attachments/assets/ef5eafc5-1f76-4e3a-b663-073824ca9087" />
+
 ---
 
 ## Tech Stack
