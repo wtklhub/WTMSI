@@ -135,7 +135,7 @@ export function HeroSection() {
         <div className="text-center">
           {/* Company name — large bold, letter-by-letter animated */}
           <h1 className="mx-auto max-w-6xl" style={{ perspective: "800px" }}>
-            <span className="block text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tighter text-white leading-[0.9] uppercase">
+            <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tighter text-white leading-[0.9] uppercase">
               {companyNameLine1.split("").map((letter, i) => (
                 <span
                   key={i}
@@ -148,7 +148,7 @@ export function HeroSection() {
                 </span>
               ))}
             </span>
-            <span className="block text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tighter text-white leading-[0.9] uppercase">
+            <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tighter text-white leading-[0.9] uppercase">
               {companyNameLine2.split("").map((letter, i) => (
                 <span
                   key={`line2-${i}`}
