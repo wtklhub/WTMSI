@@ -14,7 +14,7 @@ export function GridLayout({ children }: { children: React.ReactNode }) {
   return (
     <div
       className={cn(
-        "grid min-h-dvh grid-cols-1 justify-center bg-[#0A0A0A] text-white",
+        "grid min-h-dvh grid-cols-1 justify-center bg-[#282828] text-[#F1F4F9]",
         "[--gutter-width:2.5rem] [--pattern-fg:rgba(255,255,255,0.08)]",
         "md:grid-cols-[var(--gutter-width)_minmax(0,80rem)_var(--gutter-width)]"
       )}

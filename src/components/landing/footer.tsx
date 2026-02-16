@@ -1,63 +1,64 @@
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
-import { Facebook, Linkedin, Twitter, Mail } from "lucide-react";
+import { Facebook, Linkedin, Twitter, Mail, Instagram } from "lucide-react";
 import Image from "next/image";
 
 const footerSections = [
   {
-    title: "Services",
+    title: "Products",
     links: [
-      { label: "Web Development", href: "/#services" },
-      { label: "Full Stack Development", href: "/#services" },
-      { label: "Mobile App Development", href: "/#services" },
-      { label: "Artificial Intelligence", href: "/#services" },
-    ],
-  },
-  {
-    title: "Industries",
-    links: [
-      { label: "e-Commerce / Retail", href: "/#industries" },
-      { label: "Enterprise", href: "/#industries" },
-      { label: "Government", href: "/#industries" },
-      { label: "Education", href: "/#industries" },
+      { label: "SaaS Products", href: "/products" },
+      { label: "Custom Development", href: "/products#custom" },
+      { label: "Watatrip", href: "https://www.watatrip.com/" },
+      { label: "Digital Marketing", href: "/digital" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "About Us", href: "#" },
-      { label: "Our Team", href: "#" },
+      { label: "About Us", href: "/#about" },
+      { label: "Clients", href: "/clients" },
       { label: "Partners", href: "/#partners" },
-      { label: "Careers", href: "#" },
+      { label: "Privacy Policy", href: "/policy" },
     ],
   },
   {
     title: "Resources",
     links: [
       { label: "Blog", href: "/stories" },
-      { label: "Case Studies", href: "/stories" },
-      { label: "Watatrip", href: "http://www.watatrip.com/" },
-      { label: "Contact", href: "/contact" },
+      { label: "Case Studies", href: "/clients" },
+      { label: "Contact Us", href: "/contact" },
+      { label: "Careers", href: "#" },
+    ],
+  },
+  {
+    title: "Connect",
+    links: [
+      { label: "Facebook", href: "https://www.facebook.com/wtmigremo" },
+      { label: "Instagram", href: "https://www.instagram.com/wtmigremo" },
+      { label: "LinkedIn", href: "#" },
+      { label: "inquiry@wtmigremo.com", href: "mailto:inquiry@wtmigremo.com" },
     ],
   },
 ];
 
 const socialLinks = [
-  { icon: Facebook, href: "#", label: "Facebook" },
+  { icon: Facebook, href: "https://www.facebook.com/wtmigremo", label: "Facebook" },
+  { icon: Instagram, href: "https://www.instagram.com/wtmigremo", label: "Instagram" },
   { icon: Linkedin, href: "#", label: "LinkedIn" },
   { icon: Twitter, href: "#", label: "X (Twitter)" },
-  { icon: Mail, href: "mailto:info@wtmigremo.com", label: "Email" },
+  { icon: Mail, href: "mailto:inquiry@wtmigremo.com", label: "Email" },
 ];
 
 export function Footer() {
   return (
-    <div className="bg-[#0A0A0A]">
+    <div className="bg-[#282828]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Main footer grid */}
         <div className="grid grid-cols-2 gap-6 py-10 sm:gap-8 sm:py-16 md:grid-cols-4">
           {footerSections.map((section) => (
             <div key={section.title}>
-              <h5 className="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-4">
+              <h5 className="text-xs font-semibold text-[#c7c8bd] uppercase tracking-wider mb-4">
                 {section.title}
               </h5>
               <ul className="space-y-2.5">
@@ -65,7 +66,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-neutral-500 transition-colors hover:text-white"
+                      className="text-sm text-[#c7c8bd/80] transition-colors hover:text-white"
                     >
                       {link.label}
                     </Link>
@@ -82,7 +83,7 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between gap-4 py-8 sm:flex-row">
           {/* Logo */}
           <div className="flex items-center gap-2.5">
-            {/* <div className="flex h-7 w-7 items-center justify-center rounded-md bg-[#ee2312]">
+            {/* <div className="flex h-7 w-7 items-center justify-center rounded-md bg-[#c60000]">
               <span className="text-xs font-bold text-white">W</span>
             </div> */}
             <Image
@@ -105,7 +106,7 @@ export function Footer() {
                 <Link
                   key={social.label}
                   href={social.href}
-                  className="text-neutral-500 transition-colors hover:text-white"
+                  className="text-[#c7c8bd/80] transition-colors hover:text-white"
                   aria-label={social.label}
                 >
                   <Icon className="h-4 w-4" />
@@ -115,7 +116,7 @@ export function Footer() {
           </div>
 
           {/* Copyright */}
-          <p className="text-xs text-neutral-600">
+          <p className="text-xs text-[#c7c8bd/60]">
             © {new Date().getFullYear()} WT Migremo Systems, Inc. All rights reserved.
           </p>
         </div>
