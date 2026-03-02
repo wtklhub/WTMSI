@@ -1,3 +1,5 @@
+"use client";
+
 import {
   ShoppingCart,
   Building2,
@@ -6,6 +8,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { GridLine } from "./grid-background";
+import { ScrollAnimation } from "./scroll-animations";
 
 const industries = [
   {
@@ -13,7 +16,7 @@ const industries = [
     title: "e-Commerce / Retail",
     description:
       "We deliver integrated solutions for both e-commerce and retail businesses — from inventory management to checkout experiences.",
-    color: "text-[#ee2312]",
+    color: "text-[#c60000]",
     bg: "border-white/[0.08]",
   },
   {
@@ -46,23 +49,26 @@ export function UseCasesSection() {
   return (
     <section id="industries" className="relative py-16 sm:py-24">
       {/* Section glow */}
-      <div className="pointer-events-none absolute right-0 top-1/4 h-[300px] w-[500px] rounded-full bg-[#ee2312]/[0.03] blur-[120px]" />
+      <div className="pointer-events-none absolute right-0 top-1/4 h-[300px] w-[500px] rounded-full bg-[#c60000]/[0.03] blur-[120px]" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <div className="mb-16">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ee2312] mb-4">
-            Industries We Serve
-          </p>
-          <h2 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-            Solutions tailored to
-            <br />
-            <span className="text-neutral-500">your industry.</span>
-          </h2>
-        </div>
+        <ScrollAnimation variant="fade-up">
+          <div className="mb-16">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c60000] mb-4">
+              Industries We Serve
+            </p>
+            <h2 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+              Solutions tailored to
+              <br />
+              <span className="text-[#c7c8bd/80]">your industry.</span>
+            </h2>
+          </div>
+        </ScrollAnimation>
 
         {/* Industry cards — grid with inner lines */}
-        <div className="grid sm:grid-cols-2">
+        <ScrollAnimation variant="stagger-children" staggerAmount={0.2}>
+          <div className="grid sm:grid-cols-2">
           {industries.map((industry, idx) => {
             const Icon = industry.icon;
             return (
@@ -84,7 +90,7 @@ export function UseCasesSection() {
                 <h3 className="text-lg font-bold text-white mb-2">
                   {industry.title}
                 </h3>
-                <p className="text-sm text-neutral-400 leading-relaxed">
+                <p className="text-sm text-[#c7c8bd] leading-relaxed">
                   {industry.description}
                 </p>
                 <div className="mt-4">
@@ -95,7 +101,8 @@ export function UseCasesSection() {
               </div>
             );
           })}
-        </div>
+          </div>
+        </ScrollAnimation>
         <GridLine />
       </div>
     </section>

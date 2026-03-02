@@ -6,6 +6,7 @@ import {
   GridLayout,
   GridSection,
   GridLine,
+  ScrollAnimation,
 } from "@/components/landing";
 import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
 
@@ -35,8 +36,8 @@ const blogPosts: BlogPost[] = [
       "Finding the right software for your business can feel overwhelming with so many options out there. Here are five practical tips to help you make the right choice and avoid costly mistakes.",
     date: "February 6, 2026",
     readTime: "6 min read",
-    category: "Strategy",
-    categoryColor: "text-[#ee2312] bg-[#ee2312]/10 border-[#ee2312]/20",
+    category: "Technology",
+    categoryColor: "text-[#c60000] bg-[#c60000]/10 border-[#c60000]/20",
     featured: true,
   },
   {
@@ -46,7 +47,7 @@ const blogPosts: BlogPost[] = [
       "ERP implementations are complex projects that can transform your business — or drain your resources. Learn from the most common pitfalls and how to steer clear of them.",
     date: "January 27, 2026",
     readTime: "8 min read",
-    category: "ERP",
+    category: "Systems",
     categoryColor: "text-orange-400 bg-orange-500/10 border-orange-500/20",
     featured: true,
   },
@@ -58,7 +59,7 @@ const blogPosts: BlogPost[] = [
       "A successful ERP rollout follows a structured process. We break down the six essential phases — from planning and design through go-live and optimization.",
     date: "January 11, 2026",
     readTime: "10 min read",
-    category: "ERP",
+    category: "Systems",
     categoryColor: "text-orange-400 bg-orange-500/10 border-orange-500/20",
   },
   {
@@ -68,7 +69,7 @@ const blogPosts: BlogPost[] = [
       "Off-the-shelf solutions can get you started, but custom software scales with your vision. We explore when it makes sense to invest in tailor-fit development.",
     date: "December 20, 2025",
     readTime: "5 min read",
-    category: "Development",
+    category: "Business",
     categoryColor: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
   },
   {
@@ -79,7 +80,7 @@ const blogPosts: BlogPost[] = [
       "From intelligent GIS to video analytics, AI is reshaping how government agencies serve citizens. Here's what we've learned from our partnerships.",
     date: "December 5, 2025",
     readTime: "7 min read",
-    category: "AI",
+    category: "Digitalization",
     categoryColor: "text-purple-400 bg-purple-500/10 border-purple-500/20",
   },
   {
@@ -89,18 +90,17 @@ const blogPosts: BlogPost[] = [
       "With mobile usage continuing to rise in Southeast Asia, building mobile-first is no longer optional. Our practical guide covers Flutter, React Native, and native approaches.",
     date: "November 18, 2025",
     readTime: "9 min read",
-    category: "Mobile",
+    category: "Technology",
     categoryColor: "text-blue-400 bg-blue-500/10 border-blue-500/20",
   },
 ];
 
 const categories = [
   "All",
-  "Strategy",
-  "ERP",
-  "Development",
-  "AI",
-  "Mobile",
+  "Technology",
+  "Systems",
+  "Digitalization",
+  "Business",
 ];
 
 export default function StoriesPage() {
@@ -115,36 +115,41 @@ export default function StoriesPage() {
         <GridSection topLine={false}>
           <section className="relative pt-32 pb-16">
             <div className="pointer-events-none absolute inset-0">
-              <div className="absolute left-1/2 top-0 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-[#ee2312]/[0.05] blur-[150px]" />
+              <div className="absolute left-1/2 top-0 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-[#c60000]/[0.05] blur-[150px]" />
             </div>
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ee2312] mb-4">
-                Stories & Insights
-              </p>
-              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Latest from{" "}
-                <span className="text-neutral-500">our team.</span>
-              </h1>
-              <p className="mt-4 max-w-2xl text-lg text-neutral-400">
-                Insights on software development, digital transformation, and
-                technology trends — straight from our 15+ years of experience.
-              </p>
+              <ScrollAnimation variant="fade-up">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c60000] mb-4">
+                    Stories & Insights
+                  </p>
+                  <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                    Latest from <span className="text-[#c7c8bd]">our team.</span>
+                  </h1>
+                  <p className="mt-4 max-w-2xl text-lg text-[#c7c8bd]">
+                    Insights on software development, digital transformation, and
+                    technology trends — straight from our 15+ years of experience.
+                  </p>
+                </div>
+              </ScrollAnimation>
 
               {/* Category filters */}
-              <div className="mt-8 flex flex-wrap gap-2">
-                {categories.map((cat, i) => (
-                  <button
-                    key={cat}
-                    className={`rounded-full border px-4 py-1.5 text-sm font-medium transition-all ${
-                      i === 0
-                        ? "border-[#ee2312]/40 bg-[#ee2312]/10 text-[#ee2312]"
-                        : "border-white/[0.08] bg-white/[0.03] text-neutral-400 hover:text-white hover:bg-white/[0.06]"
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                ))}
-              </div>
+              <ScrollAnimation variant="fade-up" delay={0.1}>
+                <div className="mt-8 flex flex-wrap gap-2">
+                  {categories.map((cat, i) => (
+                    <button
+                      key={cat}
+                      className={`rounded-full border px-4 py-1.5 text-sm font-medium transition-all ${
+                        i === 0
+                          ? "border-[#c60000]/40 bg-[#c60000]/10 text-[#c60000]"
+                          : "border-white/[0.08] bg-white/[0.03] text-[#c7c8bd] hover:text-white hover:bg-white/[0.06]"
+                      }`}
+                    >
+                      {cat}
+                    </button>
+                  ))}
+                </div>
+              </ScrollAnimation>
             </div>
           </section>
         </GridSection>
@@ -153,43 +158,47 @@ export default function StoriesPage() {
         <GridSection>
           <section className="py-16">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500 mb-8">
-                Featured
-              </h2>
-              <div className="grid gap-px md:grid-cols-2 bg-white/[0.08] rounded-xl overflow-hidden">
-                {featured.map((post) => (
-                  <Link
-                    key={post.slug}
-                    href={`/stories/${post.slug}`}
-                    className="group flex flex-col bg-[#0A0A0A] p-8 sm:p-10 transition-colors hover:bg-white/[0.02]"
-                  >
-                    {/* Category badge */}
-                    <span
-                      className={`inline-flex w-fit items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium ${post.categoryColor} mb-4`}
+              <ScrollAnimation variant="fade-up">
+                <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c7c8bd] mb-8">
+                  Featured
+                </h2>
+              </ScrollAnimation>
+              <ScrollAnimation variant="stagger-children" staggerAmount={0.12}>
+                <div className="grid gap-px md:grid-cols-2 bg-white/[0.08] rounded-xl overflow-hidden">
+                  {featured.map((post) => (
+                    <Link
+                      key={post.slug}
+                      href={`/stories/${post.slug}`}
+                      className="group flex flex-col bg-[#282828] p-8 sm:p-10 transition-colors hover:bg-white/[0.02]"
                     >
-                      <Tag className="h-3 w-3" />
-                      {post.category}
-                    </span>
+                      {/* Category badge */}
+                      <span
+                        className={`inline-flex w-fit items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium ${post.categoryColor} mb-4`}
+                      >
+                        <Tag className="h-3 w-3" />
+                        {post.category}
+                      </span>
 
-                    <h3 className="text-xl font-bold text-white group-hover:text-[#ee2312] transition-colors sm:text-2xl leading-tight">
-                      {post.title}
-                    </h3>
-                    <p className="mt-3 text-sm text-neutral-400 leading-relaxed flex-1">
-                      {post.excerpt}
-                    </p>
-                    <div className="mt-6 flex items-center gap-4 text-xs text-neutral-500">
-                      <span className="flex items-center gap-1">
-                        <Calendar className="h-3 w-3" />
-                        {post.date}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Clock className="h-3 w-3" />
-                        {post.readTime}
-                      </span>
-                    </div>
-                  </Link>
-                ))}
-              </div>
+                      <h3 className="text-xl font-bold text-white group-hover:text-[#c60000] transition-colors sm:text-2xl leading-tight">
+                        {post.title}
+                      </h3>
+                      <p className="mt-3 text-sm text-[#c7c8bd] leading-relaxed flex-1">
+                        {post.excerpt}
+                      </p>
+                      <div className="mt-6 flex items-center gap-4 text-xs text-[#c7c8bd]">
+                        <span className="flex items-center gap-1">
+                          <Calendar className="h-3 w-3" />
+                          {post.date}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Clock className="h-3 w-3" />
+                          {post.readTime}
+                        </span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </ScrollAnimation>
             </div>
           </section>
         </GridSection>
@@ -198,62 +207,70 @@ export default function StoriesPage() {
         <GridSection>
           <section className="py-16">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500 mb-8">
-                All Stories
-              </h2>
+              <ScrollAnimation variant="fade-up">
+                <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c7c8bd] mb-8">
+                  All Stories
+                </h2>
+              </ScrollAnimation>
 
-              {rest.map((post, idx) => (
-                <div key={post.slug}>
-                  {idx > 0 && <GridLine className="my-0" />}
-                  <Link
-                    href={`/stories/${post.slug}`}
-                    className="group flex flex-col gap-4 py-8 sm:flex-row sm:items-start sm:gap-8 transition-colors"
-                  >
-                    {/* Date column */}
-                    <div className="flex items-center gap-3 sm:w-48 sm:flex-shrink-0 sm:flex-col sm:items-start sm:gap-1">
-                      <span className="text-xs text-neutral-500">
-                        {post.date}
-                      </span>
-                      <span
-                        className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium ${post.categoryColor}`}
+              <ScrollAnimation variant="stagger-children" staggerAmount={0.08}>
+                <div>
+                  {rest.map((post, idx) => (
+                    <div key={post.slug}>
+                      {idx > 0 && <GridLine className="my-0" />}
+                      <Link
+                        href={`/stories/${post.slug}`}
+                        className="group flex flex-col gap-4 py-8 sm:flex-row sm:items-start sm:gap-8 transition-colors"
                       >
-                        {post.category}
-                      </span>
-                    </div>
+                        {/* Date column */}
+                        <div className="flex items-center gap-3 sm:w-48 sm:flex-shrink-0 sm:flex-col sm:items-start sm:gap-1">
+                          <span className="text-xs text-[#c7c8bd]">
+                            {post.date}
+                          </span>
+                          <span
+                            className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium ${post.categoryColor}`}
+                          >
+                            {post.category}
+                          </span>
+                        </div>
 
-                    {/* Content */}
-                    <div className="flex-1">
-                      <h3 className="text-lg font-bold text-white group-hover:text-[#ee2312] transition-colors leading-tight">
-                        {post.title}
-                      </h3>
-                      <p className="mt-2 text-sm text-neutral-400 leading-relaxed">
-                        {post.excerpt}
-                      </p>
-                      <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-[#ee2312] opacity-0 group-hover:opacity-100 transition-opacity">
-                        Read more
-                        <ArrowRight className="h-3.5 w-3.5" />
-                      </span>
-                    </div>
+                        {/* Content */}
+                        <div className="flex-1">
+                          <h3 className="text-lg font-bold text-white group-hover:text-[#c60000] transition-colors leading-tight">
+                            {post.title}
+                          </h3>
+                          <p className="mt-2 text-sm text-[#c7c8bd] leading-relaxed">
+                            {post.excerpt}
+                          </p>
+                          <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-[#c60000] opacity-0 group-hover:opacity-100 transition-opacity">
+                            Read more
+                            <ArrowRight className="h-3.5 w-3.5" />
+                          </span>
+                        </div>
 
-                    {/* Read time */}
-                    <div className="hidden sm:flex sm:w-24 sm:flex-shrink-0 sm:items-center sm:justify-end">
-                      <span className="flex items-center gap-1 text-xs text-neutral-500">
-                        <Clock className="h-3 w-3" />
-                        {post.readTime}
-                      </span>
+                        {/* Read time */}
+                        <div className="hidden sm:flex sm:w-24 sm:flex-shrink-0 sm:items-center sm:justify-end">
+                          <span className="flex items-center gap-1 text-xs text-[#c7c8bd]">
+                            <Clock className="h-3 w-3" />
+                            {post.readTime}
+                          </span>
+                        </div>
+                      </Link>
                     </div>
-                  </Link>
+                  ))}
                 </div>
-              ))}
+              </ScrollAnimation>
 
               <GridLine />
 
               {/* Load more */}
-              <div className="mt-8 text-center">
-                <button className="rounded-full border border-white/[0.08] bg-white/[0.03] px-6 py-2.5 text-sm font-medium text-neutral-400 transition-all hover:bg-white/[0.06] hover:text-white">
-                  Load more stories
-                </button>
-              </div>
+              <ScrollAnimation variant="zoom-in" delay={0.1}>
+                <div className="mt-8 text-center">
+                  <button className="rounded-full border border-white/[0.08] bg-white/[0.03] px-6 py-2.5 text-sm font-medium text-[#c7c8bd] transition-all hover:bg-white/[0.06] hover:text-white">
+                    Load more stories
+                  </button>
+                </div>
+              </ScrollAnimation>
             </div>
           </section>
         </GridSection>
@@ -262,31 +279,33 @@ export default function StoriesPage() {
         <GridSection bottomLine>
           <section className="py-20">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <div className="mx-auto max-w-2xl text-center">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ee2312] mb-4">
-                  Stay Updated
-                </p>
-                <h2 className="text-2xl font-bold text-white sm:text-3xl">
-                  Get insights delivered to your inbox.
-                </h2>
-                <p className="mt-3 text-neutral-400">
-                  No spam. Just practical software development insights, once a
-                  month.
-                </p>
-                <form className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
-                  <input
-                    type="email"
-                    placeholder="your@email.com"
-                    className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-sm text-white placeholder:text-neutral-600 focus:border-[#ee2312]/50 focus:outline-none focus:ring-1 focus:ring-[#ee2312]/50 sm:max-w-xs transition-colors"
-                  />
-                  <button
-                    type="submit"
-                    className="rounded-lg bg-[#ee2312] px-6 py-3 text-sm font-medium text-white hover:bg-[#d41f10] shadow-lg shadow-[#ee2312]/20 transition-colors"
-                  >
-                    Subscribe
-                  </button>
-                </form>
-              </div>
+              <ScrollAnimation variant="zoom-in">
+                <div className="mx-auto max-w-2xl text-center">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c60000] mb-4">
+                    Stay Updated
+                  </p>
+                  <h2 className="text-2xl font-bold text-white sm:text-3xl">
+                    Get insights delivered to your inbox.
+                  </h2>
+                  <p className="mt-3 text-[#c7c8bd]">
+                    No spam. Just practical software development insights, once a
+                    month.
+                  </p>
+                  <form className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
+                    <input
+                      type="email"
+                      placeholder="your@email.com"
+                      className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-[#c60000]/50 focus:outline-none focus:ring-1 focus:ring-[#c60000]/50 sm:max-w-xs transition-colors"
+                    />
+                    <button
+                      type="submit"
+                      className="rounded-lg bg-[#c60000] px-6 py-3 text-sm font-medium text-white hover:bg-[#a50000] shadow-lg shadow-[#c60000]/20 transition-colors"
+                    >
+                      Subscribe
+                    </button>
+                  </form>
+                </div>
+              </ScrollAnimation>
             </div>
           </section>
         </GridSection>
