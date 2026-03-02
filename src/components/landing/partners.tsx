@@ -1,4 +1,7 @@
+"use client";
+
 import { GridLine } from "./grid-background";
+import { ScrollAnimation } from "./scroll-animations";
 
 const partnerRows = [
   [
@@ -26,21 +29,24 @@ export function PartnersSection() {
     <section className="relative py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <div className="mb-10 sm:mb-16">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ee2312] mb-4">
-            Partners & Collaborators
-          </p>
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl text-balance">
-            Trusted by organizations{" "}
-            <span className="text-neutral-500">across industries.</span>
-          </h2>
-          <p className="mt-4 max-w-2xl text-base text-neutral-400">
-            We work alongside government agencies, private enterprises, and
-            startups to deliver software that drives real impact.
-          </p>
-        </div>
+        <ScrollAnimation variant="fade-up">
+          <div className="mb-10 sm:mb-16">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c60000] mb-4">
+              Partners & Collaborators
+            </p>
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl text-balance">
+              Trusted by organizations{" "}
+              <span className="text-[#c7c8bd/80]">across industries.</span>
+            </h2>
+            <p className="mt-4 max-w-2xl text-base text-[#c7c8bd]">
+              We work alongside government agencies, private enterprises, and
+              startups to deliver software that drives real impact.
+            </p>
+          </div>
+        </ScrollAnimation>
 
         {/* Partner grid — rows separated by horizontal grid lines */}
+        <ScrollAnimation variant="stagger-children" staggerAmount={0.15}>
         {partnerRows.map((row, rowIdx) => (
           <div key={rowIdx}>
             <GridLine />
@@ -62,15 +68,18 @@ export function PartnersSection() {
             </div>
           </div>
         ))}
+        </ScrollAnimation>
         <GridLine />
 
         {/* Bottom note */}
-        <div className="mt-12 text-center">
-          <p className="text-sm text-neutral-500">
-            And many more government agencies, enterprises, and startups
-            throughout the Philippines and Southeast Asia.
-          </p>
-        </div>
+        <ScrollAnimation variant="fade-up" delay={0.2}>
+          <div className="mt-12 text-center">
+            <p className="text-sm text-[#c7c8bd/80]">
+              And many more government agencies, enterprises, and startups
+              throughout the Philippines and Southeast Asia.
+            </p>
+          </div>
+        </ScrollAnimation>
       </div>
     </section>
   );

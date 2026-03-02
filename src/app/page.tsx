@@ -1,11 +1,13 @@
 import {
   Navbar,
   HeroSection,
+  AboutSection,
   ProductSections,
   UseCasesSection,
   TestimonialsSection,
   IntegrationsSection,
   PartnersSection,
+  LatestBlogPosts,
   CTASection,
   Footer,
   GridLayout,
@@ -21,6 +23,9 @@ export default function Home() {
           <HeroSection />
         </GridSection>
         <GridSection>
+          <AboutSection />
+        </GridSection>
+        <GridSection>
           <ProductSections />
         </GridSection>
         <GridSection>
@@ -34,6 +39,9 @@ export default function Home() {
         </GridSection>
         <GridSection id="partners">
           <PartnersSection />
+        </GridSection>
+        <GridSection>
+          <LatestBlogPosts />
         </GridSection>
         <GridSection>
           <CTASection />
