@@ -66,11 +66,11 @@ export function TestimonialsSection() {
         </div>
 
         {/* Testimonial cards */}
-        <div className="grid gap-px md:grid-cols-3 bg-white/[0.08]">
+        <div className="grid gap-px md:grid-cols-3 ">
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="flex flex-col bg-[#0A0A0A] p-6 sm:p-8 transition-all hover:bg-white/[0.02]"
+              className="flex flex-col p-6 sm:p-8 transition-all hover:bg-white/[0.08]"
             >
               <Quote className="h-8 w-8 text-white/10 mb-4" />
               <p className="text-sm text-neutral-300 leading-relaxed flex-1">
