@@ -18,44 +18,23 @@ const expertiseAreas = [
   {
     icon: Globe,
     title: "Web Development",
-    description: "Modern, responsive websites and full-scale web applications.",
+    description: "Website Development, Web App Development, Digital Branding, Web Hosting, Internet Security.",
     color: "text-[#c60000]",
   },
   {
     icon: Layers,
-    title: "Full Stack Engineering",
+    title: "Full Stack Development",
     description:
-      "PHP (Laravel, CodeIgniter), .NET, MEAN stack — end-to-end.",
+      "PHP (Core PHP, Laravel, CodeIgniter), Microsoft (Visual Studio, .NET, C#, VB), Full stack Mean (MongoDb, Express, Angular, Node.js).",
     color: "text-orange-400",
   },
   {
     icon: Smartphone,
     title: "Mobile Development",
     description:
-      "Native (Android/iOS) and cross-platform (Flutter, React Native).",
+      "Android, Swift/IO, Kotlin, Xamarin, Flutter.",
     color: "text-emerald-400",
-  },
-  {
-    icon: Brain,
-    title: "Artificial Intelligence",
-    description:
-      "Computer vision, intelligent GIS, and machine-learning integrations.",
-    color: "text-purple-400",
-  },
-  {
-    icon: Code2,
-    title: "SaaS Products",
-    description:
-      "Inventory, Help Desk, Booking, and Events Management platforms.",
-    color: "text-blue-400",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Digital Services",
-    description:
-      "Social media management, branding, content, and digital marketing.",
-    color: "text-pink-400",
-  },
+  }
 ];
 
 export function AboutSection() {
@@ -82,19 +61,23 @@ export function AboutSection() {
               </h2>
               <p className="mt-6 text-base text-[#c7c8bd] leading-relaxed">
                 WT Migremo Systems, Inc. is a Philippine-based software
-                development company that creates tailored digital solutions for
-                businesses, government agencies, and startups. We go beyond just
-                code — we partner with our clients to understand their
-                operations and deliver systems that truly work.
+                development company providing software solutions for businesses
+                and organizations. We build scalable web and mobile
+                applications, SaaS products, and business systems designed to
+                streamline operations, improve efficiency, and support digital
+                transformation.
               </p>
               <p className="mt-4 text-base text-[#c7c8bd] leading-relaxed">
-                From custom web and mobile applications to our own SaaS products
-                and digital marketing arm,{" "}
+                More than just developers, we serve as technology
+                partners—working closely with clients to understand their
+                processes and deliver solutions that truly fit their needs.
+                Through our digital marketing arm,{" "}
                 <span className="text-[#F1F4F9] font-medium">
                   Social Leverage Creates
                 </span>
-                , we offer end-to-end capabilities for organizations of every
-                size.
+                , we also offer branding, content creation, and marketing
+                support, giving organizations end-to-end capabilities to grow
+                and thrive in the digital space.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href="/contact">
@@ -140,12 +123,24 @@ export function AboutSection() {
                   <ArrowRight className="h-3.5 w-3.5" />
                 </a>
               </div>
-              {/* Decorative */}
+              {/* Phone Mockup */}
               <div className="mt-8 flex items-center justify-center">
-                <div className="relative h-32 w-full max-w-xs rounded-xl bg-gradient-to-br from-[#c60000]/20 via-orange-500/10 to-transparent border border-white/[0.08] flex items-center justify-center">
-                  <span className="text-5xl font-black text-white/10 tracking-tight">
-                    WATATRIP
-                  </span>
+                <div className="relative mx-auto w-[200px]">
+                  {/* Phone frame */}
+                  <div className="relative rounded-[2rem] border-[3px] border-white/20 bg-black p-2 shadow-2xl shadow-[#c60000]/10">
+                    {/* Notch */}
+                    <div className="absolute left-1/2 top-0 z-10 h-5 w-20 -translate-x-1/2 rounded-b-2xl bg-black" />
+                    {/* Screen */}
+                    <div className="relative overflow-hidden rounded-[1.5rem] bg-gradient-to-b from-[#1a1a2e] to-[#16213e]">
+                      <img
+                        src="/watatrip.png"
+                        alt="Watatrip App Interface"
+                        className="h-[360px] w-full object-cover object-top"
+                      />
+                    </div>
+                    {/* Home indicator */}
+                    <div className="mx-auto mt-2 h-1 w-16 rounded-full bg-white/20" />
+                  </div>
                 </div>
               </div>
             </div>

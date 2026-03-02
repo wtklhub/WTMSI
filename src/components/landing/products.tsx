@@ -34,21 +34,7 @@ const saasProducts = [
     tagline: "Simplify reservations and appointment scheduling.",
     color: "text-emerald-400",
     accentBg: "bg-emerald-500/10 border-emerald-500/20",
-  },
-  {
-    icon: PartyPopper,
-    name: "Events Management System",
-    tagline: "Plan, organize, and execute events from end to end.",
-    color: "text-purple-400",
-    accentBg: "bg-purple-500/10 border-purple-500/20",
-  },
-  {
-    icon: Sparkles,
-    name: "Coming Soon",
-    tagline: "Our next SaaS product is in the works. Stay tuned.",
-    color: "text-blue-400",
-    accentBg: "bg-blue-500/10 border-blue-500/20",
-  },
+  }
 ];
 
 export function ProductSections() {

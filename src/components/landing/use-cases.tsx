@@ -28,14 +28,6 @@ const industries = [
     bg: "border-white/[0.08]",
   },
   {
-    icon: Landmark,
-    title: "Government",
-    description:
-      "We have been partnering with government agencies for software that helps serve the citizens more effectively.",
-    color: "text-emerald-400",
-    bg: "border-white/[0.08]",
-  },
-  {
     icon: GraduationCap,
     title: "Education",
     description:
@@ -68,19 +60,21 @@ export function UseCasesSection() {
 
         {/* Industry cards — grid with inner lines */}
         <ScrollAnimation variant="stagger-children" staggerAmount={0.2}>
-          <div className="grid sm:grid-cols-2">
+          <div className="grid sm:grid-cols-3">
           {industries.map((industry, idx) => {
             const Icon = industry.icon;
             return (
               <div
                 key={industry.title}
                 className={`group relative p-6 sm:p-10 transition-colors hover:bg-white/[0.02] ${
-                  idx % 2 === 0 ? "sm:border-r sm:border-white/[0.08]" : ""
+                  idx % 1 === 0 && idx !== industries.length - 1 ? "sm:border-r sm:border-white/[0.08]" : ""
                 } ${
-                  idx < industries.length - 1
+                  idx < industries.length - 2
                     ? "border-b border-white/[0.08] sm:border-b-0"
                     : ""
-                } ${idx < 2 ? "sm:border-b sm:border-white/[0.08]" : ""}`}
+                } ${idx < 2 ? "sm:border-b sm:border-white/[0.08]" : ""} ${
+                  idx === industries.length - 1 ? "border-t border-white/[0.08] sm:border-t-0" : ""
+                }`}
               >
                 <div
                   className={`flex h-12 w-12 items-center justify-center rounded-xl bg-white/[0.04] border border-white/[0.08] mb-5`}
