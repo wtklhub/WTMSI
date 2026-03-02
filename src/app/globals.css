@@ -134,6 +134,26 @@ body {
   }
 }
 
+/* ===== Marquee / ticker animations ===== */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+@layer utilities {
+  .animate-marquee-left {
+    animation: marquee-left 35s linear infinite;
+  }
+  .animate-marquee-right {
+    animation: marquee-right 40s linear infinite;
+  }
+}
+
 /* ===== Structural grid lines (tailwindcss.com style) ===== */
 /* All grid structure is now handled via Tailwind utility classes  */
 /* in the GridLayout / GridSection components.                     */
