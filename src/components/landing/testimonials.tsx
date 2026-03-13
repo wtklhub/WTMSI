@@ -70,7 +70,7 @@ export function TestimonialsSection() {
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="flex flex-col p-6 sm:p-8 transition-all hover:bg-accent/70"
+              className="flex flex-col p-6 sm:p-8 transition-all hover:bg-accent/60"
             >
               <Quote className="h-8 w-8 text-foreground/10 mb-4" />
               <p className="text-sm text-muted-foreground leading-relaxed flex-1">

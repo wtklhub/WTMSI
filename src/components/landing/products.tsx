@@ -71,7 +71,7 @@ export function ProductSections() {
                 <Link
                   key={product.name}
                   href="/products"
-                  className="group flex flex-col bg-background p-6 sm:p-8 transition-colors hover:bg-accent/70"
+                  className="group flex flex-col bg-background p-6 sm:p-8 transition-colors hover:bg-accent/60"
                 >
                   <div
                     className={`flex h-12 w-12 items-center justify-center rounded-xl border ${product.accentBg} mb-5`}

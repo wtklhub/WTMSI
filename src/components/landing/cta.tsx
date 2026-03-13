@@ -38,7 +38,7 @@ export function CTASection() {
             <Button
               size="lg"
               variant="outline"
-              className="border-border/70 bg-transparent px-8 text-foreground hover:bg-accent/70"
+              className="border-border/70 bg-transparent px-8 text-foreground hover:bg-accent/60"
             >
               View Our Work
               <ArrowRight className="h-4 w-4" />

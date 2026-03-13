@@ -195,7 +195,7 @@ export function HeroSection() {
             <Button
               size="lg"
               variant="outline"
-              className="hero-cta-btn border-border/70 bg-transparent px-8 text-foreground hover:bg-accent/70 hover:text-foreground text-base opacity-0"
+              className="hero-cta-btn border-border/70 bg-transparent px-8 text-foreground hover:bg-accent/60 hover:text-foreground text-base opacity-0"
             >
               View Our Products
             </Button>

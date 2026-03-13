@@ -142,7 +142,7 @@ export default function StoriesPage() {
                       className={`rounded-full border px-4 py-1.5 text-sm font-medium transition-all ${
                         i === 0
                           ? "border-[var(--brand)]/40 bg-[var(--brand)]/10 text-[var(--brand)]"
-                          : "border-border/80 bg-card/70 text-muted-foreground hover:text-foreground hover:bg-accent/70"
+                          : "border-border/80 bg-card/70 text-muted-foreground hover:text-foreground hover:bg-accent/60"
                       }`}
                     >
                       {cat}
@@ -169,7 +169,7 @@ export default function StoriesPage() {
                     <Link
                       key={post.slug}
                       href={`/stories/${post.slug}`}
-                      className="group flex flex-col bg-background p-8 sm:p-10 transition-colors hover:bg-accent/70"
+                      className="group flex flex-col bg-background p-8 sm:p-10 transition-colors hover:bg-accent/60"
                     >
                       {/* Category badge */}
                       <span
@@ -266,7 +266,7 @@ export default function StoriesPage() {
               {/* Load more */}
               <ScrollAnimation variant="zoom-in" delay={0.1}>
                 <div className="mt-8 text-center">
-                  <button className="rounded-full border border-border/80 bg-card/70 px-6 py-2.5 text-sm font-medium text-muted-foreground transition-all hover:bg-accent/70 hover:text-foreground">
+                  <button className="rounded-full border border-border/80 bg-card/70 px-6 py-2.5 text-sm font-medium text-muted-foreground transition-all hover:bg-accent/60 hover:text-foreground">
                     Load more stories
                   </button>
                 </div>

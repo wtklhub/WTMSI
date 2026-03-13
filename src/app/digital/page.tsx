@@ -199,7 +199,7 @@ export default function DigitalPage() {
                     <a href="#services">
                       <Button
                         variant="outline"
-                        className="border-border/70 text-foreground hover:bg-accent/70 hover:text-foreground"
+                        className="border-border/70 text-foreground hover:bg-accent/60 hover:text-foreground"
                       >
                         View Services
                       </Button>
@@ -281,7 +281,7 @@ export default function DigitalPage() {
                       return (
                         <div
                           key={service.title}
-                          className="bg-background p-6 sm:p-8 transition-colors hover:bg-accent/70"
+                          className="bg-background p-6 sm:p-8 transition-colors hover:bg-accent/60"
                         >
                           <Icon className="h-7 w-7 text-[var(--brand)] mb-4" />
                           <h3 className="text-base font-bold text-foreground mb-2">
@@ -353,7 +353,7 @@ export default function DigitalPage() {
                   {sampleWorkCategories.map((cat, i) => (
                     <div
                       key={cat.title}
-                      className="bg-background transition-colors hover:bg-accent/70"
+                      className="bg-background transition-colors hover:bg-accent/60"
                     >
                       {/* Placeholder for actual work samples */}
                       <div className="aspect-[4/3] bg-gradient-to-br from-white/[0.04] to-transparent flex items-center justify-center border-b border-border/80">
@@ -398,7 +398,7 @@ export default function DigitalPage() {
                   {workProcess.map((step) => (
                     <div
                       key={step.step}
-                      className="bg-background p-6 transition-colors hover:bg-accent/70"
+                      className="bg-background p-6 transition-colors hover:bg-accent/60"
                     >
                       <span
                         className={`text-3xl font-bold ${step.color} opacity-30`}

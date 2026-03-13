@@ -196,7 +196,7 @@ export default function ProductsPage() {
                     return (
                       <div
                         key={product.name}
-                        className="rounded-xl border border-border/80 bg-card/60 p-6 sm:p-8 transition-colors hover:bg-accent/70"
+                        className="rounded-xl border border-border/80 bg-card/60 p-6 sm:p-8 transition-colors hover:bg-accent/60"
                       >
                         <div className="grid gap-6 lg:grid-cols-[1fr_280px] lg:items-start">
                           <div>
@@ -281,7 +281,7 @@ export default function ProductsPage() {
                     return (
                       <div
                         key={service.title}
-                        className="bg-background p-6 sm:p-8 transition-colors hover:bg-accent/70"
+                        className="bg-background p-6 sm:p-8 transition-colors hover:bg-accent/60"
                       >
                         <Icon className={`h-8 w-8 ${service.color} mb-4`} />
                         <h3 className="text-lg font-bold text-foreground mb-2">

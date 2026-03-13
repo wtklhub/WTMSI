@@ -120,7 +120,7 @@ export function IntegrationsSection() {
             </Button>
             <Button
               variant="outline"
-              className="border-border/70 bg-transparent text-foreground hover:bg-accent/70 hover:text-foreground"
+              className="border-border/70 bg-transparent text-foreground hover:bg-accent/60 hover:text-foreground"
             >
               Schedule a Call
             </Button>

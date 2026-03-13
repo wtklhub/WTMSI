@@ -158,7 +158,7 @@ export default function ClientsPage() {
                     return (
                       <div
                         key={client.name}
-                        className={`${sizeClasses[i % sizeClasses.length]} group flex flex-col items-center justify-center rounded-xl border border-border/80 bg-card/60 p-6 sm:p-8 transition-all hover:bg-accent/70 hover:border-border`}
+                        className={`${sizeClasses[i % sizeClasses.length]} group flex flex-col items-center justify-center rounded-xl border border-border/80 bg-card/60 p-6 sm:p-8 transition-all hover:bg-accent/60 hover:border-border`}
                       >
                         <span className="text-lg font-bold text-foreground/80 group-hover:text-foreground transition-colors sm:text-xl">
                           {client.name}
@@ -194,13 +194,13 @@ export default function ClientsPage() {
                   <div className="hidden sm:flex items-center gap-2">
                     <button
                       onClick={prevSlide}
-                      className="flex h-10 w-10 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:bg-accent/70 hover:text-foreground"
+                      className="flex h-10 w-10 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:bg-accent/60 hover:text-foreground"
                     >
                       <ChevronLeft className="h-5 w-5" />
                     </button>
                     <button
                       onClick={nextSlide}
-                      className="flex h-10 w-10 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:bg-accent/70 hover:text-foreground"
+                      className="flex h-10 w-10 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:bg-accent/60 hover:text-foreground"
                     >
                       <ChevronRight className="h-5 w-5" />
                     </button>
@@ -278,13 +278,13 @@ export default function ClientsPage() {
               <div className="mt-6 flex items-center justify-center gap-2 sm:hidden">
                 <button
                   onClick={prevSlide}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:bg-accent/70"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:bg-accent/60"
                 >
                   <ChevronLeft className="h-5 w-5" />
                 </button>
                 <button
                   onClick={nextSlide}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:bg-accent/70"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:bg-accent/60"
                 >
                   <ChevronRight className="h-5 w-5" />
                 </button>
