@@ -20,7 +20,7 @@ export function CTASection() {
           </p>
           <h2 className="text-2xl font-bold text-foreground sm:text-4xl lg:text-5xl">
             Let&apos;s talk about{" "}
-            <span className="text-muted-foreground/80">your project?</span>
+            <span className="text-foreground">your project?</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground">
             Whether you need a web application, mobile app, AI integration, or a
