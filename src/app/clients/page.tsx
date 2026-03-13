@@ -95,19 +95,19 @@ export default function ClientsPage() {
         <GridSection topLine={false}>
           <section className="relative pt-32 pb-16">
             <div className="pointer-events-none absolute inset-0">
-              <div className="absolute left-1/2 top-0 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-[#c60000]/[0.05] blur-[150px]" />
+              <div className="absolute left-1/2 top-0 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-[var(--brand)]/[0.05] blur-[150px]" />
             </div>
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <ScrollAnimation variant="fade-up">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c60000] mb-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand)] mb-4">
                     Our Clients
                   </p>
-                  <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                  <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
                     Trusted by organizations{" "}
-                    <span className="text-[#c7c8bd]">across industries.</span>
+                    <span className="text-muted-foreground">across industries.</span>
                   </h1>
-                  <p className="mt-4 max-w-2xl text-lg text-[#c7c8bd]">
+                  <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
                     From government agencies to enterprise brands and startups — we
                     deliver software that drives real impact.
                   </p>
@@ -123,10 +123,10 @@ export default function ClientsPage() {
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <ScrollAnimation variant="fade-up">
                 <div className="mb-10">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c60000] mb-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand)] mb-4">
                     Clients & Partners
                   </p>
-                  <h2 className="text-2xl font-bold text-white sm:text-3xl">
+                  <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
                     Companies we&apos;ve worked with
                   </h2>
                 </div>
@@ -158,12 +158,12 @@ export default function ClientsPage() {
                     return (
                       <div
                         key={client.name}
-                        className={`${sizeClasses[i % sizeClasses.length]} group flex flex-col items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.02] p-6 sm:p-8 transition-all hover:bg-white/[0.05] hover:border-white/[0.15]`}
+                        className={`${sizeClasses[i % sizeClasses.length]} group flex flex-col items-center justify-center rounded-xl border border-border/80 bg-card/60 p-6 sm:p-8 transition-all hover:bg-accent/70 hover:border-border`}
                       >
-                        <span className="text-lg font-bold text-white/80 group-hover:text-white transition-colors sm:text-xl">
+                        <span className="text-lg font-bold text-foreground/80 group-hover:text-foreground transition-colors sm:text-xl">
                           {client.name}
                         </span>
-                        <span className="mt-1 text-xs text-[#c7c8bd]/60 uppercase tracking-wider">
+                        <span className="mt-1 text-xs text-muted-foreground/60 uppercase tracking-wider">
                           {client.sector}
                         </span>
                       </div>
@@ -184,23 +184,23 @@ export default function ClientsPage() {
               <ScrollAnimation variant="fade-up">
                 <div className="flex items-end justify-between mb-10">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c60000] mb-4">
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand)] mb-4">
                       Recent Work
                     </p>
-                    <h2 className="text-2xl font-bold text-white sm:text-3xl">
+                    <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
                       5 recent projects
                     </h2>
                   </div>
                   <div className="hidden sm:flex items-center gap-2">
                     <button
                       onClick={prevSlide}
-                      className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.08] text-[#c7c8bd] transition-colors hover:bg-white/[0.05] hover:text-white"
+                      className="flex h-10 w-10 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:bg-accent/70 hover:text-foreground"
                     >
                       <ChevronLeft className="h-5 w-5" />
                     </button>
                     <button
                       onClick={nextSlide}
-                      className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.08] text-[#c7c8bd] transition-colors hover:bg-white/[0.05] hover:text-white"
+                      className="flex h-10 w-10 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:bg-accent/70 hover:text-foreground"
                     >
                       <ChevronRight className="h-5 w-5" />
                     </button>
@@ -220,24 +220,24 @@ export default function ClientsPage() {
                     {recentProjects.map((project, i) => (
                       <div key={i} className="w-full flex-shrink-0 px-1">
                         <div
-                          className={`rounded-2xl border-l-4 ${project.color} border border-white/[0.08] bg-white/[0.02] p-8 sm:p-10 lg:p-12`}
+                          className={`rounded-2xl border-l-4 ${project.color} border border-border/80 bg-card/60 p-8 sm:p-10 lg:p-12`}
                         >
                           <div className="grid gap-6 lg:grid-cols-2">
                             <div>
-                              <span className="text-xs font-medium text-[#c7c8bd]/60 uppercase tracking-wider">
+                              <span className="text-xs font-medium text-muted-foreground/60 uppercase tracking-wider">
                                 {project.client}
                               </span>
-                              <h3 className="mt-2 text-2xl font-bold text-white sm:text-3xl">
+                              <h3 className="mt-2 text-2xl font-bold text-foreground sm:text-3xl">
                                 {project.title}
                               </h3>
-                              <p className="mt-4 text-[#c7c8bd] leading-relaxed">
+                              <p className="mt-4 text-muted-foreground leading-relaxed">
                                 {project.description}
                               </p>
                               <div className="mt-6 flex flex-wrap gap-2">
                                 {project.tags.map((tag) => (
                                   <span
                                     key={tag}
-                                    className="rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-xs text-[#c7c8bd]"
+                                    className="rounded-full border border-border/80 bg-card/70 px-3 py-1 text-xs text-muted-foreground"
                                   >
                                     {tag}
                                   </span>
@@ -245,8 +245,8 @@ export default function ClientsPage() {
                               </div>
                             </div>
                             <div className="flex items-center justify-center">
-                              <div className="h-48 w-full rounded-xl bg-gradient-to-br from-white/[0.05] to-transparent border border-white/[0.06] flex items-center justify-center">
-                                <span className="text-sm text-white/20 uppercase tracking-widest">
+                              <div className="h-48 w-full rounded-xl bg-gradient-to-br from-accent/70 to-transparent border border-border/80 flex items-center justify-center">
+                                <span className="text-sm text-foreground/20 uppercase tracking-widest">
                                   Project Screenshot
                                 </span>
                               </div>
@@ -267,8 +267,8 @@ export default function ClientsPage() {
                     onClick={() => setActiveSlide(i)}
                     className={`h-2 rounded-full transition-all ${
                       activeSlide === i
-                        ? "w-8 bg-[#c60000]"
-                        : "w-2 bg-white/20 hover:bg-white/40"
+                        ? "w-8 bg-[var(--brand)]"
+                        : "w-2 bg-muted/60 hover:bg-muted"
                     }`}
                   />
                 ))}
@@ -278,13 +278,13 @@ export default function ClientsPage() {
               <div className="mt-6 flex items-center justify-center gap-2 sm:hidden">
                 <button
                   onClick={prevSlide}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.08] text-[#c7c8bd] transition-colors hover:bg-white/[0.05]"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:bg-accent/70"
                 >
                   <ChevronLeft className="h-5 w-5" />
                 </button>
                 <button
                   onClick={nextSlide}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.08] text-[#c7c8bd] transition-colors hover:bg-white/[0.05]"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:bg-accent/70"
                 >
                   <ChevronRight className="h-5 w-5" />
                 </button>
@@ -295,7 +295,7 @@ export default function ClientsPage() {
               <ScrollAnimation variant="zoom-in" delay={0.1}>
                 <div className="mt-12 text-center">
                   <Link href="/contact">
-                    <Button className="bg-[#c60000] text-white hover:bg-[#a50000] gap-2 shadow-lg shadow-[#c60000]/20">
+                    <Button className="bg-[var(--brand)] text-[var(--brand-foreground)] hover:bg-[var(--brand-hover)] gap-2 shadow-lg shadow-red-500/20">
                       Start Your Project
                       <ExternalLink className="h-4 w-4" />
                     </Button>

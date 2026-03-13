@@ -17,8 +17,8 @@ const steps = [
     title: "Analyze",
     description:
       "We ask the right questions and help analyze your current business processes. We drill down to the very root of the problem and present you with solutions that address them. We make sure to tailor-fit the application according to your needs.",
-    color: "text-[#c60000]",
-    accentBg: "bg-[#c60000]/10 border-[#c60000]/20",
+    color: "text-[var(--brand)]",
+    accentBg: "bg-[var(--brand)]/10 border-[var(--brand)]/20",
   },
   {
     number: "02",
@@ -44,21 +44,21 @@ export function IntegrationsSection() {
   return (
     <section id="process" className="relative py-16 sm:py-24">
       {/* Section glow */}
-      <div className="pointer-events-none absolute right-1/4 top-1/3 h-[350px] w-[500px] rounded-full bg-[#c60000]/[0.03] blur-[130px]" />
+      <div className="pointer-events-none absolute right-1/4 top-1/3 h-[350px] w-[500px] rounded-full bg-[var(--brand)]/[0.03] blur-[130px]" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <ScrollAnimation variant="fade-up">
           <div className="mb-16">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c60000] mb-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand)] mb-4">
               How We Work
             </p>
-            <h2 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+            <h2 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
               A proven process
               <br />
-              <span className="text-[#c7c8bd/80]">from concept to launch.</span>
+              <span className="text-muted-foreground/80">from concept to launch.</span>
             </h2>
-            <p className="mt-4 max-w-2xl text-base text-[#c7c8bd]">
+            <p className="mt-4 max-w-2xl text-base text-muted-foreground">
               We consult with you every step of the way to ensure the software we
               build actually resolves your problems and adds value to your
               processes.
@@ -76,7 +76,7 @@ export function IntegrationsSection() {
                 key={step.number}
                 className={`relative p-6 sm:p-10 ${
                   idx < steps.length - 1
-                    ? "border-b border-white/[0.08] md:border-b-0 md:border-r md:border-white/[0.08]"
+                    ? "border-b border-border/80 md:border-b-0 md:border-r md:border-border/80"
                     : ""
                 }`}
               >
@@ -91,10 +91,10 @@ export function IntegrationsSection() {
                   <Icon className={`h-6 w-6 ${step.color}`} />
                 </div>
 
-                <h3 className="mt-5 text-xl font-bold text-white">
+                <h3 className="mt-5 text-xl font-bold text-foreground">
                   {step.title}
                 </h3>
-                <p className="mt-3 text-sm text-[#c7c8bd] leading-relaxed">
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
                   {step.description}
                 </p>
               </div>
@@ -107,20 +107,20 @@ export function IntegrationsSection() {
         {/* Bottom CTA */}
         <ScrollAnimation variant="fade-up" delay={0.1}>
           <div className="mt-16 text-center">
-          <h3 className="text-2xl font-bold text-white sm:text-3xl">
+          <h3 className="text-2xl font-bold text-foreground sm:text-3xl">
             Ready to get started?
           </h3>
-          <p className="mt-3 text-[#c7c8bd]">
+          <p className="mt-3 text-muted-foreground">
             Let&apos;s discuss how we can bring your vision to life.
           </p>
           <div className="mt-8 flex justify-center gap-3">
-            <Button className="bg-[#c60000] text-white hover:bg-[#a50000] gap-2 shadow-lg shadow-[#c60000]/20">
+            <Button className="bg-[var(--brand)] text-[var(--brand-foreground)] hover:bg-[var(--brand-hover)] gap-2 shadow-lg shadow-red-500/20">
               Start a Project
               <ArrowRight className="h-4 w-4" />
             </Button>
             <Button
               variant="outline"
-              className="border-[#c7c8bd]/30 bg-transparent text-[#F1F4F9] hover:bg-white/10 hover:text-white"
+              className="border-border/70 bg-transparent text-foreground hover:bg-accent/70 hover:text-foreground"
             >
               Schedule a Call
             </Button>

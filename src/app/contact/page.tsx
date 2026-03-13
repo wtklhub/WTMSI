@@ -53,19 +53,19 @@ export default function ContactPage() {
         <GridSection topLine={false}>
           <section className="relative pt-32 pb-16">
             <div className="pointer-events-none absolute inset-0">
-              <div className="absolute left-1/2 top-0 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-[#c60000]/[0.05] blur-[150px]" />
+              <div className="absolute left-1/2 top-0 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-[var(--brand)]/[0.05] blur-[150px]" />
             </div>
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <ScrollAnimation variant="fade-up">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c60000] mb-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand)] mb-4">
                     Get In Touch
                   </p>
-                  <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                  <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
                     Let&apos;s talk about{" "}
-                    <span className="text-[#c7c8bd]">your project.</span>
+                    <span className="text-muted-foreground">your project.</span>
                   </h1>
-                  <p className="mt-4 max-w-2xl text-lg text-[#c7c8bd]">
+                  <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
                     Whether you need a web application, mobile app, AI integration,
                     or a complete digital transformation — our team is ready to
                     bring your vision to life.
@@ -84,7 +84,7 @@ export default function ContactPage() {
                 {/* Form */}
                 <div>
                   <ScrollAnimation variant="fade-up">
-                    <h2 className="text-2xl font-bold text-white mb-8">
+                    <h2 className="text-2xl font-bold text-foreground mb-8">
                       Send us a message
                     </h2>
                   </ScrollAnimation>
@@ -94,9 +94,9 @@ export default function ContactPage() {
                       <div>
                         <label
                           htmlFor="name"
-                          className="block text-sm font-medium text-[#c7c8bd] mb-2"
+                          className="block text-sm font-medium text-muted-foreground mb-2"
                         >
-                          Your Name <span className="text-[#c60000]">*</span>
+                          Your Name <span className="text-[var(--brand)]">*</span>
                         </label>
                         <input
                           id="name"
@@ -104,15 +104,15 @@ export default function ContactPage() {
                           type="text"
                           required
                           placeholder="John Doe"
-                          className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-[#c60000]/50 focus:outline-none focus:ring-1 focus:ring-[#c60000]/50 transition-colors"
+                          className="w-full rounded-lg border border-border/80 bg-card/70 px-4 py-3 text-sm text-foreground placeholder:text-foreground/30 focus:border-[var(--brand)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--brand)]/50 transition-colors"
                         />
                       </div>
                       <div>
                         <label
                           htmlFor="email"
-                          className="block text-sm font-medium text-[#c7c8bd] mb-2"
+                          className="block text-sm font-medium text-muted-foreground mb-2"
                         >
-                          Your Email <span className="text-[#c60000]">*</span>
+                          Your Email <span className="text-[var(--brand)]">*</span>
                         </label>
                         <input
                           id="email"
@@ -120,14 +120,14 @@ export default function ContactPage() {
                           type="email"
                           required
                           placeholder="john@example.com"
-                          className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-[#c60000]/50 focus:outline-none focus:ring-1 focus:ring-[#c60000]/50 transition-colors"
+                          className="w-full rounded-lg border border-border/80 bg-card/70 px-4 py-3 text-sm text-foreground placeholder:text-foreground/30 focus:border-[var(--brand)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--brand)]/50 transition-colors"
                         />
                       </div>
                     </div>
                     <div>
                       <label
                         htmlFor="subject"
-                        className="block text-sm font-medium text-[#c7c8bd] mb-2"
+                        className="block text-sm font-medium text-muted-foreground mb-2"
                       >
                         Subject
                       </label>
@@ -136,15 +136,15 @@ export default function ContactPage() {
                         name="subject"
                         type="text"
                         placeholder="Project inquiry"
-                        className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-[#c60000]/50 focus:outline-none focus:ring-1 focus:ring-[#c60000]/50 transition-colors"
+                        className="w-full rounded-lg border border-border/80 bg-card/70 px-4 py-3 text-sm text-foreground placeholder:text-foreground/30 focus:border-[var(--brand)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--brand)]/50 transition-colors"
                       />
                     </div>
                     <div>
                       <label
                         htmlFor="message"
-                        className="block text-sm font-medium text-[#c7c8bd] mb-2"
+                        className="block text-sm font-medium text-muted-foreground mb-2"
                       >
-                        Message <span className="text-[#c60000]">*</span>
+                        Message <span className="text-[var(--brand)]">*</span>
                       </label>
                       <textarea
                         id="message"
@@ -152,12 +152,12 @@ export default function ContactPage() {
                         required
                         rows={6}
                         placeholder="Tell us about your project..."
-                        className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-[#c60000]/50 focus:outline-none focus:ring-1 focus:ring-[#c60000]/50 transition-colors resize-none"
+                        className="w-full rounded-lg border border-border/80 bg-card/70 px-4 py-3 text-sm text-foreground placeholder:text-foreground/30 focus:border-[var(--brand)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--brand)]/50 transition-colors resize-none"
                       />
                     </div>
                     <Button
                       type="submit"
-                      className="bg-[#c60000] text-white hover:bg-[#a50000] gap-2 shadow-lg shadow-[#c60000]/20 px-8"
+                      className="bg-[var(--brand)] text-[var(--brand-foreground)] hover:bg-[var(--brand-hover)] gap-2 shadow-lg shadow-red-500/20 px-8"
                     >
                       <Send className="h-4 w-4" />
                       Send Message
@@ -174,14 +174,14 @@ export default function ContactPage() {
                       return (
                         <div
                           key={info.title}
-                          className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-6 transition-colors hover:bg-white/[0.04]"
+                          className="rounded-xl border border-border/80 bg-card/60 p-6 transition-colors hover:bg-accent/70"
                         >
                           <div className="flex items-start gap-4">
-                            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-[#c60000]">
-                              <Icon className="h-5 w-5 text-white" />
+                            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-[var(--brand)]">
+                              <Icon className="h-5 w-5 text-foreground" />
                             </div>
                             <div>
-                              <h3 className="text-sm font-semibold text-white mb-1">
+                              <h3 className="text-sm font-semibold text-foreground mb-1">
                                 {info.title}
                               </h3>
                               {info.lines.map((line) =>
@@ -189,14 +189,14 @@ export default function ContactPage() {
                                   <a
                                     key={line}
                                     href={info.href}
-                                    className="block text-sm text-[#c60000] hover:underline"
+                                    className="block text-sm text-[var(--brand)] hover:underline"
                                   >
                                     {line}
                                   </a>
                                 ) : (
                                   <p
                                     key={line}
-                                    className="text-sm text-[#c7c8bd]"
+                                    className="text-sm text-muted-foreground"
                                   >
                                     {line}
                                   </p>
@@ -225,7 +225,7 @@ export default function ContactPage() {
                     {
                       value: "24hr",
                       label: "Average response time",
-                      color: "text-[#c60000]",
+                      color: "text-[var(--brand)]",
                     },
                     {
                       value: "15+",
@@ -240,14 +240,14 @@ export default function ContactPage() {
                   ].map((stat) => (
                     <div
                       key={stat.label}
-                      className="flex flex-col items-center py-8 border-r border-white/[0.08] last:border-r-0 max-sm:border-r-0 max-sm:border-b max-sm:last:border-b-0"
+                      className="flex flex-col items-center py-8 border-r border-border/80 last:border-r-0 max-sm:border-r-0 max-sm:border-b max-sm:last:border-b-0"
                     >
                       <p
                         className={`text-3xl font-bold sm:text-4xl ${stat.color}`}
                       >
                         {stat.value}
                       </p>
-                      <p className="mt-1 text-xs text-[#c7c8bd] uppercase tracking-wider text-center">
+                      <p className="mt-1 text-xs text-muted-foreground uppercase tracking-wider text-center">
                         {stat.label}
                       </p>
                     </div>
@@ -265,10 +265,10 @@ export default function ContactPage() {
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <ScrollAnimation variant="fade-up">
                 <div className="text-center mb-10">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c60000] mb-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand)] mb-4">
                     Follow Us
                   </p>
-                  <h2 className="text-2xl font-bold text-white sm:text-3xl">
+                  <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
                     Connect with us on social media.
                   </h2>
                 </div>
@@ -308,14 +308,14 @@ export default function ContactPage() {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-3 rounded-xl border border-white/[0.08] bg-white/[0.02] p-4 transition-colors hover:bg-white/[0.05]"
+                        className="flex items-center gap-3 rounded-xl border border-border/80 bg-card/60 p-4 transition-colors hover:bg-accent/70"
                       >
-                        <Icon className="h-5 w-5 text-[#c60000]" />
+                        <Icon className="h-5 w-5 text-[var(--brand)]" />
                         <div>
-                          <p className="text-sm font-medium text-white">
+                          <p className="text-sm font-medium text-foreground">
                             {social.label}
                           </p>
-                          <p className="text-xs text-[#c7c8bd]">
+                          <p className="text-xs text-muted-foreground">
                             {social.handle}
                           </p>
                         </div>

@@ -19,7 +19,7 @@ const expertiseAreas = [
     icon: Globe,
     title: "Web Development",
     description: "Website Development, Web App Development, Digital Branding, Web Hosting, Internet Security.",
-    color: "text-[#c60000]",
+    color: "text-[var(--brand)]",
   },
   {
     icon: Layers,
@@ -41,7 +41,7 @@ export function AboutSection() {
   return (
     <section id="about" className="relative py-16 sm:py-24">
       {/* Glow */}
-      <div className="pointer-events-none absolute left-1/4 top-0 h-[400px] w-[600px] rounded-full bg-[#c60000]/[0.03] blur-[140px]" />
+      <div className="pointer-events-none absolute left-1/4 top-0 h-[400px] w-[600px] rounded-full bg-[var(--brand)]/[0.03] blur-[140px]" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* About content */}
@@ -49,17 +49,17 @@ export function AboutSection() {
           {/* Left — text */}
           <ScrollAnimation variant="fade-right">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c60000] mb-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand)] mb-4">
                 About WTMSI
               </p>
-              <h2 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl leading-tight">
+              <h2 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl leading-tight">
                 Building software
                 <br />
-                <span className="text-[#c7c8bd]">
+                <span className="text-muted-foreground">
                   for real businesses since 2009.
                 </span>
               </h2>
-              <p className="mt-6 text-base text-[#c7c8bd] leading-relaxed">
+              <p className="mt-6 text-base text-muted-foreground leading-relaxed">
                 WT Migremo Systems, Inc. is a Philippine-based software
                 development company providing software solutions for businesses
                 and organizations. We build scalable web and mobile
@@ -67,12 +67,12 @@ export function AboutSection() {
                 streamline operations, improve efficiency, and support digital
                 transformation.
               </p>
-              <p className="mt-4 text-base text-[#c7c8bd] leading-relaxed">
+              <p className="mt-4 text-base text-muted-foreground leading-relaxed">
                 More than just developers, we serve as technology
                 partners—working closely with clients to understand their
                 processes and deliver solutions that truly fit their needs.
                 Through our digital marketing arm,{" "}
-                <span className="text-[#F1F4F9] font-medium">
+                <span className="text-foreground font-medium">
                   Social Leverage Creates
                 </span>
                 , we also offer branding, content creation, and marketing
@@ -81,7 +81,7 @@ export function AboutSection() {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href="/contact">
-                  <Button className="bg-[#c60000] text-white hover:bg-[#a50000] gap-2 shadow-lg shadow-[#c60000]/20">
+                  <Button className="bg-[var(--brand)] text-[var(--brand-foreground)] hover:bg-[var(--brand-hover)] gap-2 shadow-lg shadow-red-500/20">
                     Work With Us
                     <ArrowRight className="h-4 w-4" />
                   </Button>
@@ -89,7 +89,7 @@ export function AboutSection() {
                 <Link href="/products">
                   <Button
                     variant="outline"
-                    className="border-white/20 text-[#c60000]! hover:bg-white/10 hover:text-white!"
+                    className="border-border/70 !text-[var(--brand)] hover:bg-accent/70 hover:text-foreground"
                   >
                     See Our Products
                   </Button>
@@ -100,14 +100,14 @@ export function AboutSection() {
 
           {/* Right — Watatrip spotlight card */}
           <ScrollAnimation variant="fade-left">
-            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-8 sm:p-10">
-              <span className="inline-block rounded-full bg-[#c60000]/10 border border-[#c60000]/20 px-3 py-1 text-xs font-medium text-[#c60000] mb-6">
+            <div className="rounded-2xl border border-border/80 bg-card/60 p-8 sm:p-10">
+              <span className="inline-block rounded-full bg-[var(--brand)]/10 border border-[var(--brand)]/20 px-3 py-1 text-xs font-medium text-[var(--brand)] mb-6">
                 Featured Product
               </span>
-              <h3 className="text-2xl font-bold text-white sm:text-3xl">
+              <h3 className="text-2xl font-bold text-foreground sm:text-3xl">
                 Watatrip
               </h3>
-              <p className="mt-3 text-[#c7c8bd] leading-relaxed">
+              <p className="mt-3 text-muted-foreground leading-relaxed">
                 Our flagship travel platform — designed to be the go-to app to
                 discover the rich culture, places, and events across the
                 Philippines and soon, Southeast Asia.
@@ -117,7 +117,7 @@ export function AboutSection() {
                   href="https://www.watatrip.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-[#c60000] hover:text-[#a50000] transition-colors"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-[var(--brand)] hover:text-[var(--brand-hover)] transition-colors"
                 >
                   Visit Watatrip
                   <ArrowRight className="h-3.5 w-3.5" />
@@ -127,7 +127,7 @@ export function AboutSection() {
               <div className="mt-8 flex items-center justify-center">
                 <div className="relative mx-auto w-[200px]">
                   {/* Phone frame */}
-                  <div className="relative rounded-[2rem] border-[3px] border-white/20 bg-black p-2 shadow-2xl shadow-[#c60000]/10">
+                  <div className="relative rounded-[2rem] border-[3px] border-zinc-800/90 bg-black p-2 shadow-2xl shadow-[#c60000]/10">
                     {/* Notch */}
                     <div className="absolute left-1/2 top-0 z-10 h-5 w-20 -translate-x-1/2 rounded-b-2xl bg-black" />
                     {/* Screen */}
@@ -139,7 +139,7 @@ export function AboutSection() {
                       />
                     </div>
                     {/* Home indicator */}
-                    <div className="mx-auto mt-2 h-1 w-16 rounded-full bg-white/20" />
+                    <div className="mx-auto mt-2 h-1 w-16 rounded-full bg-muted/60" />
                   </div>
                 </div>
               </div>
@@ -152,29 +152,29 @@ export function AboutSection() {
           <GridLine className="mb-12" />
           <ScrollAnimation variant="fade-up">
             <div className="mb-12">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c60000] mb-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand)] mb-4">
                 Our Expertise
               </p>
-              <h3 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
+              <h3 className="text-2xl font-bold text-foreground sm:text-3xl lg:text-4xl">
                 Full-spectrum digital capabilities.
               </h3>
             </div>
           </ScrollAnimation>
 
           <ScrollAnimation variant="stagger-children" staggerAmount={0.1}>
-            <div className="grid gap-px sm:grid-cols-2 lg:grid-cols-3 bg-white/[0.08] rounded-xl overflow-hidden">
+            <div className="grid gap-px sm:grid-cols-2 lg:grid-cols-3 bg-border/80 rounded-xl overflow-hidden">
               {expertiseAreas.map((area) => {
                 const Icon = area.icon;
                 return (
                   <div
                     key={area.title}
-                    className="bg-[#282828] p-6 sm:p-8 transition-colors hover:bg-white/[0.02]"
+                    className="bg-background p-6 sm:p-8 transition-colors hover:bg-accent/70"
                   >
                     <Icon className={`h-7 w-7 ${area.color} mb-4`} />
-                    <h4 className="text-base font-bold text-white mb-2">
+                    <h4 className="text-base font-bold text-foreground mb-2">
                       {area.title}
                     </h4>
-                    <p className="text-sm text-[#c7c8bd] leading-relaxed">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       {area.description}
                     </p>
                   </div>
