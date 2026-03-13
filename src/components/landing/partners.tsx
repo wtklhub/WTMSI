@@ -98,20 +98,20 @@ export function PartnersSection() {
   return (
     <section id="partners" className="relative py-16 sm:py-24 overflow-hidden">
       {/* Glow */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-75 w-175 rounded-full bg-[#c60000]/3 blur-[120px]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-75 w-175 rounded-full bg-[var(--brand)]/3 blur-[120px]" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <ScrollAnimation variant="fade-up">
           <div className="mb-12">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c60000] mb-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand)] mb-4">
               Partners &amp; Collaborators
             </p>
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
               Trusted by organizations{" "}
-              <span className="text-[#c7c8bd]">across industries.</span>
+              <span className="text-muted-foreground">across industries.</span>
             </h2>
-            <p className="mt-4 max-w-2xl text-base text-[#c7c8bd]">
+            <p className="mt-4 max-w-2xl text-base text-muted-foreground">
               We work alongside government agencies, private enterprises, and
               startups to deliver software that drives real impact.
             </p>
@@ -166,7 +166,7 @@ export function PartnersSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollAnimation variant="fade-up" delay={0.2}>
           <div className="mt-10 text-center">
-            <p className="text-sm text-[#c7c8bd]">
+            <p className="text-sm text-muted-foreground">
               And many more government agencies, enterprises, and startups
               throughout the Philippines and Southeast Asia.
             </p>

@@ -14,7 +14,7 @@ export function GridLayout({ children }: { children: React.ReactNode }) {
   return (
     <div
       className={cn(
-        "grid min-h-dvh grid-cols-1 justify-center bg-[#282828] text-[#F1F4F9]",
+        "grid min-h-dvh grid-cols-1 justify-center bg-background text-foreground",
         "[--gutter-width:2.5rem] [--pattern-fg:rgba(255,255,255,0.08)]",
         "md:grid-cols-[var(--gutter-width)_minmax(0,80rem)_var(--gutter-width)]"
       )}
@@ -65,9 +65,9 @@ export function GridSection({
       className={cn(
         "relative",
         topLine &&
-          "before:absolute before:top-0 before:-left-[100vw] before:h-px before:w-[200vw] before:bg-white/[0.08]",
+          "before:absolute before:top-0 before:-left-[100vw] before:h-px before:w-[200vw] before:bg-border/80",
         bottomLine &&
-          "after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-white/[0.08]",
+          "after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-border/80",
         className
       )}
     >
@@ -84,7 +84,7 @@ export function GridSection({
 export function GridLine({ className }: { className?: string }) {
   return (
     <div className={cn("relative h-px", className)}>
-      <div className="absolute inset-y-0 -left-[100vw] w-[200vw] bg-white/[0.08]" />
+      <div className="absolute inset-y-0 -left-[100vw] w-[200vw] bg-border/80" />
     </div>
   );
 }
