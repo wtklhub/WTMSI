@@ -65,7 +65,7 @@ export function LatestBlogPosts() {
               <Link
                 key={post.slug}
                 href={`/stories/${post.slug}`}
-                className="group flex flex-col bg-background p-6 sm:p-8 transition-colors hover:bg-accent/70"
+                className="group flex flex-col bg-background p-6 sm:p-8 transition-colors hover:bg-accent/60"
               >
                 <span
                   className={`inline-flex w-fit items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium ${post.categoryColor} mb-4`}

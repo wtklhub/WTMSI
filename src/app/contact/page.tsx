@@ -174,7 +174,7 @@ export default function ContactPage() {
                       return (
                         <div
                           key={info.title}
-                          className="rounded-xl border border-border/80 bg-card/60 p-6 transition-colors hover:bg-accent/70"
+                          className="rounded-xl border border-border/80 bg-card/60 p-6 transition-colors hover:bg-accent/60"
                         >
                           <div className="flex items-start gap-4">
                             <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-[var(--brand)]">
@@ -308,7 +308,7 @@ export default function ContactPage() {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-3 rounded-xl border border-border/80 bg-card/60 p-4 transition-colors hover:bg-accent/70"
+                        className="flex items-center gap-3 rounded-xl border border-border/80 bg-card/60 p-4 transition-colors hover:bg-accent/60"
                       >
                         <Icon className="h-5 w-5 text-[var(--brand)]" />
                         <div>

@@ -66,7 +66,7 @@ export function UseCasesSection() {
             return (
               <div
                 key={industry.title}
-                className={`group relative p-6 sm:p-10 transition-colors hover:bg-accent/70 ${
+                className={`group relative p-6 sm:p-10 transition-colors hover:bg-accent/60 ${
                   idx % 1 === 0 && idx !== industries.length - 1 ? "sm:border-r sm:border-border/80" : ""
                 } ${
                   idx < industries.length - 2

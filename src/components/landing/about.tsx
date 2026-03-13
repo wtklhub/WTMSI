@@ -89,7 +89,7 @@ export function AboutSection() {
                 <Link href="/products">
                   <Button
                     variant="outline"
-                    className="border-border/70 !text-[var(--brand)] hover:bg-accent/70 hover:text-foreground"
+                    className="border-border/70 !text-[var(--brand)] hover:bg-accent/60 hover:text-foreground"
                   >
                     See Our Products
                   </Button>
@@ -100,8 +100,8 @@ export function AboutSection() {
 
           {/* Right — Watatrip spotlight card */}
           <ScrollAnimation variant="fade-left">
-            <div className="rounded-2xl border border-border/80 bg-card/60 p-8 sm:p-10">
-              <span className="inline-block rounded-full bg-[var(--brand)]/10 border border-[var(--brand)]/20 px-3 py-1 text-xs font-medium text-[var(--brand)] mb-6">
+            <div className="rounded-2xl border border-border/80 bg-card/40 p-8 sm:p-10">
+              <span className="inline-block rounded-full bg-[var(--brand)]/20 border border-[var(--brand)]/20 px-3 py-1 text-xs font-medium text-[var(--brand)] mb-6">
                 Featured Product
               </span>
               <h3 className="text-2xl font-bold text-foreground sm:text-3xl">
@@ -168,7 +168,7 @@ export function AboutSection() {
                 return (
                   <div
                     key={area.title}
-                    className="bg-background p-6 sm:p-8 transition-colors hover:bg-accent/70"
+                    className="bg-background p-6 sm:p-8 transition-colors hover:bg-accent/60"
                   >
                     <Icon className={`h-7 w-7 ${area.color} mb-4`} />
                     <h4 className="text-base font-bold text-foreground mb-2">
