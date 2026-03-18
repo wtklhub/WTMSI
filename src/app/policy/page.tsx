@@ -80,18 +80,18 @@ export default function PolicyPage() {
         <GridSection topLine={false}>
           <section className="relative pt-32 pb-16">
             <div className="pointer-events-none absolute inset-0">
-              <div className="absolute left-1/2 top-0 -translate-x-1/2 h-[400px] w-[600px] rounded-full bg-[#c60000]/[0.04] blur-[150px]" />
+              <div className="absolute left-1/2 top-0 -translate-x-1/2 h-[400px] w-[600px] rounded-full bg-[var(--brand)]/[0.04] blur-[150px]" />
             </div>
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <ScrollAnimation variant="fade-up">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c60000] mb-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand)] mb-4">
                     Legal
                   </p>
-                  <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+                  <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
                     Privacy Policy
                   </h1>
-                  <p className="mt-4 text-[#c7c8bd]">
+                  <p className="mt-4 text-muted-foreground">
                     Last updated: January 2026
                   </p>
                 </div>
@@ -106,7 +106,7 @@ export default function PolicyPage() {
             <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
               <ScrollAnimation variant="fade-up">
                 <div className="mb-8">
-                  <p className="text-[#c7c8bd] leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed">
                     WT Migremo Systems, Inc. (&quot;WTMSI,&quot; &quot;we,&quot;
                     &quot;us,&quot; or &quot;our&quot;) is committed to protecting
                     your privacy. This Privacy Policy explains how we collect,
@@ -121,13 +121,13 @@ export default function PolicyPage() {
                   <ScrollAnimation key={i} variant="reveal">
                     <div>
                       {i > 0 && <GridLine className="mb-10" />}
-                      <h2 className="text-xl font-bold text-white mb-4">
+                      <h2 className="text-xl font-bold text-foreground mb-4">
                         {i + 1}. {section.title}
                       </h2>
                       {section.content.map((paragraph, j) => (
                         <p
                           key={j}
-                          className="text-sm text-[#c7c8bd] leading-relaxed mb-3 whitespace-pre-line"
+                          className="text-sm text-muted-foreground leading-relaxed mb-3 whitespace-pre-line"
                         >
                           {paragraph}
                         </p>

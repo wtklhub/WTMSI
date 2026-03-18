@@ -52,13 +52,13 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <div className="bg-[#282828]">
+    <div className="bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Main footer grid */}
         <div className="grid grid-cols-2 gap-6 py-10 sm:gap-8 sm:py-16 md:grid-cols-4">
           {footerSections.map((section) => (
             <div key={section.title}>
-              <h5 className="text-xs font-semibold text-[#c7c8bd] uppercase tracking-wider mb-4">
+              <h5 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4">
                 {section.title}
               </h5>
               <ul className="space-y-2.5">
@@ -66,7 +66,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-[#c7c8bd/80] transition-colors hover:text-white"
+                      className="text-sm text-muted-foreground/80 transition-colors hover:text-foreground"
                     >
                       {link.label}
                     </Link>
@@ -77,14 +77,14 @@ export function Footer() {
           ))}
         </div>
 
-        <Separator className="bg-white/[0.08]" />
+        <Separator className="bg-border/80" />
 
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-4 py-8 sm:flex-row">
           {/* Logo */}
           <div className="flex items-center gap-2.5">
-            {/* <div className="flex h-7 w-7 items-center justify-center rounded-md bg-[#c60000]">
-              <span className="text-xs font-bold text-white">W</span>
+            {/* <div className="flex h-7 w-7 items-center justify-center rounded-md bg-[var(--brand)]">
+              <span className="text-xs font-bold text-foreground">W</span>
             </div> */}
             <Image
               src="/watatrip.png"
@@ -93,7 +93,7 @@ export function Footer() {
               height={28}
               className="rounded-md"
             />
-            <span className="text-sm font-semibold text-white">
+            <span className="text-sm font-semibold text-foreground">
               WT Migremo Systems, Inc.
             </span>
           </div>
@@ -106,7 +106,7 @@ export function Footer() {
                 <Link
                   key={social.label}
                   href={social.href}
-                  className="text-[#c7c8bd/80] transition-colors hover:text-white"
+                  className="text-muted-foreground/80 transition-colors hover:text-foreground"
                   aria-label={social.label}
                 >
                   <Icon className="h-4 w-4" />
@@ -116,7 +116,7 @@ export function Footer() {
           </div>
 
           {/* Copyright */}
-          <p className="text-xs text-[#c7c8bd/60]">
+          <p className="text-xs text-muted-foreground/60">
             © {new Date().getFullYear()} WT Migremo Systems, Inc. All rights reserved.
           </p>
         </div>

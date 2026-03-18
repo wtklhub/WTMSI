@@ -15,7 +15,7 @@ const latestPosts = [
     date: "February 6, 2026",
     readTime: "6 min read",
     category: "Technology",
-    categoryColor: "text-[#c60000] bg-[#c60000]/10 border-[#c60000]/20",
+    categoryColor: "text-[var(--brand)] bg-[var(--brand)]/10 border-[var(--brand)]/20",
   },
   {
     slug: "7-erp-implementation-mistakes",
@@ -43,29 +43,29 @@ const latestPosts = [
 export function LatestBlogPosts() {
   return (
     <section className="relative py-16 sm:py-24">
-      <div className="pointer-events-none absolute right-1/4 top-0 h-[300px] w-[500px] rounded-full bg-[#c60000]/[0.03] blur-[130px]" />
+      <div className="pointer-events-none absolute right-1/4 top-0 h-[300px] w-[500px] rounded-full bg-[var(--brand)]/[0.03] blur-[130px]" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollAnimation variant="fade-up">
           <div className="mb-12">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c60000] mb-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand)] mb-4">
               From Our Blog
             </p>
-            <h2 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+            <h2 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
               Latest insights
               <br />
-              <span className="text-[#c7c8bd]">from our team.</span>
+              <span className="text-muted-foreground">from our team.</span>
             </h2>
           </div>
         </ScrollAnimation>
 
         <ScrollAnimation variant="stagger-children" staggerAmount={0.15}>
-          <div className="grid gap-px md:grid-cols-3 bg-white/[0.08] rounded-xl overflow-hidden">
+          <div className="grid gap-px md:grid-cols-3 bg-border/80 rounded-xl overflow-hidden">
             {latestPosts.map((post) => (
               <Link
                 key={post.slug}
                 href={`/stories/${post.slug}`}
-                className="group flex flex-col bg-[#282828] p-6 sm:p-8 transition-colors hover:bg-white/[0.02]"
+                className="group flex flex-col bg-background p-6 sm:p-8 transition-colors hover:bg-accent/60"
               >
                 <span
                   className={`inline-flex w-fit items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium ${post.categoryColor} mb-4`}
@@ -73,13 +73,13 @@ export function LatestBlogPosts() {
                   <Tag className="h-3 w-3" />
                   {post.category}
                 </span>
-                <h3 className="text-base font-bold text-white group-hover:text-[#c60000] transition-colors leading-tight flex-1 sm:text-lg">
+                <h3 className="text-base font-bold text-foreground group-hover:text-[var(--brand)] transition-colors leading-tight flex-1 sm:text-lg">
                   {post.title}
                 </h3>
-                <p className="mt-3 text-sm text-[#c7c8bd] leading-relaxed line-clamp-2">
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-2">
                   {post.excerpt}
                 </p>
-                <div className="mt-4 flex items-center gap-4 text-xs text-[#c7c8bd]/60">
+                <div className="mt-4 flex items-center gap-4 text-xs text-muted-foreground/60">
                   <span className="flex items-center gap-1">
                     <Calendar className="h-3 w-3" />
                     {post.date}
@@ -100,7 +100,7 @@ export function LatestBlogPosts() {
           <div className="mt-8 text-center">
             <Link
               href="/stories"
-              className="inline-flex items-center gap-2 text-sm font-medium text-[#c60000] hover:text-[#a50000] transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-medium text-[var(--brand)] hover:text-[var(--brand-hover)] transition-colors"
             >
               View all stories
               <ArrowRight className="h-3.5 w-3.5" />

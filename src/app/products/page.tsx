@@ -44,8 +44,8 @@ const saasProducts = [
       "Barcode/QR integration",
       "Analytics & reporting",
     ],
-    color: "text-[#c60000]",
-    accentBg: "bg-[#c60000]/10 border-[#c60000]/20",
+    color: "text-[var(--brand)]",
+    accentBg: "bg-[var(--brand)]/10 border-[var(--brand)]/20",
   },
   {
     icon: Headphones,
@@ -111,7 +111,7 @@ const customServices = [
     description:
       "Marketing sites, web apps, admin dashboards, and complex platforms built with modern frameworks.",
     stacks: ["React / Next.js", "Laravel", ".NET", "Node.js"],
-    color: "text-[#c60000]",
+    color: "text-[var(--brand)]",
   },
   {
     icon: Smartphone,
@@ -148,19 +148,19 @@ export default function ProductsPage() {
         <GridSection topLine={false}>
           <section className="relative pt-32 pb-16">
             <div className="pointer-events-none absolute inset-0">
-              <div className="absolute left-1/2 top-0 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-[#c60000]/[0.05] blur-[150px]" />
+              <div className="absolute left-1/2 top-0 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-[var(--brand)]/[0.05] blur-[150px]" />
             </div>
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <ScrollAnimation variant="fade-up">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c60000] mb-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand)] mb-4">
                     Products & Services
                   </p>
-                  <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                  <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
                     Everything we build,{" "}
-                    <span className="text-[#c7c8bd]">all in one place.</span>
+                    <span className="text-muted-foreground">all in one place.</span>
                   </h1>
-                  <p className="mt-4 max-w-2xl text-lg text-[#c7c8bd]">
+                  <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
                     From ready-to-deploy SaaS platforms to fully custom software —
                     explore how we help businesses operate smarter.
                   </p>
@@ -176,13 +176,13 @@ export default function ProductsPage() {
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <ScrollAnimation variant="fade-up">
                 <div className="mb-12">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c60000] mb-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand)] mb-4">
                     SaaS Products
                   </p>
-                  <h2 className="text-3xl font-bold text-white sm:text-4xl">
+                  <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
                     Ready-to-deploy platforms
                   </h2>
-                  <p className="mt-3 max-w-xl text-[#c7c8bd]">
+                  <p className="mt-3 max-w-xl text-muted-foreground">
                     Subscription-based software tailored for common business
                     operations. Request a demo or inquire about rates.
                   </p>
@@ -196,7 +196,7 @@ export default function ProductsPage() {
                     return (
                       <div
                         key={product.name}
-                        className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-6 sm:p-8 transition-colors hover:bg-white/[0.04]"
+                        className="rounded-xl border border-border/80 bg-card/60 p-6 sm:p-8 transition-colors hover:bg-accent/60"
                       >
                         <div className="grid gap-6 lg:grid-cols-[1fr_280px] lg:items-start">
                           <div>
@@ -208,11 +208,11 @@ export default function ProductsPage() {
                                   className={`h-5 w-5 ${product.color}`}
                                 />
                               </div>
-                              <h3 className="text-xl font-bold text-white">
+                              <h3 className="text-xl font-bold text-foreground">
                                 {product.name}
                               </h3>
                             </div>
-                            <p className="text-sm text-[#c7c8bd] leading-relaxed max-w-2xl">
+                            <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
                               {product.description}
                             </p>
                           </div>
@@ -227,7 +227,7 @@ export default function ProductsPage() {
                                   <CheckCircle2
                                     className={`h-3.5 w-3.5 flex-shrink-0 ${product.color}`}
                                   />
-                                  <span className="text-sm text-[#F1F4F9]">
+                                  <span className="text-sm text-foreground">
                                     {f}
                                   </span>
                                 </div>
@@ -244,7 +244,7 @@ export default function ProductsPage() {
               <ScrollAnimation variant="zoom-in" delay={0.1}>
                 <div className="mt-10 text-center">
                   <Link href="/contact">
-                    <Button className="bg-[#c60000] text-white hover:bg-[#a50000] gap-2 shadow-lg shadow-[#c60000]/20">
+                    <Button className="bg-[var(--brand)] text-[var(--brand-foreground)] hover:bg-[var(--brand-hover)] gap-2 shadow-lg shadow-red-500/20">
                       Request for Rates
                       <ArrowRight className="h-4 w-4" />
                     </Button>
@@ -261,13 +261,13 @@ export default function ProductsPage() {
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <ScrollAnimation variant="fade-up">
                 <div className="mb-12">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c60000] mb-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand)] mb-4">
                     Custom Development
                   </p>
-                  <h2 className="text-3xl font-bold text-white sm:text-4xl">
+                  <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
                     Custom Web & Mobile Apps
                   </h2>
-                  <p className="mt-3 max-w-xl text-[#c7c8bd]">
+                  <p className="mt-3 max-w-xl text-muted-foreground">
                     Tailor-fit software built from the ground up — designed around
                     your business processes, not the other way around.
                   </p>
@@ -275,26 +275,26 @@ export default function ProductsPage() {
               </ScrollAnimation>
 
               <ScrollAnimation variant="stagger-children" staggerAmount={0.15}>
-                <div className="grid gap-px sm:grid-cols-2 bg-white/[0.08] rounded-xl overflow-hidden">
+                <div className="grid gap-px sm:grid-cols-2 bg-border/80 rounded-xl overflow-hidden">
                   {customServices.map((service) => {
                     const Icon = service.icon;
                     return (
                       <div
                         key={service.title}
-                        className="bg-[#282828] p-6 sm:p-8 transition-colors hover:bg-white/[0.02]"
+                        className="bg-background p-6 sm:p-8 transition-colors hover:bg-accent/60"
                       >
                         <Icon className={`h-8 w-8 ${service.color} mb-4`} />
-                        <h3 className="text-lg font-bold text-white mb-2">
+                        <h3 className="text-lg font-bold text-foreground mb-2">
                           {service.title}
                         </h3>
-                        <p className="text-sm text-[#c7c8bd] leading-relaxed mb-4">
+                        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                           {service.description}
                         </p>
                         <div className="flex flex-wrap gap-2">
                           {service.stacks.map((s) => (
                             <span
                               key={s}
-                              className="rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-xs text-[#c7c8bd]"
+                              className="rounded-full border border-border/80 bg-card/70 px-3 py-1 text-xs text-muted-foreground"
                             >
                               {s}
                             </span>
@@ -311,7 +311,7 @@ export default function ProductsPage() {
               <ScrollAnimation variant="zoom-in" delay={0.1}>
                 <div className="mt-10 text-center">
                   <Link href="/contact">
-                    <Button className="bg-[#c60000] text-white hover:bg-[#a50000] gap-2 shadow-lg shadow-[#c60000]/20">
+                    <Button className="bg-[var(--brand)] text-[var(--brand-foreground)] hover:bg-[var(--brand-hover)] gap-2 shadow-lg shadow-red-500/20">
                       Book a Call
                       <ArrowRight className="h-4 w-4" />
                     </Button>
@@ -327,21 +327,21 @@ export default function ProductsPage() {
           <section className="py-16 sm:py-24">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <ScrollAnimation variant="reveal">
-                <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-8 sm:p-12 lg:p-16">
+                <div className="rounded-2xl border border-border/80 bg-card/60 p-8 sm:p-12 lg:p-16">
                   <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
                     <div>
-                      <span className="inline-block rounded-full bg-[#c60000]/10 border border-[#c60000]/20 px-3 py-1 text-xs font-medium text-[#c60000] mb-6">
+                      <span className="inline-block rounded-full bg-[var(--brand)]/10 border border-[var(--brand)]/20 px-3 py-1 text-xs font-medium text-[var(--brand)] mb-6">
                         Our Own Product
                       </span>
-                      <h2 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+                      <h2 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
                         Watatrip
                       </h2>
-                      <p className="mt-4 text-lg text-[#c7c8bd] leading-relaxed">
+                      <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
                         Our flagship travel platform — designed to be the go-to
                         app to discover the rich culture, places, and events of
                         interest in the Philippines and soon, Southeast Asia.
                       </p>
-                      <p className="mt-3 text-[#c7c8bd] leading-relaxed">
+                      <p className="mt-3 text-muted-foreground leading-relaxed">
                         Watatrip connects travelers with local experiences,
                         cultural heritage sites, festivals, and hidden gems — all
                         in one beautifully designed platform.
@@ -352,7 +352,7 @@ export default function ProductsPage() {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <Button className="bg-[#c60000] text-white hover:bg-[#a50000] gap-2 shadow-lg shadow-[#c60000]/20">
+                          <Button className="bg-[var(--brand)] text-[var(--brand-foreground)] hover:bg-[var(--brand-hover)] gap-2 shadow-lg shadow-red-500/20">
                             Visit Watatrip
                             <ExternalLink className="h-4 w-4" />
                           </Button>
@@ -360,8 +360,8 @@ export default function ProductsPage() {
                       </div>
                     </div>
                     <div className="flex items-center justify-center">
-                      <div className="relative h-64 w-full max-w-sm rounded-2xl bg-gradient-to-br from-[#c60000]/20 via-orange-500/10 to-transparent border border-white/[0.08] flex items-center justify-center">
-                        <span className="text-6xl font-black text-white/10 tracking-tighter">
+                      <div className="relative h-64 w-full max-w-sm rounded-2xl bg-gradient-to-br from-[#c60000]/20 via-orange-500/10 to-transparent border border-border/80 flex items-center justify-center">
+                        <span className="text-6xl font-black text-foreground/10 tracking-tighter">
                           WATATRIP
                         </span>
                       </div>

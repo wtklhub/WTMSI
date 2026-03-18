@@ -18,8 +18,8 @@ const saasProducts = [
     icon: Package,
     name: "Inventory Management System",
     tagline: "Track, manage, and optimize your inventory in real time.",
-    color: "text-[#c60000]",
-    accentBg: "bg-[#c60000]/10 border-[#c60000]/20",
+    color: "text-[var(--brand)]",
+    accentBg: "bg-[var(--brand)]/10 border-[var(--brand)]/20",
   },
   {
     icon: Headphones,
@@ -41,21 +41,21 @@ export function ProductSections() {
   return (
     <section id="products" className="relative py-16 sm:py-24">
       {/* Section glow */}
-      <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[400px] w-[800px] rounded-full bg-[#c60000]/[0.03] blur-[150px]" />
+      <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[400px] w-[800px] rounded-full bg-[var(--brand)]/[0.03] blur-[150px]" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <ScrollAnimation variant="fade-up">
           <div className="mb-12 sm:mb-20">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c60000] mb-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand)] mb-4">
               Our Products
             </p>
-            <h2 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+            <h2 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
               SaaS solutions
               <br />
-              <span className="text-[#c7c8bd]">built for real operations.</span>
+              <span className="text-muted-foreground">built for real operations.</span>
             </h2>
-            <p className="mt-4 max-w-2xl text-base text-[#c7c8bd]">
+            <p className="mt-4 max-w-2xl text-base text-muted-foreground">
               Ready-to-deploy platforms designed to solve the most common
               business challenges — customizable to your exact workflow.
             </p>
@@ -64,24 +64,24 @@ export function ProductSections() {
 
         {/* Product cards */}
         <ScrollAnimation variant="stagger-children" staggerAmount={0.15}>
-          <div className="grid gap-px sm:grid-cols-2 lg:grid-cols-3 bg-white/[0.08] rounded-xl overflow-hidden">
+          <div className="grid gap-px sm:grid-cols-2 lg:grid-cols-3 bg-border/80 rounded-xl overflow-hidden">
             {saasProducts.map((product) => {
               const Icon = product.icon;
               return (
                 <Link
                   key={product.name}
                   href="/products"
-                  className="group flex flex-col bg-[#282828] p-6 sm:p-8 transition-colors hover:bg-white/[0.03]"
+                  className="group flex flex-col bg-background p-6 sm:p-8 transition-colors hover:bg-accent/60"
                 >
                   <div
                     className={`flex h-12 w-12 items-center justify-center rounded-xl border ${product.accentBg} mb-5`}
                   >
                     <Icon className={`h-6 w-6 ${product.color}`} />
                   </div>
-                  <h3 className="text-lg font-bold text-white group-hover:text-[#c60000] transition-colors">
+                  <h3 className="text-lg font-bold text-foreground group-hover:text-[var(--brand)] transition-colors">
                     {product.name}
                   </h3>
-                  <p className="mt-2 text-sm text-[#c7c8bd] leading-relaxed flex-1">
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed flex-1">
                     {product.tagline}
                   </p>
                   <div className="mt-4">
@@ -101,7 +101,7 @@ export function ProductSections() {
         <ScrollAnimation variant="zoom-in" delay={0.2}>
           <div className="mt-12 text-center">
             <Link href="/products">
-              <Button className="bg-[#c60000] text-white hover:bg-[#a50000] gap-2 shadow-lg shadow-[#c60000]/20">
+              <Button className="bg-[var(--brand)] text-[var(--brand-foreground)] hover:bg-[var(--brand-hover)] gap-2 shadow-lg shadow-red-500/20">
                 View All Products & Services
                 <ArrowRight className="h-4 w-4" />
               </Button>
