@@ -89,6 +89,7 @@ body {
   --brand: #c60000;
   --brand-hover: #a50000;
   --brand-foreground: #ffffff;
+  --pattern-fg: #3f3f3f50;
 }
 
 .dark {
@@ -126,6 +127,7 @@ body {
   --brand: #c60000;
   --brand-hover: #a50000;
   --brand-foreground: #ffffff;
+  --pattern-fg:rgba(255,255,255,0.08);
 }
 
 @layer base {
