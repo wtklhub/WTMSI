@@ -77,6 +77,9 @@ const recentProjects = [
   },
 ];
 
+// Shared fade mask
+const MASK = "mask-[linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]";
+
 export default function ClientsPage() {
   const [activeSlide, setActiveSlide] = useState(0);
 
@@ -117,9 +120,12 @@ export default function ClientsPage() {
           </section>
         </GridSection>
 
-        {/* ──── Mosaic Logo Grid ──── */}
+        {/* ──── Client Partners Marquee ──── */}
         <GridSection>
-          <section className="py-16 sm:py-24">
+          <section className="relative py-16 sm:py-24 overflow-hidden">
+            {/* Glow effect */}
+            <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[600px] rounded-full bg-[var(--brand)]/[0.08] blur-[100px]" />
+
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <ScrollAnimation variant="fade-up">
                 <div className="mb-10">
@@ -131,44 +137,75 @@ export default function ClientsPage() {
                   </h2>
                 </div>
               </ScrollAnimation>
+            </div>
 
-              {/* Mosaic grid — scattered/asymmetric card layout */}
-              <ScrollAnimation variant="stagger-children" staggerAmount={0.1}>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
-                  {clientLogos.map((client, i) => {
-                    // Varied card sizing for mosaic effect
-                    const sizeClasses = [
-                      "row-span-1 col-span-1",
-                      "row-span-1 col-span-1",
-                      "row-span-1 col-span-1 sm:col-span-2",
-                      "row-span-1 col-span-1",
-                      "row-span-1 col-span-1",
-                      "row-span-1 col-span-1",
-                      "row-span-1 col-span-1 sm:col-span-2",
-                      "row-span-1 col-span-1",
-                      "row-span-1 col-span-1",
-                      "row-span-1 col-span-1",
-                      "row-span-1 col-span-1 sm:col-span-2",
-                      "row-span-1 col-span-1",
-                      "row-span-1 col-span-1",
-                      "row-span-1 col-span-1",
-                      "row-span-1 col-span-1",
-                      "row-span-1 col-span-1 sm:col-span-2",
-                    ];
-                    return (
+            {/* Marquee rows - Client Page */}
+            <div className="mt-10 space-y-6">
+              {/* row 1 — clients, scrolls left */}
+              <ScrollAnimation variant="fade-up" delay={0.1}>
+                <div className={`relative flex overflow-hidden ${MASK}`}>
+                  <div className="flex animate-marquee-left items-center gap-4" style={{ animationDuration: "80s" }}>
+                    {clientLogos.slice(0, 8).map((client, i) => (
                       <div
-                        key={client.name}
-                        className={`${sizeClasses[i % sizeClasses.length]} group flex flex-col items-center justify-center rounded-xl border border-border/80 bg-card/60 p-6 sm:p-8 transition-all hover:bg-accent/60 hover:border-border`}
+                        key={`client-1a-${i}`}
+                        className="flex shrink-0 flex-col items-center justify-center rounded-2xl border border-border/60 bg-card/50 backdrop-blur-sm px-8 py-6 min-w-max transition-all duration-300 hover:bg-accent/80 hover:border-border hover:shadow-[var(--brand)]/5 group cursor-pointer"
                       >
-                        <span className="text-lg font-bold text-foreground/80 group-hover:text-foreground transition-colors sm:text-xl">
+                        <span className="text-lg font-bold text-foreground/80 group-hover:text-[var(--brand)] transition-colors sm:text-xl">
                           {client.name}
                         </span>
                         <span className="mt-1 text-xs text-muted-foreground/60 uppercase tracking-wider">
                           {client.sector}
                         </span>
                       </div>
-                    );
-                  })}
+                    ))}
+                    {clientLogos.slice(0, 8).map((client, i) => (
+                      <div
+                        key={`client-1b-${i}`}
+                        className="flex shrink-0 flex-col items-center justify-center rounded-2xl border border-border/60 bg-card/50 backdrop-blur-sm px-8 py-6 min-w-max transition-all duration-300 hover:bg-accent/80 hover:border-border hover:shadow-[var(--brand)]/5 group cursor-pointer"
+                      >
+                        <span className="text-lg font-bold text-foreground/80 group-hover:text-[var(--brand)] transition-colors sm:text-xl">
+                          {client.name}
+                        </span>
+                        <span className="mt-1 text-xs text-muted-foreground/60 uppercase tracking-wider">
+                          {client.sector}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </ScrollAnimation>
+
+              {/* row 2 — clients, scrolls right */}
+              <ScrollAnimation variant="fade-up" delay={0.2}>
+                <div className={`relative flex overflow-hidden ${MASK} py-3`}>
+                  <div className="flex animate-marquee-right items-center gap-4" style={{ animationDuration: "80s" }}>
+                    {clientLogos.slice(8, 16).map((client, i) => (
+                      <div
+                        key={`client-2a-${i}`}
+                        className="flex shrink-0 flex-col items-center justify-center rounded-2xl border border-border/60 bg-card/50 backdrop-blur-sm px-8 py-6 min-w-max transition-all duration-300 hover:bg-accent/80 hover:border-border hover:shadow-[var(--brand)]/5 group cursor-pointer"
+                      >
+                        <span className="text-lg font-bold text-foreground/80 group-hover:text-[var(--brand)] transition-colors sm:text-xl">
+                          {client.name}
+                        </span>
+                        <span className="mt-1 text-xs text-muted-foreground/60 uppercase tracking-wider">
+                          {client.sector}
+                        </span>
+                      </div>
+                    ))}
+                    {clientLogos.slice(8, 16).map((client, i) => (
+                      <div
+                        key={`client-2b-${i}`}
+                        className="flex shrink-0 flex-col items-center justify-center rounded-2xl border border-border/60 bg-card/50 backdrop-blur-sm px-8 py-6 min-w-max transition-all duration-300 hover:bg-accent/80 hover:border-border hover:shadow-[var(--brand)]/5 group cursor-pointer"
+                      >
+                        <span className="text-lg font-bold text-foreground/80 group-hover:text-[var(--brand)] transition-colors sm:text-xl">
+                          {client.name}
+                        </span>
+                        <span className="mt-1 text-xs text-muted-foreground/60 uppercase tracking-wider">
+                          {client.sector}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </ScrollAnimation>
             </div>
@@ -268,7 +305,7 @@ export default function ClientsPage() {
                     className={`h-2 rounded-full transition-all ${
                       activeSlide === i
                         ? "w-8 bg-[var(--brand)]"
-                        : "w-2 bg-muted/60 hover:bg-muted"
+                        : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"
                     }`}
                   />
                 ))}
