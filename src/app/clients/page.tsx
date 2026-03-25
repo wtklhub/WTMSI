@@ -64,8 +64,8 @@ const recentProjects = [
     client: "Nippon Paint",
     description:
       "An improved website experience for customers by adding paint product specifications, color palettes, and enhanced features for better usability.",
-    tags: ["Web App", "UI/UX", "E-Commerce"],
-    color: "border-[#c60000]",
+    tags: ["Web App", "UI/UX", "E-Commerce"], //All tags and client names are placeholders and can be changed later on
+    color: "border-red-700",
   },
   {
     title: "AJES",
@@ -97,7 +97,7 @@ const recentProjects = [
     description:
       "An event management app that allows participants to register, check in seamlessly during the event, and view the full program details.",
     tags: ["Event Management", "Mobile", "Registration"], 
-    color: "border-teal-400",
+    color: "border-pink-400",
   },
 ];
 
