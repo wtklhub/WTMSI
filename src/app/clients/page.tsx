@@ -58,13 +58,14 @@ const whiteBgLogos = [
 ];
 
 /* ──── Recent projects ──── */
+
 const recentProjects = [
   {
     title: "NIPPON PAINT PH",
     client: "Nippon Paint",
     description:
       "An improved website experience for customers by adding paint product specifications, color palettes, and enhanced features for better usability.",
-    tags: ["Web App", "UI/UX", "E-Commerce"], //All tags and client names are placeholders and can be changed later on
+    tags: ["Web App", "UI/UX", "E-Commerce"], 
     color: "border-red-700",
   },
   {
@@ -99,7 +100,7 @@ const recentProjects = [
     tags: ["Event Management", "Mobile", "Registration"], 
     color: "border-pink-400",
   },
-];
+]; // All tags and client names are placeholders and can be changed later on
 
 function CircleLogoItem({ src, alt }: { src: string; alt: string }) {
   return (
@@ -223,7 +224,7 @@ export default function ClientsPage() {
               </div>
               </ScrollAnimation>
 
-            {/* Row 2 — No-bg vertical logos (transparent bg, need white card), scrolls right */}
+            {/* Row 2 — No-bg vertical logos, scrolls right */}
             <ScrollAnimation variant="fade-up" delay={0.2}>
               <div className={`relative flex overflow-hidden ${MASK}`}>
                 <div className="flex animate-marquee-right items-center">
@@ -299,7 +300,7 @@ export default function ClientsPage() {
                     {recentProjects.map((project, i) => (
                       <div key={i} className="w-full flex-shrink-0 px-1">
                         <div
-                          className={`rounded-2xl border-l-4 ${project.color} border border-border/80 bg-card/60 p-8 sm:p-10 lg:p-12`}
+                          className={`rounded-2xl border-l-4 ${project.color} border border-border/80 bg-card/15 p-8 sm:p-10 lg:p-12`}
                         >
                           <div className="grid gap-6 lg:grid-cols-2">
                             <div>
