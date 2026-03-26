@@ -111,7 +111,6 @@ function CircleLogoItem({ src, alt }: { src: string; alt: string }) {
         width={72}
         height={72}
         className="h-16 w-16 object-contain transition-all duration-300 hover:scale-110"
-        unoptimized
       />
     </div>
   );
@@ -126,7 +125,6 @@ function NoBgLogoItem({ src, alt }: { src: string; alt: string }) {
         width={120}
         height={48}
         className="h-10 w-auto object-contain transition-all duration-300 hover:scale-110"
-        unoptimized
       />
     </div>
   );
@@ -141,7 +139,6 @@ function WhiteBgLogoItem({ src, alt }: { src: string; alt: string }) {
         width={120}
         height={48}
         className="h-9 w-auto object-contain"
-        unoptimized
       />
     </div>
   );
@@ -209,9 +206,9 @@ export default function ClientsPage() {
             </div>
 
             {/* Marquee rows - Client */}
+          <ScrollAnimation variant="fade-up">
             <div className="mt-10 space-y-8">
             {/* Row 1 — Circle logos, scrolls left */}
-            <ScrollAnimation variant="fade-up" delay={0.1}>
               <div className={`relative flex overflow-hidden ${MASK}`}>
                 <div className="flex animate-marquee-left items-center">
                   {circleLogos.map((logo, i) => (
@@ -222,10 +219,8 @@ export default function ClientsPage() {
                   ))}
                 </div>
               </div>
-              </ScrollAnimation>
 
             {/* Row 2 — No-bg vertical logos, scrolls right */}
-            <ScrollAnimation variant="fade-up" delay={0.2}>
               <div className={`relative flex overflow-hidden ${MASK}`}>
                 <div className="flex animate-marquee-right items-center">
                   {noBgLogos.map((logo, i) => (
@@ -236,10 +231,8 @@ export default function ClientsPage() {
                   ))}
                 </div>
               </div>
-            </ScrollAnimation>
 
             {/* Row 3 — White-bg vertical logos (bg already baked in image), scrolls left */}
-            <ScrollAnimation variant="fade-up" delay={0.3}>
               <div className={`relative flex overflow-hidden ${MASK}`}>
                 <div className="flex animate-marquee-left items-center" style={{ animationDuration: "45s" }}>
                   {whiteBgLogos.map((logo, i) => (
@@ -250,8 +243,8 @@ export default function ClientsPage() {
                   ))}
                 </div>
               </div>
-            </ScrollAnimation>
-          </div>
+            </div>
+          </ScrollAnimation>
     </section>
     </GridSection>
 
