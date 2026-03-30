@@ -63,12 +63,10 @@ export function Navbar() {
             Partner With Us
           </Button>
           <Button
-            variant="outline"
+            variant="ghost"
             size="icon"
-            className="border-border/70"
+            className="transition-all hover:bg-accent/70"
             onClick={toggleTheme}
-            aria-label={isDarkTheme ? "Switch to light mode" : "Switch to dark mode"}
-            title={isDarkTheme ? "Switch to light mode" : "Switch to dark mode"}
           >
             {isDarkTheme ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </Button>
@@ -77,11 +75,10 @@ export function Navbar() {
         {/* Mobile toggle */}
         <div className="flex items-center gap-2 lg:hidden">
           <Button
-            variant="outline"
+            variant="ghost"
             size="icon"
-            className="border-border/70"
+            className="transition-all hover:bg-accent/70"
             onClick={toggleTheme}
-            aria-label={isDarkTheme ? "Switch to light mode" : "Switch to dark mode"}
           >
             {isDarkTheme ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </Button>
@@ -109,13 +106,6 @@ export function Navbar() {
               </Link>
             ))}
             <div className="mt-4 flex flex-col gap-2">
-              <Button
-                variant="outline"
-                className="w-full border-border/70"
-                onClick={toggleTheme}
-              >
-                {isDarkTheme ? "Switch to Light" : "Switch to Dark"}
-              </Button>
               <Button
                 variant="outline"
                 className="w-full border-border/70"
