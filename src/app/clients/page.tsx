@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import {
   Navbar,
@@ -14,68 +15,141 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 /* ──── Client / Partner logos ──── */
-const clientLogos = [
-  { name: "DICT", sector: "Government" },
-  { name: "DOST", sector: "Government" },
-  { name: "DOT", sector: "Government" },
-  { name: "DENR", sector: "Government" },
-  { name: "DepEd", sector: "Government" },
-  { name: "DPWH", sector: "Government" },
-  { name: "CHED", sector: "Government" },
-  { name: "PhilGEPS", sector: "Government" },
-  { name: "Globe", sector: "Enterprise" },
-  { name: "PLDT", sector: "Enterprise" },
-  { name: "LGU Partners", sector: "Government" },
-  { name: "Watatrip", sector: "Startup" },
-  { name: "SM Retail", sector: "Enterprise" },
-  { name: "Cebu Pacific", sector: "Enterprise" },
-  { name: "BDO", sector: "Enterprise" },
-  { name: "Jollibee Group", sector: "Enterprise" },
+// Row 1 — Circle logos
+const circleLogos = [
+  { src: "/clients/circle logo/image 339.png", alt: "Client" },
+  { src: "/clients/circle logo/image 340.png", alt: "Client" },
+  { src: "/clients/circle logo/image 342.png", alt: "Client" },
+  { src: "/clients/circle logo/image 348.png", alt: "Client" },
+  { src: "/clients/circle logo/image 354.png", alt: "Client" },
+  { src: "/clients/circle logo/image 357.png", alt: "Client" },
+  { src: "/clients/circle logo/image 358.png", alt: "Client" },
+  { src: "/clients/circle logo/image 365.png", alt: "Client" },
+  { src: "/clients/circle logo/image 367.png", alt: "Client" },
+  { src: "/clients/circle logo/image 368.png", alt: "Client" },
+];
+
+// Row 2 — Vertical logos without background
+const noBgLogos = [
+  { src: "/clients/vertical logo without bg/image 341.png", alt: "Client" },
+  { src: "/clients/vertical logo without bg/image 344.png", alt: "Client" },
+  { src: "/clients/vertical logo without bg/image 345.png", alt: "Client" },
+  { src: "/clients/vertical logo without bg/image 351.png", alt: "Client" },
+  { src: "/clients/vertical logo without bg/image 352.png", alt: "Client" },
+  { src: "/clients/vertical logo without bg/image 353.png", alt: "Client" },
+  { src: "/clients/vertical logo without bg/image 355.png", alt: "Client" },
+  { src: "/clients/vertical logo without bg/image 359.png", alt: "Client" },
+  { src: "/clients/vertical logo without bg/image 360.png", alt: "Client" },
+  { src: "/clients/vertical logo without bg/image 362.png", alt: "Client" },
+  { src: "/clients/vertical logo without bg/image 363.png", alt: "Client" },
+  { src: "/clients/vertical logo without bg/image 364.png", alt: "Client" },
+];
+
+// Row 3 — Vertical logos with white background
+const whiteBgLogos = [
+  { src: "/clients/vertical logo with white bg/image 343.png", alt: "Client" },
+  { src: "/clients/vertical logo with white bg/image 346.png", alt: "Client" },
+  { src: "/clients/vertical logo with white bg/image 347.png", alt: "Client" },
+  { src: "/clients/vertical logo with white bg/image 349.png", alt: "Client" },
+  { src: "/clients/vertical logo with white bg/image 350.png", alt: "Client" },
+  { src: "/clients/vertical logo with white bg/image 356.png", alt: "Client" },
+  { src: "/clients/vertical logo with white bg/image 361.png", alt: "Client" },
+  { src: "/clients/vertical logo with white bg/image 366.png", alt: "Client" },
 ];
 
 /* ──── Recent projects ──── */
+
 const recentProjects = [
   {
-    title: "Government GIS Platform",
-    client: "DENR",
+    title: "NIPPON PAINT PH",
+    client: "Nippon Paint",
     description:
-      "An intelligent Geographic Information System for environmental monitoring, integrating AI-powered analytics and real-time satellite data processing.",
-    tags: ["GIS", "AI", "Government"],
-    color: "border-[#c60000]",
+      "An improved website experience for customers by adding paint product specifications, color palettes, and enhanced features for better usability.",
+    tags: ["Web App", "UI/UX", "E-Commerce"], 
+    image: [" /clients/client screenshot/nippon-paint.jpeg"],
+    color: "border-red-700",
   },
   {
-    title: "Enterprise Resource Planning",
-    client: "Retail Enterprise",
+    title: "AJES",
+    client: "AJES Corp",
     description:
-      "End-to-end ERP system covering inventory, procurement, sales, and HR modules — deployed across 50+ branches nationwide.",
-    tags: ["ERP", "Full Stack", "Enterprise"],
+      "A textile inventory management system that provides accurate inventory tracking and item-level reporting.",
+    tags: ["Inventory", "Enterprise", "Full Stack"],
+    image: ["/clients/client screenshot/ajes.jpeg"],
     color: "border-orange-400",
   },
   {
-    title: "Mobile Tourism App",
-    client: "DOT Partnership",
+    title: "VALDEZ SECURITY",
+    client: "Valdez Security",
     description:
-      "A cross-platform mobile app connecting tourists with local experiences, cultural heritage sites, and events throughout the Philippines.",
-    tags: ["Mobile", "Flutter", "Tourism"],
+      "A geo-tagging app that allows staff to record their daily time in and time out with location verification.",
+    tags: ["Mobile", "Geolocation", "HR Tech"],
+    image: [" "],
     color: "border-emerald-400",
   },
   {
-    title: "E-Learning Management System",
-    client: "Education Institution",
+    title: "OPTUM",
+    client: "Optum",
     description:
-      "A comprehensive LMS with video conferencing, grading, enrollment, and student analytics — serving 10,000+ students.",
-    tags: ["Web App", "Education", "LMS"],
+      "Corporate events made more engaging through a gamification app that adds excitement and interactive experiences for participants.",
+    tags: ["Gamification", "Mobile App", "Events"],
+    image: [" "],
     color: "border-purple-400",
   },
   {
-    title: "Video Analytics System",
-    client: "Government Agency",
+    title: "BNI",
+    client: "Business Network International",
     description:
-      "AI-powered video surveillance analytics for public safety — with real-time object detection, counting, and anomaly alerts.",
-    tags: ["AI", "Computer Vision", "Security"],
-    color: "border-blue-400",
+      "An event management app that allows participants to register, check in seamlessly during the event, and view the full program details.",
+    tags: ["Event Management", "Mobile", "Registration"], 
+    image: [" "],
+    color: "border-pink-400",
   },
-];
+]; // All tags and client names are placeholders and can be changed later on
+
+function CircleLogoItem({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="mx-5 flex shrink-0 items-center justify-center">
+      <Image
+        src={src}
+        alt={alt}
+        width={72}
+        height={72}
+        className="h-16 w-16 object-contain transition-all duration-300 hover:scale-110"
+      />
+    </div>
+  );
+}
+
+function NoBgLogoItem({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="mx-8 flex shrink-0 items-center justify-center">
+      <Image
+        src={src}
+        alt={alt}
+        width={120}
+        height={48}
+        className="h-10 w-auto object-contain transition-all duration-300 hover:scale-110"
+      />
+    </div>
+  );
+}
+
+function WhiteBgLogoItem({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="mx-5 flex shrink-0 items-center justify-center rounded-xl bg-white/90 px-3 py-2 transition-all duration-300 hover:scale-110">
+      <Image
+        src={src}
+        alt={alt}
+        width={120}
+        height={48}
+        className="h-9 w-auto object-contain"
+      />
+    </div>
+  );
+}
+// Shared fade mask
+const MASK = "mask-[linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]";
 
 export default function ClientsPage() {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -108,8 +182,8 @@ export default function ClientsPage() {
                     <span className="text-muted-foreground">across industries.</span>
                   </h1>
                   <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-                    From government agencies to enterprise brands and startups — we
-                    deliver software that drives real impact.
+                    From small businesses to large corporations, WT Migremo Systems, Inc. <br /> 
+                    delivers software that drives real impact.
                   </p>
                 </div>
               </ScrollAnimation>
@@ -117,9 +191,12 @@ export default function ClientsPage() {
           </section>
         </GridSection>
 
-        {/* ──── Mosaic Logo Grid ──── */}
+        {/* ──── Client Partners Marquee ──── */}
         <GridSection>
-          <section className="py-16 sm:py-24">
+          <section className="relative py-16 sm:py-24 overflow-hidden">
+            {/* Glow effect */}
+            <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[600px] rounded-full bg-[var(--brand)]/[0.08] blur-[100px]" />
+
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <ScrollAnimation variant="fade-up">
                 <div className="mb-10">
@@ -131,49 +208,50 @@ export default function ClientsPage() {
                   </h2>
                 </div>
               </ScrollAnimation>
-
-              {/* Mosaic grid — scattered/asymmetric card layout */}
-              <ScrollAnimation variant="stagger-children" staggerAmount={0.1}>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
-                  {clientLogos.map((client, i) => {
-                    // Varied card sizing for mosaic effect
-                    const sizeClasses = [
-                      "row-span-1 col-span-1",
-                      "row-span-1 col-span-1",
-                      "row-span-1 col-span-1 sm:col-span-2",
-                      "row-span-1 col-span-1",
-                      "row-span-1 col-span-1",
-                      "row-span-1 col-span-1",
-                      "row-span-1 col-span-1 sm:col-span-2",
-                      "row-span-1 col-span-1",
-                      "row-span-1 col-span-1",
-                      "row-span-1 col-span-1",
-                      "row-span-1 col-span-1 sm:col-span-2",
-                      "row-span-1 col-span-1",
-                      "row-span-1 col-span-1",
-                      "row-span-1 col-span-1",
-                      "row-span-1 col-span-1",
-                      "row-span-1 col-span-1 sm:col-span-2",
-                    ];
-                    return (
-                      <div
-                        key={client.name}
-                        className={`${sizeClasses[i % sizeClasses.length]} group flex flex-col items-center justify-center rounded-xl border border-border/80 bg-card/60 p-6 sm:p-8 transition-all hover:bg-accent/60 hover:border-border`}
-                      >
-                        <span className="text-lg font-bold text-foreground/80 group-hover:text-foreground transition-colors sm:text-xl">
-                          {client.name}
-                        </span>
-                        <span className="mt-1 text-xs text-muted-foreground/60 uppercase tracking-wider">
-                          {client.sector}
-                        </span>
-                      </div>
-                    );
-                  })}
-                </div>
-              </ScrollAnimation>
             </div>
-          </section>
-        </GridSection>
+
+            {/* Marquee rows - Client */}
+          <ScrollAnimation variant="fade-up">
+            <div className="mt-10 space-y-8">
+            {/* Row 1 — Circle logos, scrolls left */}
+              <div className={`relative flex overflow-hidden ${MASK}`}>
+                <div className="flex animate-marquee-left items-center">
+                  {circleLogos.map((logo, i) => (
+                    <CircleLogoItem key={`r1a-${i}`} src={logo.src} alt={logo.alt} />
+                  ))}
+                  {circleLogos.map((logo, i) => (
+                    <CircleLogoItem key={`r1b-${i}`} src={logo.src} alt={logo.alt} />
+                  ))}
+                </div>
+              </div>
+
+            {/* Row 2 — No-bg vertical logos, scrolls right */}
+              <div className={`relative flex overflow-hidden ${MASK}`}>
+                <div className="flex animate-marquee-right items-center">
+                  {noBgLogos.map((logo, i) => (
+                    <WhiteBgLogoItem key={`r2a-${i}`} src={logo.src} alt={logo.alt} />
+                  ))}
+                  {noBgLogos.map((logo, i) => (
+                    <WhiteBgLogoItem key={`r2b-${i}`} src={logo.src} alt={logo.alt} />
+                  ))}
+                </div>
+              </div>
+
+            {/* Row 3 — White-bg vertical logos (bg already baked in image), scrolls left */}
+              <div className={`relative flex overflow-hidden ${MASK}`}>
+                <div className="flex animate-marquee-left items-center" style={{ animationDuration: "45s" }}>
+                  {whiteBgLogos.map((logo, i) => (
+                    <NoBgLogoItem key={`r3a-${i}`} src={logo.src} alt={logo.alt} />
+                  ))}
+                  {whiteBgLogos.map((logo, i) => (
+                    <NoBgLogoItem key={`r3b-${i}`} src={logo.src} alt={logo.alt} />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </ScrollAnimation>
+    </section>
+    </GridSection>
 
         {/* ──── Recent Projects Slider ──── */}
         <GridSection bottomLine>
@@ -196,7 +274,8 @@ export default function ClientsPage() {
                       onClick={prevSlide}
                       className="flex h-10 w-10 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:bg-accent/60 hover:text-foreground"
                     >
-                      <ChevronLeft className="h-5 w-5" />
+
+                     <ChevronLeft className="h-5 w-5" />
                     </button>
                     <button
                       onClick={nextSlide}
@@ -220,7 +299,7 @@ export default function ClientsPage() {
                     {recentProjects.map((project, i) => (
                       <div key={i} className="w-full flex-shrink-0 px-1">
                         <div
-                          className={`rounded-2xl border-l-4 ${project.color} border border-border/80 bg-card/60 p-8 sm:p-10 lg:p-12`}
+                          className={`rounded-2xl border-l-4 ${project.color} border border-border/80 bg-card/15 p-8 sm:p-10 lg:p-12`}
                         >
                           <div className="grid gap-6 lg:grid-cols-2">
                             <div>
@@ -245,10 +324,17 @@ export default function ClientsPage() {
                               </div>
                             </div>
                             <div className="flex items-center justify-center">
-                              <div className="h-48 w-full rounded-xl bg-gradient-to-br from-accent/70 to-transparent border border-border/80 flex items-center justify-center">
-                                <span className="text-sm text-foreground/20 uppercase tracking-widest">
-                                  Project Screenshot
-                                </span>
+                              <div className="h-48 w-full rounded-xl bg-linear-to-br from-accent/70 to-transparent border border-border/80 flex items-center justify-center">
+                                {project.image.map((image, index) =>
+                                  image?.trim() ? (
+                                    <img
+                                      key={`${i}-${index}`}
+                                      src={image} 
+                                      alt={`${project.title} image ${index + 1}`}
+                                      className="h-48 w-full rounded-xl object-cover"
+                                    />
+                                  ) : null
+                                )}
                               </div>
                             </div>
                           </div>
@@ -268,7 +354,7 @@ export default function ClientsPage() {
                     className={`h-2 rounded-full transition-all ${
                       activeSlide === i
                         ? "w-8 bg-[var(--brand)]"
-                        : "w-2 bg-muted/60 hover:bg-muted"
+                        : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"
                     }`}
                   />
                 ))}
