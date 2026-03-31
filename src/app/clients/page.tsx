@@ -66,6 +66,7 @@ const recentProjects = [
     description:
       "An improved website experience for customers by adding paint product specifications, color palettes, and enhanced features for better usability.",
     tags: ["Web App", "UI/UX", "E-Commerce"], 
+    image: [" /clients/client screenshot/nippon-paint.jpeg"],
     color: "border-red-700",
   },
   {
@@ -74,6 +75,7 @@ const recentProjects = [
     description:
       "A textile inventory management system that provides accurate inventory tracking and item-level reporting.",
     tags: ["Inventory", "Enterprise", "Full Stack"],
+    image: ["/clients/client screenshot/ajes.jpeg"],
     color: "border-orange-400",
   },
   {
@@ -82,6 +84,7 @@ const recentProjects = [
     description:
       "A geo-tagging app that allows staff to record their daily time in and time out with location verification.",
     tags: ["Mobile", "Geolocation", "HR Tech"],
+    image: [" "],
     color: "border-emerald-400",
   },
   {
@@ -90,6 +93,7 @@ const recentProjects = [
     description:
       "Corporate events made more engaging through a gamification app that adds excitement and interactive experiences for participants.",
     tags: ["Gamification", "Mobile App", "Events"],
+    image: [" "],
     color: "border-purple-400",
   },
   {
@@ -98,6 +102,7 @@ const recentProjects = [
     description:
       "An event management app that allows participants to register, check in seamlessly during the event, and view the full program details.",
     tags: ["Event Management", "Mobile", "Registration"], 
+    image: [" "],
     color: "border-pink-400",
   },
 ]; // All tags and client names are placeholders and can be changed later on
@@ -269,7 +274,8 @@ export default function ClientsPage() {
                       onClick={prevSlide}
                       className="flex h-10 w-10 items-center justify-center rounded-full border border-border/80 text-muted-foreground transition-colors hover:bg-accent/60 hover:text-foreground"
                     >
-                      <ChevronLeft className="h-5 w-5" />
+
+                     <ChevronLeft className="h-5 w-5" />
                     </button>
                     <button
                       onClick={nextSlide}
@@ -318,10 +324,17 @@ export default function ClientsPage() {
                               </div>
                             </div>
                             <div className="flex items-center justify-center">
-                              <div className="h-48 w-full rounded-xl bg-gradient-to-br from-accent/70 to-transparent border border-border/80 flex items-center justify-center">
-                                <span className="text-sm text-foreground/20 uppercase tracking-widest">
-                                  Project Screenshot
-                                </span>
+                              <div className="h-48 w-full rounded-xl bg-linear-to-br from-accent/70 to-transparent border border-border/80 flex items-center justify-center">
+                                {project.image.map((image, index) =>
+                                  image?.trim() ? (
+                                    <img
+                                      key={`${i}-${index}`}
+                                      src={image} 
+                                      alt={`${project.title} image ${index + 1}`}
+                                      className="h-48 w-full rounded-xl object-cover"
+                                    />
+                                  ) : null
+                                )}
                               </div>
                             </div>
                           </div>
