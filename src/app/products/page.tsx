@@ -447,7 +447,7 @@ export default function ProductsPage() {
                               </div>
                             </div>
                           </div>
-                          {/* Reflective light effects on both sides of the monitor */}
+                          {/* Reflective light effects*/}
                           <div className="pointer-events-none absolute top-2 left-0 h-8 w-16 bg-gradient-to-r from-white/30 via-white/0 to-transparent rounded-l-2xl blur-md opacity-40" />
                           <div className="pointer-events-none absolute top-2 right-0 h-8 w-16 bg-gradient-to-l from-white/30 via-white/0 to-transparent rounded-r-2xl blur-md opacity-40" />
                           {/* Keyboard glow */}
