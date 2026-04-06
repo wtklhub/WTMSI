@@ -95,7 +95,7 @@ const saasProducts = [
     color: "text-emerald-400",
     accentBg: "bg-emerald-500/10 border-emerald-500/20",
   },
-  {
+  /*{ - Events Management System to be added later
     icon: PartyPopper,
     name: "Events Management System",
     description:
@@ -114,7 +114,7 @@ const saasProducts = [
     ],
     color: "text-purple-400",
     accentBg: "bg-purple-500/10 border-purple-500/20",
-  },
+  },*/
   {
     icon: Sparkles,
     name: "Coming Soon",
