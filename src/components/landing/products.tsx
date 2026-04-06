@@ -5,13 +5,12 @@ import {
   Package,
   Headphones,
   CalendarCheck,
-  PartyPopper,
-  Sparkles,
   ArrowRight,
 } from "lucide-react";
 import { GridLine } from "./grid-background";
 import { ScrollAnimation } from "./scroll-animations";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 const saasProducts = [
   {
@@ -34,10 +33,26 @@ const saasProducts = [
     tagline: "Simplify reservations and appointment scheduling.",
     color: "text-emerald-400",
     accentBg: "bg-emerald-500/10 border-emerald-500/20",
-  }
+  },
+];
+
+const demoScreens = [
+  "/images/demo-page1.png",
+  "/images/demo-page2.png",
+  "/images/demo-page3.png",
 ];
 
 export function ProductSections() {
+  const [currentScreen, setCurrentScreen] = useState(0);
+
+  // Rotate demo screens every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentScreen((prev) => (prev + 1) % demoScreens.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="products" className="relative py-16 sm:py-24">
       {/* Section glow */}
@@ -53,7 +68,9 @@ export function ProductSections() {
             <h2 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
               SaaS solutions
               <br />
-              <span className="text-muted-foreground">built for real operations.</span>
+              <span className="text-muted-foreground">
+                built for real operations.
+              </span>
             </h2>
             <p className="mt-4 max-w-2xl text-base text-muted-foreground">
               Ready-to-deploy platforms designed to solve the most common
@@ -62,19 +79,20 @@ export function ProductSections() {
           </div>
         </ScrollAnimation>
 
-        {/* Product cards */}
-        <ScrollAnimation variant="stagger-children" staggerAmount={0.15}>
-          <div className="grid gap-px sm:grid-cols-2 lg:grid-cols-3 bg-border/80 rounded-xl overflow-hidden">
+        {/* Two-column layout */}
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+          {/* Left: Vertical product list */}
+          <div className="flex-1 space-y-6 w-full">
             {saasProducts.map((product) => {
               const Icon = product.icon;
               return (
                 <Link
                   key={product.name}
                   href="/products"
-                  className="group flex flex-col bg-background p-6 sm:p-8 transition-colors hover:bg-accent/60"
+                  className="group flex flex-col bg-background p-6 sm:p-8 transition-colors hover:bg-accent/60 rounded-xl"
                 >
                   <div
-                    className={`flex h-12 w-12 items-center justify-center rounded-xl border ${product.accentBg} mb-5`}
+                    className={`flex h-12 w-12 items-center justify-center rounded-xl border ${product.accentBg} mb-3`}
                   >
                     <Icon className={`h-6 w-6 ${product.color}`} />
                   </div>
@@ -84,16 +102,29 @@ export function ProductSections() {
                   <p className="mt-2 text-sm text-muted-foreground leading-relaxed flex-1">
                     {product.tagline}
                   </p>
-                  <div className="mt-4">
-                    <ArrowRight
-                      className={`h-4 w-4 ${product.color} opacity-0 group-hover:opacity-100 transition-opacity`}
-                    />
-                  </div>
                 </Link>
               );
             })}
           </div>
-        </ScrollAnimation>
+
+          {/* Right: Laptop mock-up */}
+          <div className="flex-1 relative w-full max-w-md lg:max-w-lg">
+            {/* Laptop frame (transparent screen area) */}
+            <img
+              src="/images/laptop-frame.png"
+              alt="Laptop Mockup"
+              className="w-full h-auto relative z-10"
+            />
+            {/* Screen overlay */}
+            <div className="absolute top-[14%] left-[14%] w-[74%] h-[70%] overflow-hidden rounded-md shadow-inner">
+              <img
+                src={demoScreens[currentScreen]}
+                alt={`Demo ${currentScreen + 1}`}
+                className="w-full h-full object-cover transition-opacity duration-500"
+              />
+            </div>
+          </div>
+        </div>
 
         <GridLine className="mt-12" />
 
