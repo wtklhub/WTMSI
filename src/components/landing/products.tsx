@@ -108,22 +108,23 @@ export function ProductSections() {
           </div>
 
           {/* Right: Laptop mock-up */}
-          <div className="flex-1 relative w-full max-w-md lg:max-w-lg">
-            {/* Laptop frame (transparent screen area) */}
-            <img
-              src="/images/laptop-frame.png"
-              alt="Laptop Mockup"
-              className="w-full h-auto relative z-10"
-            />
-            {/* Screen overlay */}
-            <div className="absolute top-[14%] left-[14%] w-[74%] h-[70%] overflow-hidden rounded-md shadow-inner">
+            <div className="flex-1 relative w-full max-w-xl lg:max-w-2xl">
+              {/* Laptop frame */}
               <img
-                src={demoScreens[currentScreen]}
-                alt={`Demo ${currentScreen + 1}`}
-                className="w-full h-full object-cover transition-opacity duration-500"
+                src="/images/laptop-frame.png"
+                alt="Laptop Mockup"
+                className="w-full h-auto relative z-10"
               />
+
+              {/* Screen overlay */}
+              <div className="absolute top-[14%] left-[12%] w-[76%] h-[65%] overflow-hidden rounded-md shadow-inner">
+                <img
+                  src={demoScreens[currentScreen]}
+                  alt={`Demo ${currentScreen + 1}`}
+                  className="w-full h-full object-cover transition-opacity duration-500"
+                />
+              </div>
             </div>
-          </div>
         </div>
 
         <GridLine className="mt-12" />
