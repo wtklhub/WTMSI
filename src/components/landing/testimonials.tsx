@@ -1,33 +1,35 @@
 import { Quote } from "lucide-react";
 import { GridLine } from "./grid-background";
 
-const testimonials = [
-  {
-    quote:
-      "WT Migremo delivered exactly what we needed — a system that actually understands our business workflow. Their team took the time to dig into our processes before writing a single line of code.",
-    author: "Operations Director",
-    company: "Retail Enterprise Client",
-    avatar: "RE",
-    avatarBg: "bg-[var(--brand)]/20 text-[var(--brand)]",
-  },
-  {
-    quote:
-      "What impressed us most was their ability to turn complex government requirements into an intuitive platform. They made the impossible feel straightforward.",
-    author: "IT Department Head",
-    company: "Government Agency",
-    avatar: "GA",
-    avatarBg: "bg-emerald-500/20 text-emerald-400",
-  },
-  {
-    quote:
-      "From concept to deployment, the WTMSI team was with us every step. They didn't just build an app — they became an extension of our team and helped us rethink our entire digital strategy.",
-    author: "CTO",
-    company: "Education Technology Startup",
-    avatar: "ET",
-    avatarBg: "bg-purple-500/20 text-purple-400",
-  },
-];
+// Testimonials - currently hidden
+// const testimonials = [
+//   {
+//     quote:
+//       "WT Migremo delivered exactly what we needed — a system that actually understands our business workflow. Their team took the time to dig into our processes before writing a single line of code.",
+//     author: "Operations Director",
+//     company: "Retail Enterprise Client",
+//     avatar: "RE",
+//     avatarBg: "bg-[var(--brand)]/20 text-[var(--brand)]",
+//   },
+//   {
+//     quote:
+//       "What impressed us most was their ability to turn complex government requirements into an intuitive platform. They made the impossible feel straightforward.",
+//     author: "IT Department Head",
+//     company: "Government Agency",
+//     avatar: "GA",
+//     avatarBg: "bg-emerald-500/20 text-emerald-400",
+//   },
+//   {
+//     quote:
+//       "From concept to deployment, the WTMSI team was with us every step. They didn't just build an app — they became an extension of our team and helped us rethink our entire digital strategy.",
+//     author: "CTO",
+//     company: "Education Technology Startup",
+//     avatar: "ET",
+//     avatarBg: "bg-purple-500/20 text-purple-400",
+//   },
+// ];
 
+// Original stats
 const stats = [
   {
     value: "15+",
@@ -44,6 +46,13 @@ const stats = [
     label: "successful projects delivered on time",
     color: "text-emerald-400",
   },
+];
+
+// New industry statistics
+const industryStats = [
+  { value: "99.5%", label: "businesses are MSMEs", color: "text-[var(--brand)]" },
+  { value: "86%", label: "SMEs say digital technology is essential but cost and complexity remain major barriers", color: "text-orange-400" },
+  { value: "10%", label: "are digitally advanced", color: "text-emerald-400" },
 ];
 
 export function TestimonialsSection() {
@@ -65,7 +74,8 @@ export function TestimonialsSection() {
           </h2>
         </div>
 
-        {/* Testimonial cards */}
+        {/* Testimonial cards - hidden */}
+        {/*
         <div className="grid gap-px md:grid-cols-3">
           {testimonials.map((t, i) => (
             <div
@@ -90,8 +100,26 @@ export function TestimonialsSection() {
             </div>
           ))}
         </div>
+        */}
 
-        {/* Stats */}
+        {/* New industry statistics */}
+        <div className="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+          {industryStats.map((stat) => (
+            <div key={stat.value} className="flex flex-col items-center">
+              {/* Red circle with white number */}
+              <div className="flex items-center justify-center w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-red-600">
+                <p className="text-white text-2xl sm:text-4xl font-bold">{stat.value}</p>
+              </div>
+              {/* Label below circle */}
+              <p className="mt-4 text-xs sm:text-sm text-muted-foreground leading-snug max-w-[12rem]">
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </div>
+
+
+        {/* Original stats */}
         <GridLine className="mt-12 sm:mt-16" />
         <div className="grid grid-cols-1 sm:grid-cols-3">
           {stats.map((stat, i) => (
@@ -111,6 +139,8 @@ export function TestimonialsSection() {
           ))}
         </div>
         <GridLine />
+
+        
 
         {/* Watatrip spotlight */}
         <div className="mt-12 sm:mt-16 rounded-xl border border-border/80 bg-card/60 p-6 sm:p-10">
