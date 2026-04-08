@@ -37,15 +37,15 @@ const saasProducts = [
 ];
 
 const demoScreens = [
-  "/images/demo-page1.png",
-  "/images/demo-page2.png",
-  "/images/demo-page3.png",
+  ...Array.from({ length: 3 }, (_, i) => `/images/booking-${i + 1}.png`),
+  ...Array.from({ length: 3 }, (_, i) => `/images/helpdesk-${i + 1}.png`),
+  ...Array.from({ length: 3 }, (_, i) => `/images/inventory-${i + 1}.png`),
 ];
 
 export function ProductSections() {
   const [currentScreen, setCurrentScreen] = useState(0);
 
-  // Rotate demo screens every 3 seconds
+  // Auto-rotate screens
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentScreen((prev) => (prev + 1) % demoScreens.length);
@@ -55,11 +55,11 @@ export function ProductSections() {
 
   return (
     <section id="products" className="relative py-16 sm:py-24">
-      {/* Section glow */}
+      {/* Glow */}
       <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[400px] w-[800px] rounded-full bg-[var(--brand)]/[0.03] blur-[150px]" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
+        {/* Header */}
         <ScrollAnimation variant="fade-up">
           <div className="mb-12 sm:mb-20">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand)] mb-4">
@@ -79,9 +79,10 @@ export function ProductSections() {
           </div>
         </ScrollAnimation>
 
-        {/* Two-column layout */}
+        {/* Content */}
         <div className="flex flex-col lg:flex-row items-center gap-12">
-          {/* Left: Vertical product list */}
+          
+          {/* LEFT */}
           <div className="flex-1 space-y-6 w-full">
             {saasProducts.map((product) => {
               const Icon = product.icon;
@@ -107,29 +108,66 @@ export function ProductSections() {
             })}
           </div>
 
-          {/* Right: Laptop mock-up */}
-            <div className="flex-1 relative w-full max-w-xl lg:max-w-2xl">
-              {/* Laptop frame */}
-              <img
-                src="/images/laptop-frame.png"
-                alt="Laptop Mockup"
-                className="w-full h-auto relative z-10"
-              />
+          {/* RIGHT - CODE LAPTOP MOCKUP */}
+          <div className="flex-1 flex items-center justify-center">
+            <div className="relative mx-auto max-w-2xl w-full px-4 sm:px-10">
 
-              {/* Screen overlay */}
-              <div className="absolute top-[14%] left-[12%] w-[76%] h-[65%] overflow-hidden rounded-md shadow-inner">
-                <img
-                  src={demoScreens[currentScreen]}
-                  alt={`Demo ${currentScreen + 1}`}
-                  className="w-full h-full object-cover transition-opacity duration-500"
-                />
+              {/* Screen */}
+              <div className="relative overflow-hidden rounded-t-3xl bg-zinc-950 p-3 shadow-2xl">
+                
+                {/* Notch */}
+                <div className="absolute inset-x-0 top-0 flex items-center justify-center z-20">
+                  <div className="relative flex h-6 w-24 items-center justify-center">
+                    <div className="absolute left-1/2 -translate-x-1/2 top-0 h-6 w-22 rounded-b-2xl bg-zinc-900 border-b border-zinc-800" />
+                    <div className="relative z-10 flex items-center justify-center w-full">
+                      <div className="mx-auto h-1.5 w-1.5 rounded-full bg-zinc-700 border border-zinc-600" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Reflections */}
+                <div className="pointer-events-none absolute top-2 left-0 h-8 w-16 bg-gradient-to-r from-white/30 to-transparent blur-md opacity-40" />
+                <div className="pointer-events-none absolute top-2 right-0 h-8 w-16 bg-gradient-to-l from-white/30 to-transparent blur-md opacity-40" />
+
+                {/* SCREEN CONTENT */}
+                <div className="aspect-[16/10] w-full overflow-hidden rounded-t-2xl flex items-center justify-center">
+                  <img
+                    key={currentScreen}
+                    src={demoScreens[currentScreen]}
+                    alt={`Demo ${currentScreen + 1}`}
+                    className="w-full h-full object-cover object-top opacity-0 scale-95 animate-[fadeInScreen_0.8s_ease-out_forwards]"
+                  />
+                </div>
+
+                {/* Glow */}
+                <div className="absolute inset-x-10 bottom-0 h-2 bg-white blur-xl" />
+
+                {/* Animation */}
+                <style jsx global>{`
+                  @keyframes fadeInScreen {
+                    0% { opacity: 0; transform: scale(0.95); }
+                    100% { opacity: 1; transform: scale(1); }
+                  }
+                `}</style>
+              </div>
+
+              {/* Base */}
+              <div className="-mx-10 pb-1">
+                <div className="relative h-4 w-full rounded-b-2xl bg-gradient-to-r from-zinc-800 via-zinc-950 to-zinc-800">
+                  <div className="absolute inset-0 flex items-start justify-center">
+                    <div className="h-2 w-20 rounded-b-md border-x border-b border-zinc-600/25 bg-gradient-to-r from-zinc-800 via-zinc-700 to-zinc-800 opacity-75" />
+                  </div>
+                  <div className="absolute -bottom-1 left-8 h-1 w-10 rounded-b-full bg-zinc-900" />
+                  <div className="absolute right-8 -bottom-1 h-1 w-10 rounded-b-full bg-zinc-900" />
+                </div>
               </div>
             </div>
+          </div>
         </div>
 
         <GridLine className="mt-12" />
 
-        {/* Bottom CTA */}
+        {/* CTA */}
         <ScrollAnimation variant="zoom-in" delay={0.2}>
           <div className="mt-12 text-center">
             <Link href="/products">
