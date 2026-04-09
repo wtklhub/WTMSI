@@ -115,10 +115,10 @@ const sampleWorkCategories = [
     description:
       "Dynamic video content optimized for Instagram Reels, TikTok, and Facebook Stories.",
     type: "video",
-    featured: "/sample works/Sample Works (Reels-Short Form)/Nissan Kicks Test Drive Video 01 .mp4",
+    featured: "/sample works/Sample Works (Reels-Short Form)/IG & TIKTOK - Negros Island Trivia (PH Trivia Video).mp4",
     items: [
-      "/sample works/Sample Works (Reels-Short Form)/Nissan Kicks Test Drive Video 01 .mp4",
-      /*"/sample works/Sample Works (Reels-Short Form)/WTMSI_If This Is You… It's Time to Break Up with Excel_ (Reel post)_w TTS.mp4",*/
+      /*"/sample works/Sample Works (Reels-Short Form)/Nissan Kicks Test Drive Video 01 .mp4",
+      "/sample works/Sample Works (Reels-Short Form)/WTMSI_If This Is You… It's Time to Break Up with Excel_ (Reel post)_w TTS.mp4",*/
       "/sample works/Sample Works (Reels-Short Form)/IG & TIKTOK - Negros Island Trivia (PH Trivia Video).mp4",
       "/sample works/Sample Works (Reels-Short Form)/PositivBeauty Teaser - Life doesn_t have to be....mp4",
     ],
