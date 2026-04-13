@@ -104,10 +104,9 @@ const sampleWorkCategories = [
     description:
       "Clean, branded single-image posts with impactful typography and messaging.",
     type: "video",
-    featured: "/sample works/Sample Works (Animated Posts)/SL - Mimi Needs Her Nap.mp4",
+    featured: "/sample works/Sample Works (Video)/I just want you to know....mp4",
     items: [
-      "/sample works/Sample Works (Animated Posts)/SL - Mimi Needs Her Nap.mp4",
-      "/sample works/Sample Works (Animated Posts)/I just want you to know....mp4",
+      "/sample works/Sample Works (Video)/I just want you to know....mp4"
     ],
   },
   {
@@ -115,12 +114,11 @@ const sampleWorkCategories = [
     description:
       "Dynamic video content optimized for Instagram Reels, TikTok, and Facebook Stories.",
     type: "video",
-    featured: "/sample works/Sample Works (Reels-Short Form)/IG & TIKTOK - Negros Island Trivia (PH Trivia Video).mp4",
+    featured: "/sample works/Sample Works (Video)/YT - 120-187 languages in PH (Trivia Video).mp4",
     items: [
       /*"/sample works/Sample Works (Reels-Short Form)/Nissan Kicks Test Drive Video 01 .mp4",
       "/sample works/Sample Works (Reels-Short Form)/WTMSI_If This Is You… It's Time to Break Up with Excel_ (Reel post)_w TTS.mp4",*/
-      "/sample works/Sample Works (Reels-Short Form)/IG & TIKTOK - Negros Island Trivia (PH Trivia Video).mp4",
-      "/sample works/Sample Works (Reels-Short Form)/PositivBeauty Teaser - Life doesn_t have to be....mp4",
+      "/sample works/Sample Works (Video)/YT - 120-187 languages in PH (Trivia Video).mp4",
     ],
   },
 ];
