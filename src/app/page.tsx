@@ -4,6 +4,7 @@ import {
   AboutSection,
   ProductSections,
   UseCasesSection,
+  SaaSGapSection,
   TestimonialsSection,
   IntegrationsSection,
   PartnersSection,
@@ -11,7 +12,7 @@ import {
   CTASection,
   Footer,
   GridLayout,
-  GridSection,
+  GridSection
 } from "@/components/landing";
 
 export default function Home() {
@@ -33,6 +34,9 @@ export default function Home() {
         </GridSection>
         <GridSection>
           <UseCasesSection />
+        </GridSection>
+        <GridSection> 
+          <SaaSGapSection />  
         </GridSection>
         <GridSection>
           <TestimonialsSection />
