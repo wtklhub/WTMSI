@@ -5,21 +5,20 @@ import {
   Package,
   Headphones,
   CalendarCheck,
-  PartyPopper,
-  Sparkles,
   ArrowRight,
 } from "lucide-react";
 import { GridLine } from "./grid-background";
 import { ScrollAnimation } from "./scroll-animations";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 const saasProducts = [
   {
     icon: Package,
     name: "Inventory Management System",
     tagline: "Track, manage, and optimize your inventory in real time.",
-    color: "text-[#c60000]",
-    accentBg: "bg-[#c60000]/10 border-[#c60000]/20",
+    color: "text-[var(--brand)]",
+    accentBg: "bg-[var(--brand)]/10 border-[var(--brand)]/20",
   },
   {
     icon: Headphones,
@@ -34,74 +33,145 @@ const saasProducts = [
     tagline: "Simplify reservations and appointment scheduling.",
     color: "text-emerald-400",
     accentBg: "bg-emerald-500/10 border-emerald-500/20",
-  }
+  },
+];
+
+const demoScreens = [
+  ...Array.from({ length: 3 }, (_, i) => `/images/booking-${i + 1}.png`),
+  ...Array.from({ length: 3 }, (_, i) => `/images/helpdesk-${i + 1}.png`),
+  ...Array.from({ length: 3 }, (_, i) => `/images/inventory-${i + 1}.png`),
 ];
 
 export function ProductSections() {
+  const [currentScreen, setCurrentScreen] = useState(0);
+
+  // Auto-rotate screens
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentScreen((prev) => (prev + 1) % demoScreens.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="products" className="relative py-16 sm:py-24">
-      {/* Section glow */}
-      <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[400px] w-[800px] rounded-full bg-[#c60000]/[0.03] blur-[150px]" />
+      {/* Glow */}
+      <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[400px] w-[800px] rounded-full bg-[var(--brand)]/[0.03] blur-[150px]" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
+        {/* Header */}
         <ScrollAnimation variant="fade-up">
           <div className="mb-12 sm:mb-20">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c60000] mb-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand)] mb-4">
               Our Products
             </p>
-            <h2 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+            <h2 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
               SaaS solutions
               <br />
-              <span className="text-[#c7c8bd]">built for real operations.</span>
+              <span className="text-muted-foreground">
+                built for real operations.
+              </span>
             </h2>
-            <p className="mt-4 max-w-2xl text-base text-[#c7c8bd]">
+            <p className="mt-4 max-w-2xl text-base text-muted-foreground">
               Ready-to-deploy platforms designed to solve the most common
               business challenges — customizable to your exact workflow.
             </p>
           </div>
         </ScrollAnimation>
 
-        {/* Product cards */}
-        <ScrollAnimation variant="stagger-children" staggerAmount={0.15}>
-          <div className="grid gap-px sm:grid-cols-2 lg:grid-cols-3 bg-white/[0.08] rounded-xl overflow-hidden">
+        {/* Content */}
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+          
+          {/* LEFT */}
+          <div className="flex-1 space-y-6 w-full">
             {saasProducts.map((product) => {
               const Icon = product.icon;
               return (
                 <Link
                   key={product.name}
                   href="/products"
-                  className="group flex flex-col bg-[#282828] p-6 sm:p-8 transition-colors hover:bg-white/[0.03]"
+                  className="group flex flex-col bg-background p-6 sm:p-8 transition-colors hover:bg-accent/60 rounded-xl"
                 >
                   <div
-                    className={`flex h-12 w-12 items-center justify-center rounded-xl border ${product.accentBg} mb-5`}
+                    className={`flex h-12 w-12 items-center justify-center rounded-xl border ${product.accentBg} mb-3`}
                   >
                     <Icon className={`h-6 w-6 ${product.color}`} />
                   </div>
-                  <h3 className="text-lg font-bold text-white group-hover:text-[#c60000] transition-colors">
+                  <h3 className="text-lg font-bold text-foreground group-hover:text-[var(--brand)] transition-colors">
                     {product.name}
                   </h3>
-                  <p className="mt-2 text-sm text-[#c7c8bd] leading-relaxed flex-1">
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed flex-1">
                     {product.tagline}
                   </p>
-                  <div className="mt-4">
-                    <ArrowRight
-                      className={`h-4 w-4 ${product.color} opacity-0 group-hover:opacity-100 transition-opacity`}
-                    />
-                  </div>
                 </Link>
               );
             })}
           </div>
-        </ScrollAnimation>
+
+          {/* RIGHT - CODE LAPTOP MOCKUP */}
+          <div className="flex-1 flex items-center justify-center">
+            <div className="relative mx-auto max-w-2xl w-full px-4 sm:px-10">
+
+              {/* Screen */}
+              <div className="relative overflow-hidden rounded-t-3xl bg-zinc-950 p-3 shadow-2xl">
+                
+                {/* Notch */}
+                <div className="absolute inset-x-0 top-0 flex items-center justify-center z-20">
+                  <div className="relative flex h-6 w-24 items-center justify-center">
+                    <div className="absolute left-1/2 -translate-x-1/2 top-0 h-6 w-22 rounded-b-2xl bg-zinc-900 border-b border-zinc-800" />
+                    <div className="relative z-10 flex items-center justify-center w-full">
+                      <div className="mx-auto h-1.5 w-1.5 rounded-full bg-zinc-700 border border-zinc-600" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Reflections */}
+                <div className="pointer-events-none absolute top-2 left-0 h-8 w-16 bg-gradient-to-r from-white/30 to-transparent blur-md opacity-40" />
+                <div className="pointer-events-none absolute top-2 right-0 h-8 w-16 bg-gradient-to-l from-white/30 to-transparent blur-md opacity-40" />
+
+                {/* SCREEN CONTENT */}
+                <div className="aspect-[16/10] w-full overflow-hidden rounded-t-2xl flex items-center justify-center">
+                  <img
+                    key={currentScreen}
+                    src={demoScreens[currentScreen]}
+                    alt={`Demo ${currentScreen + 1}`}
+                    className="w-full h-full object-cover object-top opacity-0 scale-95 animate-[fadeInScreen_0.8s_ease-out_forwards]"
+                  />
+                </div>
+
+                {/* Glow */}
+                <div className="absolute inset-x-10 bottom-0 h-2 bg-white blur-xl" />
+
+                {/* Animation */}
+                <style jsx global>{`
+                  @keyframes fadeInScreen {
+                    0% { opacity: 0; transform: scale(0.95); }
+                    100% { opacity: 1; transform: scale(1); }
+                  }
+                `}</style>
+              </div>
+
+              {/* Base */}
+              <div className="-mx-10 pb-1">
+                <div className="relative h-4 w-full rounded-b-2xl bg-gradient-to-r from-zinc-800 via-zinc-950 to-zinc-800">
+                  <div className="absolute inset-0 flex items-start justify-center">
+                    <div className="h-2 w-20 rounded-b-md border-x border-b border-zinc-600/25 bg-gradient-to-r from-zinc-800 via-zinc-700 to-zinc-800 opacity-75" />
+                  </div>
+                  <div className="absolute -bottom-1 left-8 h-1 w-10 rounded-b-full bg-zinc-900" />
+                  <div className="absolute right-8 -bottom-1 h-1 w-10 rounded-b-full bg-zinc-900" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <GridLine className="mt-12" />
 
-        {/* Bottom CTA */}
+        {/* CTA */}
         <ScrollAnimation variant="zoom-in" delay={0.2}>
           <div className="mt-12 text-center">
             <Link href="/products">
-              <Button className="bg-[#c60000] text-white hover:bg-[#a50000] gap-2 shadow-lg shadow-[#c60000]/20">
+              <Button className="bg-[var(--brand)] text-[var(--brand-foreground)] hover:bg-[var(--brand-hover)] gap-2 shadow-lg shadow-red-500/20">
                 View All Products & Services
                 <ArrowRight className="h-4 w-4" />
               </Button>
