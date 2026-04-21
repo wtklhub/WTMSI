@@ -14,7 +14,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="dark">
+      <head>
+        {/* Inline script prevents flash of wrong theme before React hydrates */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body className="font-sans antialiased">
         <ThemeProvider>{children}</ThemeProvider>
       </body>

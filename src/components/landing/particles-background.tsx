@@ -6,7 +6,7 @@ import { loadSlim } from "@tsparticles/slim";
 import type { ISourceOptions } from "@tsparticles/engine";
 import { useTheme } from "@/hooks/use-theme";
 
-export function ParticlesBackground() {
+export function ParticlesBackground({ id = "particles-bg" }: { id?: string }) {
   const [init, setInit] = useState(false);
   const { theme } = useTheme();
 
@@ -135,7 +135,7 @@ export function ParticlesBackground() {
 
   return (
     <Particles
-      id="hero-particles"
+      id={id}
       className="absolute inset-0 z-0"
       options={particlesConfig}
       particlesLoaded={particlesLoaded}

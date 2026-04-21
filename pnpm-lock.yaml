@@ -41,6 +41,9 @@ importers:
       react-dom:
         specifier: 19.2.3
         version: 19.2.3(react@19.2.3)
+      simple-icons:
+        specifier: ^16.17.0
+        version: 16.17.0
       tailwind-merge:
         specifier: ^3.4.0
         version: 3.5.0
@@ -3452,6 +3455,10 @@ packages:
   signal-exit@4.1.0:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==, tarball: https://registry.npmjs.org/signal-exit/-/signal-exit-4.1.0.tgz}
     engines: {node: '>=14'}
+
+  simple-icons@16.17.0:
+    resolution: {integrity: sha512-bRrGtzM6NLgxeMWmRcfDdrRksECk101lRrCn6jjj6qzUB6lQ+E5smnr52rqS1kLPmbLpS/g6iF463j50M4BT7A==, tarball: https://registry.npmjs.org/simple-icons/-/simple-icons-16.17.0.tgz}
+    engines: {node: '>=0.12.18'}
 
   sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==, tarball: https://registry.npmjs.org/sisteransi/-/sisteransi-1.0.5.tgz}
@@ -7596,6 +7603,8 @@ snapshots:
   signal-exit@3.0.7: {}
 
   signal-exit@4.1.0: {}
+
+  simple-icons@16.17.0: {}
 
   sisteransi@1.0.5: {}
 

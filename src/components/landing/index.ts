@@ -3,6 +3,7 @@ export { HeroSection } from "./hero";
 export { AboutSection } from "./about";
 export { ProductSections } from "./products";
 export { UseCasesSection } from "./use-cases";
+export { SaaSGapSection } from "./saas-gap";
 export { TestimonialsSection } from "./testimonials";
 export { IntegrationsSection } from "./integrations";
 export { PartnersSection } from "./partners";
