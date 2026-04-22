@@ -26,10 +26,6 @@ import {
   ChevronLeft,
   ChevronRight,
   ArrowRight,
-  FileText,
-  CheckSquare,
-  Handshake,
-  Rocket,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -127,48 +123,58 @@ const sampleWorkCategories = [
 const workProcess = [
   {
     step: "01",
-    icon: Phone,
+    imageDark: "/lineart/line-icons/2.png",
+    imageLight: "/lineart/line-icons/1.png",
     title: "Book an Assessment Call",
     description:
       "Let's discuss your brand, goals, and current social media presence in a free discovery call.",
     color: "text-[var(--brand)]",
+    glowColor: "bg-[var(--brand)]",
     accentBg: "bg-[var(--brand)]/10 border-[var(--brand)]/20",
   },
   {
     step: "02",
-    icon: FileText,
+    imageDark: "/lineart/line-icons/4.png",
+    imageLight: "/lineart/line-icons/3.png",
     title: "Wait for Quotation",
     description:
       "We'll prepare a custom proposal based on your needs, complete with pricing and timeline.",
     color: "text-orange-400",
+    glowColor: "bg-orange-400",
     accentBg: "bg-orange-500/10 border-orange-500/20",
   },
   {
     step: "03",
-    icon: CheckSquare,
+    imageDark: "/lineart/line-icons/6.png",
+    imageLight: "/lineart/line-icons/5.png",
     title: "Sign Onboarding Form",
     description:
       "Fill out our onboarding questionnaire so we can understand your brand voice and preferences.",
     color: "text-emerald-400",
+    glowColor: "bg-emerald-400",
     accentBg: "bg-emerald-500/10 border-emerald-500/20",
   },
   {
     step: "04",
-    icon: Handshake,
+    imageDark: "/lineart/line-icons/8.png",
+    imageLight: "/lineart/line-icons/7.png",
     title: "Initial Meeting",
     description:
       "We align on strategy, content calendar, and key deliverables in a kickoff meeting.",
-    color: "text-purple-400",
-    accentBg: "bg-purple-400/10 border-purple-400/20",
+    color: "text-violet-400",
+    glowColor: "bg-violet-400",
+    accentBg: "bg-violet-500/10 border-violet-500/20",
   },
   {
     step: "05",
-    icon: Rocket,
+    imageDark: "/lineart/line-icons/10.png",
+    imageLight: "/lineart/line-icons/9.png",
     title: "Project Kickoff",
     description:
       "We start creating, posting, and managing — with regular check-ins and performance reports.",
-    color: "text-blue-400",
-    accentBg: "bg-blue-400/10 border-blue-400/20",
+    color: "text-cyan-400",
+    glowColor: "bg-cyan-400",
+    accentBg: "bg-cyan-500/10 border-cyan-500/20",
   },
 ];
 
@@ -182,7 +188,7 @@ const faqs = [
   {
     question: "How long before I see results?",
     answer:
-      "Most clients see improved engagement within the first 30 days. Significant growth in reach and followers typically happens within 2-3 months of consistent effort.",
+      "Results may vary. There’s no one-size-fits-all formula for social media growth and success. What works for one brand may not work for another. Success requires a continuous cycle of testing, learning, and consistency.",
   },
   {
     question: "Do you create the content or do I need to provide it?",
@@ -268,7 +274,7 @@ export default function DigitalPage() {
                   <div className="mt-8 flex flex-wrap gap-3">
                     <a href="#contact-form">
                       <Button className="bg-[var(--brand)] text-[var(--brand-foreground)] hover:bg-[var(--brand-hover)] gap-2 shadow-lg shadow-red-500/20">
-                        Book a Free Call
+                        Let's talk!
                         <Phone className="h-4 w-4" />
                       </Button>
                     </a>
@@ -576,7 +582,8 @@ export default function DigitalPage() {
                 <div className="relative px-4">
                   <div className="grid gap-6 sm:gap-8 sm:grid-cols-5">
                     {workProcess.map((step, idx) => {
-                      const Icon = step.icon;
+                      const { theme } = useThemeContext();
+                      const imageSrc = theme === "dark" ? step.imageLight: step.imageDark ;
                       return (
                         <div
                           key={step.step}
@@ -584,9 +591,15 @@ export default function DigitalPage() {
                         >
                           {/* Icon Background Circle */}
                           <div className="relative mb-6 transition-all duration-300 group-hover:scale-110">
-                            <div className={`absolute inset-0 rounded-full blur-xl opacity-15 group-hover:opacity-40 transition-opacity duration-300 ${step.color.replace('text-', 'bg-')}`} />
-                            <div className={`relative h-20 w-20 rounded-full ${step.accentBg} border flex items-center justify-center transition-all duration-300 group-hover:${step.color.replace('text-', 'bg-')}/20`}>
-                              <Icon className={`h-9 w-9 ${step.color}`} />
+                            <div className={`absolute inset-0 rounded-full blur-xl opacity-10 group-hover:opacity-30 transition-opacity duration-300 ${step.glowColor}`} />
+                            <div className={`relative h-20 w-20 rounded-full ${step.accentBg} border flex items-center justify-center transition-all duration-300 hover:shadow-lg`} style={{ boxShadow: `0 0 20px ${step.glowColor.replace('bg-', '')}40` }}>
+                              <Image
+                                src={imageSrc}
+                                alt={step.title}
+                                width={55}
+                                height={55}
+                                className="h-17 w-17 object-contain"
+                              />
                             </div>
                           </div>
 
@@ -637,7 +650,7 @@ export default function DigitalPage() {
               </ScrollAnimation>
 
               <ScrollAnimation variant="stagger-children" staggerAmount={0.08}>
-                <div className="max-w-3xl space-y-2">
+                <div className="mx-auto max-w-3xl space-y-2">
                   {faqs.map((faq, i) => (
                     <div
                       key={i}
