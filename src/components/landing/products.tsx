@@ -130,25 +130,24 @@ export function ProductSections() {
                 <div className="pointer-events-none absolute top-2 right-0 h-8 w-16 bg-gradient-to-l from-white/30 to-transparent blur-md opacity-40" />
 
                 {/* SCREEN CONTENT */}
-                <div className="aspect-[16/10] w-full overflow-hidden rounded-t-2xl flex items-center justify-center">
-                  <img
-                    key={currentScreen}
-                    src={demoScreens[currentScreen]}
-                    alt={`Demo ${currentScreen + 1}`}
-                    className="w-full h-full object-cover object-top opacity-0 scale-95 animate-[fadeInScreen_0.8s_ease-out_forwards]"
-                  />
+                <div className="aspect-[16/10] w-full overflow-hidden rounded-t-2xl relative">
+                  {demoScreens.map((src, i) => (
+                    <img
+                      key={src}
+                      src={src}
+                      alt={`Demo ${i + 1}`}
+                      loading={i === 0 ? "eager" : "lazy"}
+                      className={`absolute inset-0 w-full h-full object-cover object-top transition-all duration-1000 ease-in-out ${
+                        i === currentScreen
+                          ? "opacity-100 translate-x-0 z-10"
+                          : "opacity-0 -translate-x-10 z-0"
+                      }`}
+                    />
+                  ))}
                 </div>
 
                 {/* Glow */}
                 <div className="absolute inset-x-10 bottom-0 h-2 bg-white blur-xl" />
-
-                {/* Animation */}
-                <style jsx global>{`
-                  @keyframes fadeInScreen {
-                    0% { opacity: 0; transform: scale(0.95); }
-                    100% { opacity: 1; transform: scale(1); }
-                  }
-                `}</style>
               </div>
 
               {/* Base */}

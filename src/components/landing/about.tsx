@@ -286,7 +286,7 @@ export function AboutSection() {
                     {/* Screen */}
                     <div className="relative overflow-hidden rounded-[1.5rem] bg-gradient-to-b from-[#1a1a2e] to-[#16213e]">
                       <img
-                        src="/watatrip.png"
+                        src="/watatrip-app.png"
                         alt="Watatrip App Interface"
                         className="h-[360px] w-full object-cover object-top"
                       />
