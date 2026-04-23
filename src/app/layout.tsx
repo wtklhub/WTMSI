@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
+import { ReactQueryProvider } from "@/providers/react-query-provider";
 
 export const metadata: Metadata = {
   title: "WT Migremo Systems, Inc. — Software Solutions: Your Vision, Our Code",
@@ -24,7 +25,9 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased">
-        <ThemeProvider>{children}</ThemeProvider>
+        <ReactQueryProvider>
+          <ThemeProvider>{children}</ThemeProvider>
+        </ReactQueryProvider>
       </body>
     </html>
   );
