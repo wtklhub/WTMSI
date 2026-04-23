@@ -114,18 +114,19 @@ const saasProducts = [
     ],
     color: "text-purple-400",
     accentBg: "bg-purple-500/10 border-purple-500/20",
-  },*/
-  {
-    icon: Sparkles,
-    name: "Coming Soon",
-    description:
-      "We're currently developing our next SaaS product. Stay tuned for updates — it's going to be something special.",
-    features: [],
-    images: [],
-    color: "text-blue-400",
-    accentBg: "bg-blue-500/10 border-blue-500/20",
-  },
+  }*/
 ];
+
+const comingSoonProduct = {
+  icon: Sparkles,
+  name: "Coming Soon",
+  description:
+    "We're currently developing our next SaaS product. Stay tuned for updates — it's going to be something special.",
+  features: [],
+  images: [],
+  color: "text-blue-400",
+  accentBg: "bg-blue-500/10 border-blue-500/20",
+};
 
 /* ──── Custom Dev Services ──── */
 const customServices = [
@@ -251,7 +252,7 @@ export default function ProductsPage() {
                                     {product.name}
                                   </h3>
                                 </div>
-                                <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
+                                <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl text-left">
                                   {product.description}
                                 </p>
                               </div>
@@ -359,7 +360,7 @@ export default function ProductsPage() {
                         <h3 className="text-lg font-bold text-foreground mb-2">
                           {service.title}
                         </h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                        <p className="text-sm text-muted-foreground leading-relaxed mb-4 text-left">
                           {service.description}
                         </p>
                         <div className="flex flex-wrap gap-2">
@@ -384,7 +385,7 @@ export default function ProductsPage() {
                 <div className="mt-10 text-center">
                   <Link href="/contact">
                     <Button className="bg-[var(--brand)] text-[var(--brand-foreground)] hover:bg-[var(--brand-hover)] gap-2 shadow-lg shadow-red-500/20">
-                      Book a Call
+                      Let's schedule a call and discuss!
                       <ArrowRight className="h-4 w-4" />
                     </Button>
                   </Link>
@@ -486,6 +487,54 @@ export default function ProductsPage() {
             </div>
           </section>
         </GridSection>
+
+        {/* ──── Section 4: Coming Soon ──── */}
+        <GridSection>
+          <section className="py-16 sm:py-24">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <ScrollAnimation variant="fade-up">
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
+                    WE'RE DEVELOPING MORE SYSTEMS
+                  </h2>
+                  <p className="mt-3 max-w-xl text-muted-foreground">
+                    If you have any software requirements that aren't listed here, feel free to message us!
+                  </p>
+                </div>
+              </ScrollAnimation>
+
+              <ScrollAnimation variant="stagger-children" staggerAmount={0.15}>
+                <div className="space-y-4">
+                  <div className="rounded-xl border border-border/80 bg-card/20 overflow-hidden">
+                    <button className="w-full">
+                      <div className="p-6 sm:p-8 transition-colors hover:bg-accent/30 flex items-start justify-between gap-6">
+                        <div className="grid gap-6 lg:grid-cols-[1fr_280px] lg:items-start flex-1">
+                          <div>
+                            <div className="flex items-center gap-3 mb-4">
+                              <div
+                                className={`flex h-10 w-10 items-center justify-center rounded-lg border ${comingSoonProduct.accentBg}`}
+                              >
+                                <Sparkles
+                                  className={`h-5 w-5 ${comingSoonProduct.color}`}
+                                />
+                              </div>
+                              <h3 className="text-xl font-bold text-foreground">
+                                {comingSoonProduct.name}
+                              </h3>
+                            </div>
+                            <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl text-left">
+                              {comingSoonProduct.description}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </ScrollAnimation>
+            </div>
+          </section>
+        </GridSection>
       </main>
       <GridSection as="footer">
         <Footer />
@@ -547,10 +596,10 @@ export default function ProductsPage() {
           )}
 
           <div
-            className="relative bg-black rounded-xl overflow-hidden flex items-center justify-center"
+            className="relative bg-black overflow-hidden flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative flex items-center justify-center bg-gradient-to-br from-muted via-muted to-muted-foreground/20 p-4">
+            <div className="relative flex items-center justify-center bg-gradient-to-br from-muted via-muted to-muted-foreground/50 p-1.5">
               <img
                 src={saasProducts[zoomedImage.productIndex].images[zoomedImage.imageIndex].src}
                 alt={saasProducts[zoomedImage.productIndex].images[zoomedImage.imageIndex].alt}
