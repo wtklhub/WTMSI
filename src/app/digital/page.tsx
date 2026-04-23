@@ -1,6 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { useThemeContext } from "@/providers/theme-provider";
 import {
   Navbar,
   Footer,
@@ -20,6 +23,9 @@ import {
   ChevronDown,
   Send,
   CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
+  ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -77,16 +83,39 @@ const sampleWorkCategories = [
     title: "Carousel Posts",
     description:
       "Multi-slide educational and promotional content designed for maximum engagement.",
+    type: "image",
+    featured: "/sample works/Sample Works (Carousel Posts)/Sample_Carousels_001.png",
+    items: [
+      "/sample works/Sample Works (Carousel Posts)/Sample_Carousels_001.png",
+      "/sample works/Sample Works (Carousel Posts)/Sample_Carousels_002.png",
+      "/sample works/Sample Works (Carousel Posts)/Sample_Carousels_003.png",
+      "/sample works/Sample Works (Carousel Posts)/Sample_Carousels_004.png",
+      "/sample works/Sample Works (Carousel Posts)/Sample_Carousels_005.png",
+      "/sample works/Sample Works (Carousel Posts)/Sample_Carousels_006.png",
+      "/sample works/Sample Works (Carousel Posts)/Sample_Carousels_007.png",
+    ],
   },
   {
     title: "Static / Text Posts",
     description:
       "Clean, branded single-image posts with impactful typography and messaging.",
+    type: "video",
+    featured: "/sample works/Sample Works (Video)/I just want you to know....mp4",
+    items: [
+      "/sample works/Sample Works (Video)/I just want you to know....mp4"
+    ],
   },
   {
     title: "Reels & Short-Form Video",
     description:
       "Dynamic video content optimized for Instagram Reels, TikTok, and Facebook Stories.",
+    type: "video",
+    featured: "/sample works/Sample Works (Video)/YT - 120-187 languages in PH (Trivia Video).mp4",
+    items: [
+      /*"/sample works/Sample Works (Reels-Short Form)/Nissan Kicks Test Drive Video 01 .mp4",
+      "/sample works/Sample Works (Reels-Short Form)/WTMSI_If This Is You… It's Time to Break Up with Excel_ (Reel post)_w TTS.mp4",*/
+      "/sample works/Sample Works (Video)/YT - 120-187 languages in PH (Trivia Video).mp4",
+    ],
   },
 ];
 
@@ -94,38 +123,58 @@ const sampleWorkCategories = [
 const workProcess = [
   {
     step: "01",
+    imageDark: "/lineart/line-icons/2.png",
+    imageLight: "/lineart/line-icons/1.png",
     title: "Book an Assessment Call",
     description:
       "Let's discuss your brand, goals, and current social media presence in a free discovery call.",
     color: "text-[var(--brand)]",
+    glowColor: "bg-[var(--brand)]",
+    accentBg: "bg-[var(--brand)]/10 border-[var(--brand)]/20",
   },
   {
     step: "02",
+    imageDark: "/lineart/line-icons/4.png",
+    imageLight: "/lineart/line-icons/3.png",
     title: "Wait for Quotation",
     description:
       "We'll prepare a custom proposal based on your needs, complete with pricing and timeline.",
     color: "text-orange-400",
+    glowColor: "bg-orange-400",
+    accentBg: "bg-orange-500/10 border-orange-500/20",
   },
   {
     step: "03",
+    imageDark: "/lineart/line-icons/6.png",
+    imageLight: "/lineart/line-icons/5.png",
     title: "Sign Onboarding Form",
     description:
       "Fill out our onboarding questionnaire so we can understand your brand voice and preferences.",
     color: "text-emerald-400",
+    glowColor: "bg-emerald-400",
+    accentBg: "bg-emerald-500/10 border-emerald-500/20",
   },
   {
     step: "04",
+    imageDark: "/lineart/line-icons/8.png",
+    imageLight: "/lineart/line-icons/7.png",
     title: "Initial Meeting",
     description:
       "We align on strategy, content calendar, and key deliverables in a kickoff meeting.",
-    color: "text-purple-400",
+    color: "text-violet-400",
+    glowColor: "bg-violet-400",
+    accentBg: "bg-violet-500/10 border-violet-500/20",
   },
   {
     step: "05",
+    imageDark: "/lineart/line-icons/10.png",
+    imageLight: "/lineart/line-icons/9.png",
     title: "Project Kickoff",
     description:
       "We start creating, posting, and managing — with regular check-ins and performance reports.",
-    color: "text-blue-400",
+    color: "text-cyan-400",
+    glowColor: "bg-cyan-400",
+    accentBg: "bg-cyan-500/10 border-cyan-500/20",
   },
 ];
 
@@ -139,7 +188,7 @@ const faqs = [
   {
     question: "How long before I see results?",
     answer:
-      "Most clients see improved engagement within the first 30 days. Significant growth in reach and followers typically happens within 2-3 months of consistent effort.",
+      "Results may vary. There’s no one-size-fits-all formula for social media growth and success. What works for one brand may not work for another. Success requires a continuous cycle of testing, learning, and consistency.",
   },
   {
     question: "Do you create the content or do I need to provide it?",
@@ -158,8 +207,41 @@ const faqs = [
   },
 ];
 
+/* ──── Theme-Aware Lineart Component ──── */
+function ThemeAwareLineart() {
+  const { theme } = useThemeContext();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <img
+        src="/lineart/1.png"
+        alt="illustration"
+        className="h-80 w-auto max-w-xl"
+        draggable={false}
+      />
+    );
+  }
+
+  return (
+    <img
+      src={theme === "dark" ? "/lineart/2.png" : "/lineart/1.png"}
+      alt="illustration"
+      className="h-80 w-auto max-w-xl transition-opacity duration-300"
+      draggable={false}
+    />
+  );
+}
+
 export default function DigitalPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [activeWorkIndex, setActiveWorkIndex] = useState<{ [key: string]: number }>(
+    sampleWorkCategories.reduce((acc, cat) => ({ ...acc, [cat.title]: 0 }), {})
+  );
 
   return (
     <GridLayout>
@@ -192,7 +274,7 @@ export default function DigitalPage() {
                   <div className="mt-8 flex flex-wrap gap-3">
                     <a href="#contact-form">
                       <Button className="bg-[var(--brand)] text-[var(--brand-foreground)] hover:bg-[var(--brand-hover)] gap-2 shadow-lg shadow-red-500/20">
-                        Book a Free Call
+                        Let's talk!
                         <Phone className="h-4 w-4" />
                       </Button>
                     </a>
@@ -239,15 +321,8 @@ export default function DigitalPage() {
                 </ScrollAnimation>
                 <ScrollAnimation variant="fade-left">
                   <div className="flex items-center justify-center">
-                    <div className="relative h-64 w-full max-w-sm rounded-2xl bg-gradient-to-br from-[#c60000]/15 via-pink-500/10 to-transparent border border-border/80 flex items-center justify-center">
                       <div className="text-center">
-                        <span className="text-3xl font-black text-foreground/20 tracking-tight block">
-                          SOCIAL LEVERAGE
-                        </span>
-                        <span className="text-lg font-bold text-[var(--brand)]/40 tracking-widest uppercase">
-                          Creates
-                        </span>
-                      </div>
+                        <ThemeAwareLineart />
                     </div>
                   </div>
                 </ScrollAnimation>
@@ -295,6 +370,16 @@ export default function DigitalPage() {
                     })}
                   </div>
                 </ScrollAnimation>
+                <ScrollAnimation variant="zoom-in" delay={0.1}>
+                  <div className="mt-10 text-center">
+                    <a href="#contact-form">
+                      <Button className="bg-[var(--brand)] text-[var(--brand-foreground)] hover:bg-[var(--brand-hover)] gap-2 shadow-lg shadow-red-500/20">
+                        Request for Rates
+                        <ArrowRight className="h-4 w-4" />
+                      </Button>
+                    </a>
+                  </div>
+              </ScrollAnimation>
               </div>
 
               {/* Mentoring */}
@@ -326,6 +411,16 @@ export default function DigitalPage() {
                     </div>
                   </div>
                 </ScrollAnimation>
+                <ScrollAnimation variant="zoom-in" delay={0.1}>
+                  <div className="mt-10 text-center">
+                    <a href="#contact-form">
+                      <Button className="bg-[var(--brand)] text-[var(--brand-foreground)] hover:bg-[var(--brand-hover)] gap-2 shadow-lg shadow-red-500/20">
+                        Book a Call with Us
+                        <ArrowRight className="h-4 w-4" />
+                      </Button>
+                    </a>
+                  </div>
+                </ScrollAnimation>
               </div>
 
               <GridLine className="mt-12" />
@@ -350,27 +445,117 @@ export default function DigitalPage() {
 
               <ScrollAnimation variant="stagger-children" staggerAmount={0.12}>
                 <div className="grid gap-px sm:grid-cols-3 bg-border/80 rounded-xl overflow-hidden">
-                  {sampleWorkCategories.map((cat, i) => (
-                    <div
-                      key={cat.title}
-                      className="bg-background transition-colors hover:bg-accent/60"
-                    >
-                      {/* Placeholder for actual work samples */}
-                      <div className="aspect-[4/3] bg-gradient-to-br from-white/[0.04] to-transparent flex items-center justify-center border-b border-border/80">
-                        <span className="text-sm text-foreground/20 uppercase tracking-widest">
-                          Sample {i + 1}
-                        </span>
+                  {sampleWorkCategories.map((cat) => {
+                    const currentIndex = activeWorkIndex[cat.title] || 0;
+                    const currentItem = cat.items[currentIndex];
+                    const itemCount = cat.items.length;
+                    const hasMultiple = itemCount > 1;
+
+                    return (
+                      <div
+                        key={cat.title}
+                        className="bg-background transition-colors hover:bg-accent/60 group flex flex-col"
+                      >
+                        {/* Media Carousel - Optimized for Performance */}
+                        <div className="relative aspect-[4/3] bg-gradient-to-br from-white/[0.04] to-transparent flex items-center justify-center border-b border-border/80 overflow-hidden">
+                          {cat.type === "image" ? (
+                            <Image
+                              src={currentItem}
+                              alt={`${cat.title} - Sample ${currentIndex + 1}`}
+                              fill
+                              className="object-cover group-hover:scale-105 transition-transform duration-300"
+                              quality={75}
+                              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                              key={currentItem}
+                            />
+                          ) : (
+                            <video
+                              key={currentItem}
+                              className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              autoPlay
+                              muted
+                              loop
+                              playsInline
+                              preload="none"
+                            >
+                              <source src={currentItem} type="video/mp4" />
+                            </video>
+                          )}
+
+                          {/* Navigation Controls */}
+                          {hasMultiple && (
+                            <>
+                              <button
+                                onClick={() =>
+                                  setActiveWorkIndex((prev) => ({
+                                    ...prev,
+                                    [cat.title]:
+                                      prev[cat.title] === 0
+                                        ? itemCount - 1
+                                        : prev[cat.title] - 1,
+                                  }))
+                                }
+                                className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-1.5 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors opacity-0 group-hover:opacity-100"
+                                aria-label="Previous sample"
+                              >
+                                <ChevronLeft className="h-4 w-4" />
+                              </button>
+                              <button
+                                onClick={() =>
+                                  setActiveWorkIndex((prev) => ({
+                                    ...prev,
+                                    [cat.title]:
+                                      prev[cat.title] === itemCount - 1
+                                        ? 0
+                                        : prev[cat.title] + 1,
+                                  }))
+                                }
+                                className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-1.5 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors opacity-0 group-hover:opacity-100"
+                                aria-label="Next sample"
+                              >
+                                <ChevronRight className="h-4 w-4" />
+                              </button>
+                              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+                                {cat.items.map((_, idx) => (
+                                  <button
+                                    key={idx}
+                                    onClick={() =>
+                                      setActiveWorkIndex((prev) => ({
+                                        ...prev,
+                                        [cat.title]: idx,
+                                      }))
+                                    }
+                                    className={`h-1.5 rounded-full transition-all ${
+                                      idx === currentIndex
+                                        ? "w-6 bg-white"
+                                        : "w-1.5 bg-white/50 hover:bg-white/70"
+                                    }`}
+                                    aria-label={`Go to sample ${idx + 1}`}
+                                  />
+                                ))}
+                              </div>
+                            </>
+                          )}
+
+                          {/* Item Counter */}
+                          {hasMultiple && (
+                            <div className="absolute top-2 right-2 bg-black/50 text-white text-xs px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                              {currentIndex + 1} / {itemCount}
+                            </div>
+                          )}
+                        </div>
+
+                        <div className="p-6 flex-1">
+                          <h3 className="text-base font-bold text-foreground mb-2">
+                            {cat.title}
+                          </h3>
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            {cat.description}
+                          </p>
+                        </div>
                       </div>
-                      <div className="p-6">
-                        <h3 className="text-base font-bold text-foreground mb-2">
-                          {cat.title}
-                        </h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          {cat.description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </ScrollAnimation>
             </div>
@@ -394,25 +579,54 @@ export default function DigitalPage() {
               </ScrollAnimation>
 
               <ScrollAnimation variant="stagger-children" staggerAmount={0.08}>
-                <div className="grid gap-px sm:grid-cols-5 bg-border/80 rounded-xl overflow-hidden">
-                  {workProcess.map((step) => (
-                    <div
-                      key={step.step}
-                      className="bg-background p-6 transition-colors hover:bg-accent/60"
-                    >
-                      <span
-                        className={`text-3xl font-bold ${step.color} opacity-30`}
-                      >
-                        {step.step}
-                      </span>
-                      <h3 className="mt-3 text-sm font-bold text-foreground leading-tight">
-                        {step.title}
-                      </h3>
-                      <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
-                        {step.description}
-                      </p>
-                    </div>
-                  ))}
+                <div className="relative px-4">
+                  <div className="grid gap-6 sm:gap-8 sm:grid-cols-5">
+                    {workProcess.map((step, idx) => {
+                      const { theme } = useThemeContext();
+                      const imageSrc = theme === "dark" ? step.imageLight: step.imageDark ;
+                      return (
+                        <div
+                          key={step.step}
+                          className="relative flex flex-col items-center text-center group"
+                        >
+                          {/* Icon Background Circle */}
+                          <div className="relative mb-6 transition-all duration-300 group-hover:scale-110">
+                            <div className={`absolute inset-0 rounded-full blur-xl opacity-10 group-hover:opacity-30 transition-opacity duration-300 ${step.glowColor}`} />
+                            <div className={`relative h-20 w-20 rounded-full ${step.accentBg} border flex items-center justify-center transition-all duration-300 hover:shadow-lg`} style={{ boxShadow: `0 0 20px ${step.glowColor.replace('bg-', '')}40` }}>
+                              <Image
+                                src={imageSrc}
+                                alt={step.title}
+                                width={55}
+                                height={55}
+                                className="h-17 w-17 object-contain"
+                              />
+                            </div>
+                          </div>
+
+                          <span className={`text-2xl sm:text-3xl font-bold ${step.color} opacity-70 mb-3`}>
+                            {step.step}
+                          </span>
+
+                          <div className="flex-1">
+                            <h3 className="text-sm font-bold text-foreground leading-tight mb-2">
+                              {step.title}
+                            </h3>
+                            <p className="text-xs text-muted-foreground leading-relaxed">
+                              {step.description}
+                            </p>
+                          </div>
+                          
+                          {idx < workProcess.length - 1 && (
+                            <div className={`hidden sm:flex absolute left-full top-10 -translate-y-1/2 transition-all duration-300 ${step.color} opacity-30 group-hover:opacity-100 group-hover:drop-shadow-lg`} style={{ marginLeft: '8px' }}>
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <polyline points="9 18 15 12 9 6" />
+                              </svg>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </ScrollAnimation>
               <GridLine className="mt-12" />
@@ -436,7 +650,7 @@ export default function DigitalPage() {
               </ScrollAnimation>
 
               <ScrollAnimation variant="stagger-children" staggerAmount={0.08}>
-                <div className="max-w-3xl space-y-2">
+                <div className="mx-auto max-w-3xl space-y-2">
                   {faqs.map((faq, i) => (
                     <div
                       key={i}
