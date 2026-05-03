@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "watatrip.com",
+        hostname: "wtmigremo.com",
         pathname: "/**",
       },
     ],

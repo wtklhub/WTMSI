@@ -91,56 +91,55 @@ export function TestimonialsSection() {
               </a>
             </div>
 
-                      {/* Laptop Device Mockup*/}
-                      <div className="relative mx-auto max-w-2xl w-full px-4 sm:px-10">
-                        {/* Screen */}
-                          <div className="relative overflow-hidden rounded-t-3xl bg-zinc-950 p-3 shadow-2xl group">
-                          {/*Camera Notch */}
-                          <div className="absolute inset-x-0 top-0 flex items-center justify-center z-20">
-                            <div className="relative flex h-6 w-24 items-center justify-center">
-                              {/* Notch shape */}
-                              <div className="absolute left-1/2 -translate-x-1/2 top-0 h-6 w-22 rounded-b-2xl bg-zinc-900 shadow-lg shadow-black/30 border-b border-zinc-800" />
-                              {/* Camera */}
-                              <div className="relative z-10 flex items-center justify-center w-full">
-                                <div className="mx-auto h-1.5 w-1.5 rounded-full bg-zinc-700 border border-zinc-600 shadow-inner shadow-black/40" />
-                              </div>
-                            </div>
-                          </div>
-                          {/* Reflective light effects*/}
-                          <div className="pointer-events-none absolute top-2 left-0 h-8 w-16 bg-gradient-to-r from-white/30 via-white/0 to-transparent rounded-l-2xl blur-md opacity-40" />
-                          <div className="pointer-events-none absolute top-2 right-0 h-8 w-16 bg-gradient-to-l from-white/30 via-white/0 to-transparent rounded-r-2xl blur-md opacity-40" />
-                          {/* Keyboard glow */}
-                          <div className="absolute inset-x-10 bottom-0 h-2 bg-white blur-xl" />
-                          {/* Screen Content */}
-                          <div className="aspect-[16/10] w-full overflow-hidden rounded-t-2xl  items-center justify-center">
-                              <img
-                                src="/watatrip-site.png"
-                                alt="Watatrip Website Preview"
-                                className="aspect-[16/10] w-full object-cover object-top opacity-0 scale-95 animate-[fadeInScreen_1.2s_ease-out_forwards]"
-                              />
-                          {/* fadeInScreen animation */}
-                          <style jsx global>{`
-                          @keyframes fadeInScreen {
-                            0% { opacity: 0; transform: scale(0.95); }
-                            100% { opacity: 1; transform: scale(1); }
-                          }
-                          `}</style>
-                          </div>
-                        </div>
-                        {/* Base */}
-                        <div className="-mx-10 pb-1">
-                          <div className="relative h-4 w-full rounded-b-2xl bg-gradient-to-r from-zinc-800 via-zinc-950 to-zinc-800">
-                            <div className="absolute inset-0 flex items-start justify-center">
-                              <div className="h-2 w-20 rounded-b-md border-x border-b border-zinc-600/25 bg-gradient-to-r from-zinc-800 via-zinc-700 to-zinc-800 opacity-75" />
-                            </div>
-                            <div className="absolute -bottom-1 left-8 h-1 w-10 rounded-b-full bg-zinc-900" />
-                            <div className="absolute right-8 -bottom-1 h-1 w-10 rounded-b-full bg-zinc-900" />
-                          </div>
-                        </div>
-                      </div>
+            {/* Laptop Device Mockup*/}
+            <div className="relative mx-auto max-w-2xl w-full px-4 sm:px-10">
+              {/* Screen */}
+                <div className="relative overflow-hidden rounded-t-3xl bg-zinc-950 p-3 shadow-2xl group">
+                {/*Camera Notch */}
+                <div className="absolute inset-x-0 top-0 flex items-center justify-center z-20">
+                  <div className="relative flex h-6 w-24 items-center justify-center">
+                    {/* Notch shape */}
+                    <div className="absolute left-1/2 -translate-x-1/2 top-0 h-6 w-22 rounded-b-2xl bg-zinc-900 shadow-lg shadow-black/30 border-b border-zinc-800" />
+                    {/* Camera */}
+                    <div className="relative z-10 flex items-center justify-center w-full">
+                      <div className="mx-auto h-1.5 w-1.5 rounded-full bg-zinc-700 border border-zinc-600 shadow-inner shadow-black/40" />
+                    </div>
+                  </div>
+                </div>
+                {/* Reflective light effects*/}
+                <div className="pointer-events-none absolute top-2 left-0 h-8 w-16 bg-gradient-to-r from-white/30 via-white/0 to-transparent rounded-l-2xl blur-md opacity-40" />
+                <div className="pointer-events-none absolute top-2 right-0 h-8 w-16 bg-gradient-to-l from-white/30 via-white/0 to-transparent rounded-r-2xl blur-md opacity-40" />
+                {/* Keyboard glow */}
+                <div className="absolute inset-x-10 bottom-0 h-2 bg-white blur-xl" />
+                {/* Screen Content */}
+                <div className="aspect-[16/10] w-full overflow-hidden rounded-t-2xl  items-center justify-center">
+                    <img
+                      src="/watatrip-site.png"
+                      alt="Watatrip Website Preview"
+                      className="aspect-[16/10] w-full object-cover object-top opacity-0 scale-95 animate-[fadeInScreen_1.2s_ease-out_forwards]"
+                    />
+                {/* fadeInScreen animation */}
+                <style jsx global>{`
+                @keyframes fadeInScreen {
+                  0% { opacity: 0; transform: scale(0.95); }
+                  100% { opacity: 1; transform: scale(1); }
+                }
+                `}</style>
+                </div>
+              </div>
+              {/* Base */}
+              <div className="-mx-10 pb-1">
+                <div className="relative h-4 w-full rounded-b-2xl bg-gradient-to-r from-zinc-800 via-zinc-950 to-zinc-800">
+                  <div className="absolute inset-0 flex items-start justify-center">
+                    <div className="h-2 w-20 rounded-b-md border-x border-b border-zinc-600/25 bg-gradient-to-r from-zinc-800 via-zinc-700 to-zinc-800 opacity-75" />
+                  </div>
+                  <div className="absolute -bottom-1 left-8 h-1 w-10 rounded-b-full bg-zinc-900" />
+                  <div className="absolute right-8 -bottom-1 h-1 w-10 rounded-b-full bg-zinc-900" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
     </section>
   );
