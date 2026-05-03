@@ -5,24 +5,11 @@ import Link from "next/link";
 import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
 import { GridLine } from "./grid-background";
 import { ScrollAnimation } from "./scroll-animations";
-import type { NormalizedPost } from "@/lib/wordpress";
+import { fetchPostsPage, type NormalizedPost } from "@/lib/wordpress";
 
 async function fetchLatestPosts(): Promise<NormalizedPost[]> {
-  try {
-    const base = process.env.NEXT_PUBLIC_WP_API_URL ?? "https://wtmigremo.com/wp-json/wp/v2";
-    const res = await fetch(
-      `${base}/posts?_embed=1&per_page=3`,
-      { next: { revalidate: 3600 } }
-    );
-    if (!res.ok) return [];
-    const { normalizePost } = await import("@/lib/wordpress");
-    const raw = await res.json();
-    return raw.map((p: Parameters<typeof normalizePost>[0], i: number) =>
-      normalizePost(p, i)
-    );
-  } catch {
-    return [];
-  }
+  const { posts } = await fetchPostsPage(1, 3);
+  return posts;
 }
 
 const skeletonPosts = Array.from({ length: 3 });

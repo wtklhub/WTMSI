@@ -1,4 +1,7 @@
-const WP_BASE = process.env.NEXT_PUBLIC_WP_API_URL ?? "https://wtmigremo.com/wp-json/wp/v2";
+if (!process.env.NEXT_PUBLIC_WP_API_URL) {
+  throw new Error("Missing required env variable: NEXT_PUBLIC_WP_API_URL");
+}
+const WP_BASE = process.env.NEXT_PUBLIC_WP_API_URL;
 
 export interface WPPost {
   id: number;
