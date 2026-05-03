@@ -1,4 +1,4 @@
-const WP_BASE = process.env.NEXT_PUBLIC_WP_API_URL ?? "https://watatrip.com/wp-json/wp/v2";
+const WP_BASE = process.env.NEXT_PUBLIC_WP_API_URL ?? "https://wtmigremo.com/wp-json/wp/v2";
 
 export interface WPPost {
   id: number;

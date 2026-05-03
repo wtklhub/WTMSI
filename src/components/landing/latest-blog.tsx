@@ -9,7 +9,7 @@ import type { NormalizedPost } from "@/lib/wordpress";
 
 async function fetchLatestPosts(): Promise<NormalizedPost[]> {
   try {
-    const base = process.env.NEXT_PUBLIC_WP_API_URL ?? "https://watatrip.com/wp-json/wp/v2";
+    const base = process.env.NEXT_PUBLIC_WP_API_URL ?? "https://wtmigremo.com/wp-json/wp/v2";
     const res = await fetch(
       `${base}/posts?_embed=1&per_page=3`,
       { next: { revalidate: 3600 } }
