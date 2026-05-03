@@ -16,6 +16,7 @@ const circleLogos = [
   { src: "/clients/circle logo/image 365.png", alt: "Client" },
   { src: "/clients/circle logo/image 367.png", alt: "Client" },
   { src: "/clients/circle logo/image 368.png", alt: "Client" },
+  { src: "/clients/circle logo/valdez.png", alt: "Client" },
 ];
 
 // Row 2 — Vertical logos without background
@@ -44,6 +45,8 @@ const whiteBgLogos = [
   { src: "/clients/vertical logo with white bg/image 356.png", alt: "Client" },
   { src: "/clients/vertical logo with white bg/image 361.png", alt: "Client" },
   { src: "/clients/vertical logo with white bg/image 366.png", alt: "Client" },
+  { src: "/clients/vertical logo with white bg/autohub.png", alt: "Client" },
+  { src: "/clients/vertical logo with white bg/nippon.png", alt: "Client" },
 ];
 
 // Shared fade mask
