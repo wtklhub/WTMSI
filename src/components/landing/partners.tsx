@@ -17,6 +17,9 @@ const circleLogos = [
   { src: "/clients/circle logo/image 367.png", alt: "Client" },
   { src: "/clients/circle logo/image 368.png", alt: "Client" },
   { src: "/clients/circle logo/valdez.png", alt: "Client" },
+  { src: "/clients/circle logo/ajes logo 1.png", alt: "Client" },
+  { src: "/clients/circle logo/LANDEV LOGO FINAL 1.png", alt: "Client" },
+  { src: "/clients/circle logo/logo 1.png", alt: "Client" },
 ];
 
 // Row 2 — Vertical logos without background
