@@ -7,8 +7,8 @@ import {
   GridLine,
   ScrollAnimation,
 } from "@/components/landing";
-import { MapPin, Clock, Mail, Phone, Send, Facebook, Instagram } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ContactForm } from "@/components/landing/contact-form";
+import { MapPin, Clock, Mail, Phone, Facebook, Instagram } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contact Us — WT Migremo Systems, Inc.",
@@ -89,80 +89,7 @@ export default function ContactPage() {
                     </h2>
                   </ScrollAnimation>
                   <ScrollAnimation variant="reveal">
-                    <form className="space-y-6">
-                    <div className="grid gap-4 sm:grid-cols-2">
-                      <div>
-                        <label
-                          htmlFor="name"
-                          className="block text-sm font-medium text-muted-foreground mb-2"
-                        >
-                          Your Name <span className="text-[var(--brand)]">*</span>
-                        </label>
-                        <input
-                          id="name"
-                          name="name"
-                          type="text"
-                          required
-                          placeholder="John Doe"
-                          className="w-full rounded-lg border border-border/80 bg-card/70 px-4 py-3 text-sm text-foreground placeholder:text-foreground/30 focus:border-[var(--brand)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--brand)]/50 transition-colors"
-                        />
-                      </div>
-                      <div>
-                        <label
-                          htmlFor="email"
-                          className="block text-sm font-medium text-muted-foreground mb-2"
-                        >
-                          Your Email <span className="text-[var(--brand)]">*</span>
-                        </label>
-                        <input
-                          id="email"
-                          name="email"
-                          type="email"
-                          required
-                          placeholder="john@example.com"
-                          className="w-full rounded-lg border border-border/80 bg-card/70 px-4 py-3 text-sm text-foreground placeholder:text-foreground/30 focus:border-[var(--brand)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--brand)]/50 transition-colors"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="subject"
-                        className="block text-sm font-medium text-muted-foreground mb-2"
-                      >
-                        Subject
-                      </label>
-                      <input
-                        id="subject"
-                        name="subject"
-                        type="text"
-                        placeholder="Project inquiry"
-                        className="w-full rounded-lg border border-border/80 bg-card/70 px-4 py-3 text-sm text-foreground placeholder:text-foreground/30 focus:border-[var(--brand)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--brand)]/50 transition-colors"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="message"
-                        className="block text-sm font-medium text-muted-foreground mb-2"
-                      >
-                        Message <span className="text-[var(--brand)]">*</span>
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        required
-                        rows={6}
-                        placeholder="Tell us about your project..."
-                        className="w-full rounded-lg border border-border/80 bg-card/70 px-4 py-3 text-sm text-foreground placeholder:text-foreground/30 focus:border-[var(--brand)]/50 focus:outline-none focus:ring-1 focus:ring-[var(--brand)]/50 transition-colors resize-none"
-                      />
-                    </div>
-                    <Button
-                      type="submit"
-                      className="bg-[var(--brand)] text-[var(--brand-foreground)] hover:bg-[var(--brand-hover)] gap-2 shadow-lg shadow-red-500/20 px-8"
-                    >
-                      <Send className="h-4 w-4" />
-                      Send Message
-                    </Button>
-                    </form>
+                    <ContactForm />
                   </ScrollAnimation>
                 </div>
 
