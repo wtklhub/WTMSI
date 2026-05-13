@@ -3,10 +3,7 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const TO_ADDRESSES = [
-  "inquiry@wtmigremo.com",
-  "aneshreen@wtmigremo.com",
-];
+const TO_ADDRESSES = [process.env.CONTACT_TO_EMAIL!];
 
 export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => null);
