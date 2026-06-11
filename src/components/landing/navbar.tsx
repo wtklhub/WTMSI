@@ -53,15 +53,20 @@ export function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden items-center gap-3 lg:flex">
-          <Link
+          {/* <Link
             href="/contact"
             className="text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             Contact Us
+          </Link> */}
+          <Link
+            href="/contact"
+            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <Button className="bg-[var(--brand)] text-[var(--brand-foreground)] hover:bg-[var(--brand-hover)] shadow-lg shadow-red-500/20">
+              Partner With Us
+            </Button>
           </Link>
-          <Button className="bg-[var(--brand)] text-[var(--brand-foreground)] hover:bg-[var(--brand-hover)] shadow-lg shadow-red-500/20">
-            Partner With Us
-          </Button>
           <Button
             variant="ghost"
             size="icon"
