@@ -61,7 +61,6 @@ export function Navbar() {
           </Link> */}
           <Link
             href="/contact"
-            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             <Button className="bg-[var(--brand)] text-[var(--brand-foreground)] hover:bg-[var(--brand-hover)] shadow-lg shadow-red-500/20">
               Partner With Us
@@ -109,17 +108,21 @@ export function Navbar() {
               >
                 {link.label}
               </Link>
-            ))}
+            ))} 
             <div className="mt-4 flex flex-col gap-2">
-              <Button
+              {/* <Button
                 variant="outline"
                 className="w-full border-border/70"
               >
                 Contact Us
-              </Button>
-              <Button className="w-full bg-[var(--brand)] text-[var(--brand-foreground)] hover:bg-[var(--brand-hover)] shadow-lg shadow-red-500/20">
-                Partner With Us
-              </Button>
+              </Button> */}
+              <Link
+                href="/contact"
+              >
+                <Button className="w-full bg-[var(--brand)] text-[var(--brand-foreground)] hover:bg-[var(--brand-hover)] shadow-lg shadow-red-500/20">
+                  Partner With Us
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
