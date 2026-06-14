@@ -20,15 +20,18 @@ import {
   stripHtml,
   getPosts,
   normalizePost,
+  getPostSlugs,
 } from "@/lib/wordpress";
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
-  const { posts } = await getPosts({ per_page: 100 });
-  return posts.map((p) => ({ slug: p.slug }));
+  const slugs = await getPostSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -60,8 +63,11 @@ export default async function BlogPostPage({ params }: Props) {
   const date = formatDate(post.date);
   const title = stripHtml(post.title.rendered);
 
-  // Fetch 3 related posts (excluding current)
-  const { posts: allRaw } = await getPosts({ per_page: 10 });
+  // Fetch 3 related posts (excluding current) — use _fields to keep payload small
+  const { posts: allRaw } = await getPosts({
+    per_page: 4,
+    fields: "id,slug,date,title,excerpt,categories,featured_media,_links,_embedded",
+  });
   const related = allRaw
     .filter((p) => p.slug !== slug)
     .slice(0, 3)

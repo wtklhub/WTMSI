@@ -42,6 +42,7 @@ export interface NormalizedPost {
 export async function getPosts(params?: {
   per_page?: number;
   page?: number;
+  fields?: string;
 }): Promise<{ posts: WPPost[]; total: number; totalPages: number }> {
   try {
     const query = new URLSearchParams({
@@ -49,6 +50,7 @@ export async function getPosts(params?: {
       per_page: String(params?.per_page ?? 100),
       page: String(params?.page ?? 1),
     });
+    if (params?.fields) query.set("_fields", params.fields);
     const res = await fetch(`${WP_BASE}/posts?${query}`, {
       next: { revalidate: 3600 },
     });
@@ -62,6 +64,21 @@ export async function getPosts(params?: {
     return { posts, total, totalPages };
   } catch {
     return { posts: [], total: 0, totalPages: 0 };
+  }
+}
+
+/** Lightweight fetch — returns only slugs, no _embed. Use in generateStaticParams. */
+export async function getPostSlugs(): Promise<string[]> {
+  try {
+    const res = await fetch(
+      `${WP_BASE}/posts?per_page=100&_fields=slug`,
+      { next: { revalidate: 3600 } }
+    );
+    if (!res.ok) return [];
+    const posts: { slug: string }[] = await res.json();
+    return posts.map((p) => p.slug);
+  } catch {
+    return [];
   }
 }
 
@@ -183,7 +200,7 @@ export function normalizePost(post: WPPost, index: number): NormalizedPost {
     title: post.title.rendered,
     excerpt: stripHtml(post.excerpt.rendered),
     date: formatDate(post.date),
-    readTime: calculateReadTime(post.content.rendered),
+    readTime: calculateReadTime(post.content?.rendered ?? ""),
     category: primaryCat.name,
     categorySlug: primaryCat.slug,
     categoryColor: getCategoryColor(primaryCat.slug),
