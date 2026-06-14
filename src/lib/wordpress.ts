@@ -96,7 +96,7 @@ export async function getPostBySlug(slug: string): Promise<WPPost | null> {
   }
 }
 
-/** Client-safe version — no Next.js `next:` option, safe in useQuery */
+/** Client-safe version — proxied through /api/posts to avoid CORS */
 export async function fetchPostsPage(
   page: number,
   perPage = 10,
@@ -109,7 +109,7 @@ export async function fetchPostsPage(
   });
   if (categoryId) query.set("categories", String(categoryId));
 
-  const res = await fetch(`${WP_BASE}/posts?${query}`);
+  const res = await fetch(`/api/posts?${query}`);
   if (!res.ok) return { posts: [], total: 0, totalPages: 0 };
 
   const total = parseInt(res.headers.get("X-WP-Total") ?? "0", 10);
@@ -119,9 +119,9 @@ export async function fetchPostsPage(
   return { posts, total, totalPages };
 }
 
-/** Client-safe categories fetch */
+/** Client-safe categories fetch — proxied through /api/categories to avoid CORS */
 export async function fetchCategories(): Promise<WPCategory[]> {
-  const res = await fetch(`${WP_BASE}/categories?per_page=100`);
+  const res = await fetch(`/api/categories`);
   if (!res.ok) return [];
   return res.json();
 }
